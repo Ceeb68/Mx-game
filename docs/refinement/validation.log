@@ -1,0 +1,200 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+RIDER_RUNTIME original_skinned_gltf bones=17 arm_lengths=(0.332867, 0.274089) leg_lengths=(0.440256, 0.42)
+TERRA_MX_RUNTIME engine=GodotPhysics3D script=res://src/physics/replacement/motorcycle.gd controller=ReducedCoordinateMotorcycle/v3.2-steering physics_hz=240 terrain=physical_heightfield bike=250F
+PASS fixed physics is 240 Hz null
+PASS settles upright on two suspension contacts {"architecture":"unsprung DOFs + compliant bristle contact","controller":"ReducedCoordinateMotorcycle/v3.2-steering","crashed":false,"engine":"Godot Physics","front_compression_m":0.0438586640119254,"front_contact_samples":3,"front_force_limited":false,"front_fx_n":-0.0127399824559689,"front_fy_n":0.0,"front_grip_use":0.0000168132587824528,"front_lateral_m_s":0.0,"front_load_n":891.452088379411,"front_slip":-0.0000117469101312932,"front_slip_angle_deg":0.0,"front_suspension_velocity_m_s":0.000005092219654029,"front_world_force":[0.0,0.0,-0.23987740278244],"gear":1,"hand_torque_nm":0.0,"heading_per_steer":0.89108051851306,"last_crash":"none","lean_deg":0.0,"lean_request_rate_rad_s":0.0,"rear_compression_m":0.0411265054519358,"rear_contact_samples":3,"rear_fx_n":-0.0189239345490932,"rear_fy_n":0.0,"rear_grip_use":0.0000251805772368315,"rear_lateral_m_s":0.0,"rear_load_n":884.151788948402,"rear_slip":-0.0000125283219936448,"rear_slip_angle_deg":0.0,"rear_suspension_velocity_m_s":-0.0000123218209887226,"rear_world_force":[0.0,0.0,-0.231625318527222],"requested_front_fy_n":0.0,"roll_integral":0.0,"roll_rate_rad_s":0.0,"rpm":1839.02616815062,"speed_m_s":0.00403048563748598,"sprung_mass_kg":165.0,"steer_actual_rate":0.0,"steer_deg":0.0,"steer_input":0.0,"steer_target_deg":0.0,"steer_target_rate":0.0,"target_lean_deg":0.0,"ticks":723,"total_mass_kg":181.0,"yaw_rate_rad_s":0.0}
+PASS static tire loads support total mass 1775.60387732781
+PASS idle does not propel motorcycle 0.00403048563748598
+PASS engine torque accelerates the live chassis {"speed":26.3041954040527,"telemetry":{"architecture":"unsprung DOFs + compliant bristle contact","controller":"ReducedCoordinateMotorcycle/v3.2-steering","crashed":false,"engine":"Godot Physics","front_compression_m":0.0185844577295707,"front_contact_samples":3,"front_force_limited":false,"front_fx_n":-15.0346117019653,"front_fy_n":0.0,"front_grip_use":0.0331675605382188,"front_lateral_m_s":0.0,"front_load_n":533.285480930045,"front_slip":-0.00218042590238656,"front_slip_angle_deg":0.0,"front_suspension_velocity_m_s":-0.000689564364425892,"front_world_force":[0.0,0.0,33.6996040344238],"gear":5,"hand_torque_nm":0.0,"heading_per_steer":0.892029082652161,"last_crash":"none","lean_deg":0.0,"lean_request_rate_rad_s":0.0,"rear_compression_m":0.0662926984503281,"rear_contact_samples":3,"rear_fx_n":730.900939941406,"rear_fy_n":0.0,"rear_grip_use":0.69215466319486,"rear_lateral_m_s":0.0,"rear_load_n":1242.32849170665,"rear_slip":0.0389865834577864,"rear_slip_angle_deg":0.0,"rear_suspension_velocity_m_s":0.000602715704324721,"rear_world_force":[0.0,0.0,-687.41943359375],"requested_front_fy_n":0.0,"roll_integral":0.0,"roll_rate_rad_s":0.0,"rpm":10735.8783772932,"speed_m_s":26.3041954040527,"sprung_mass_kg":165.0,"steer_actual_rate":0.0,"steer_deg":0.0,"steer_input":0.0,"steer_target_deg":0.0,"steer_target_rate":0.0,"target_lean_deg":0.0,"ticks":2643,"total_mass_kg":181.0,"yaw_rate_rad_s":0.0}}
+PASS engine revs and automatic gearbox shifts {"gear":5,"rpm":13222.9321969014}
+PASS independent brakes slow chassis {"after":5.50327777862549,"before":11.7736511230469}
+PASS braking transfers load to front {"front_peak":1339.39556818747,"rear_min":417.672181476211}
+PASS deliberate rear-brake traction loss remains recoverable {"crashed":false,"slip":-1.0,"speed":6.74188232421875}
+PASS controlled turn direction -1 {"heading_x":-0.186764180660248,"lean":-6.12681420046827,"telemetry":{"architecture":"unsprung DOFs + compliant bristle contact","controller":"ReducedCoordinateMotorcycle/v3.2-steering","crashed":false,"engine":"Godot Physics","front_compression_m":0.0457664020172826,"front_contact_samples":3,"front_force_limited":false,"front_fx_n":1.36244714260101,"front_fy_n":-101.061103820801,"front_grip_use":0.128634282487097,"front_lateral_m_s":0.0676174163818359,"front_load_n":924.374286338888,"front_slip":0.000342690765596411,"front_slip_angle_deg":0.487397387729568,"front_suspension_velocity_m_s":0.000193747414505543,"front_world_force":[-92.2415466308594,0.0,51.6262054443359],"gear":1,"hand_torque_nm":-2.36767654217042,"heading_per_steer":0.884633672523399,"last_crash":"none","lean_deg":-6.12681420046827,"lean_request_rate_rad_s":0.0,"rear_compression_m":0.0383850150983693,"rear_contact_samples":3,"rear_fx_n":2.33611583709717,"rear_fy_n":-90.1338348388672,"rear_grip_use":0.12459036428128,"rear_lateral_m_s":0.0637117624282837,"rear_load_n":851.393461392638,"rear_slip":0.000434099147438509,"rear_slip_angle_deg":0.459336665759002,"rear_suspension_velocity_m_s":0.000102886755156648,"rear_world_force":[-83.4185180664062,0.0,43.8138885498047],"requested_front_fy_n":-101.266693649183,"roll_integral":-0.0102639213946996,"roll_rate_rad_s":0.00156873732339591,"rpm":1889.34581482878,"speed_m_s":7.93628025054932,"sprung_mass_kg":165.0,"steer_actual_rate":-0.00681787297347079,"steer_deg":-1.60659105803158,"steer_input":-0.24,"steer_target_deg":-1.60967336211264,"steer_target_rate":-0.00555783080730269,"target_lean_deg":-6.01346132004849,"ticks":3792,"total_mass_kg":181.0,"yaw_rate_rad_s":0.131073608994484}}
+PASS controlled turn direction +1 {"heading_x":0.186764180660248,"lean":6.12681420046827,"telemetry":{"architecture":"unsprung DOFs + compliant bristle contact","controller":"ReducedCoordinateMotorcycle/v3.2-steering","crashed":false,"engine":"Godot Physics","front_compression_m":0.0457664020172826,"front_contact_samples":3,"front_force_limited":false,"front_fx_n":1.36244714260101,"front_fy_n":101.061103820801,"front_grip_use":0.128634282487097,"front_lateral_m_s":-0.0676174163818359,"front_load_n":924.374286338888,"front_slip":0.000342690765596411,"front_slip_angle_deg":-0.487397387729568,"front_suspension_velocity_m_s":0.000193747414505543,"front_world_force":[92.2415466308594,0.0,51.6262054443359],"gear":1,"hand_torque_nm":2.36767654217042,"heading_per_steer":0.884633672523399,"last_crash":"none","lean_deg":6.12681420046827,"lean_request_rate_rad_s":0.0,"rear_compression_m":0.0383850150983693,"rear_contact_samples":3,"rear_fx_n":2.33611583709717,"rear_fy_n":90.1338348388672,"rear_grip_use":0.12459036428128,"rear_lateral_m_s":-0.0637117624282837,"rear_load_n":851.393461392638,"rear_slip":0.000434099147438509,"rear_slip_angle_deg":-0.459336665759002,"rear_suspension_velocity_m_s":0.000102886755156648,"rear_world_force":[83.4185180664062,0.0,43.8138885498047],"requested_front_fy_n":101.266693649183,"roll_integral":0.0102639213946996,"roll_rate_rad_s":-0.00156873732339591,"rpm":1889.34581482878,"speed_m_s":7.93628025054932,"sprung_mass_kg":165.0,"steer_actual_rate":0.00681787297347079,"steer_deg":1.60659105803158,"steer_input":0.24,"steer_target_deg":1.60967336211264,"steer_target_rate":0.00555783080730269,"target_lean_deg":6.01346132004849,"ticks":4335,"total_mass_kg":181.0,"yaw_rate_rad_s":-0.131073608994484}}
+PASS wheel contact disengages in air null
+PASS airborne motion follows gravity without upright snapping "(0.0, -2.52803, -9.951885)"
+PASS airborne rear brake transfers wheel angular momentum to pitch {"after":-0.439379304647446,"before":0.00356897222809494}
+PASS modest level landing is absorbed and rideable {"architecture":"unsprung DOFs + compliant bristle contact","controller":"ReducedCoordinateMotorcycle/v3.2-steering","crashed":false,"engine":"Godot Physics","front_compression_m":0.0461741890757332,"front_contact_samples":3,"front_force_limited":false,"front_fx_n":1.38298511505127,"front_fy_n":0.0,"front_grip_use":0.00176091627210489,"front_lateral_m_s":0.0,"front_load_n":923.974261354379,"front_slip":0.000568065872642508,"front_slip_angle_deg":0.0,"front_suspension_velocity_m_s":0.00000804173566096837,"front_world_force":[0.0,0.0,30.9559917449951],"gear":1,"hand_torque_nm":0.0,"heading_per_steer":0.891047969623606,"last_crash":"none","lean_deg":0.0,"lean_request_rate_rad_s":0.0,"rear_compression_m":0.0388045273114464,"rear_contact_samples":3,"rear_fx_n":2.16640424728394,"rear_fy_n":0.0,"rear_grip_use":0.00299272508519782,"rear_lateral_m_s":0.0,"rear_load_n":851.635484917619,"rear_slip":0.00065561052515061,"rear_slip_angle_deg":0.0,"rear_suspension_velocity_m_s":0.0000102488766476684,"rear_world_force":[0.0,0.0,27.6407241821289],"requested_front_fy_n":0.0,"roll_integral":0.0,"roll_rate_rad_s":0.0,"rpm":1839.02616815062,"speed_m_s":3.29478073120117,"sprung_mass_kg":165.0,"steer_actual_rate":0.0,"steer_deg":0.0,"steer_input":0.0,"steer_target_deg":0.0,"steer_target_rate":0.0,"target_lean_deg":0.0,"ticks":4911,"total_mass_kg":181.0,"yaw_rate_rad_s":0.0}
+PASS persistent severe chassis collision produces crash "persistent chassis impact"
+PASS reset clears crash, steering, engine and wheel state {"architecture":"unsprung DOFs + compliant bristle contact","controller":"ReducedCoordinateMotorcycle/v3.2-steering","crashed":false,"engine":"Godot Physics","front_compression_m":0.0438323832253987,"front_contact_samples":3,"front_force_limited":false,"front_fx_n":-0.0339761003851891,"front_fy_n":0.0,"front_grip_use":0.0000448594827994212,"front_lateral_m_s":0.0,"front_load_n":891.046447967976,"front_slip":-0.0000270475769044518,"front_slip_angle_deg":0.0,"front_suspension_velocity_m_s":-0.0000200862803413455,"front_world_force":[0.0,0.0,-0.629357218742371],"gear":1,"hand_torque_nm":0.0,"heading_per_steer":0.891081057396356,"last_crash":"none","lean_deg":0.0,"lean_request_rate_rad_s":0.0,"rear_compression_m":0.0411619754605839,"rear_contact_samples":3,"rear_fx_n":-0.0520398318767548,"rear_fy_n":0.0,"rear_grip_use":0.0000692097240183455,"rear_lateral_m_s":0.0,"rear_load_n":884.605920455382,"rear_slip":-0.0000293781651689376,"rear_slip_angle_deg":0.0,"rear_suspension_velocity_m_s":-0.0000467899412590617,"rear_world_force":[0.0,0.0,-0.606499493122101],"requested_front_fy_n":0.0,"roll_integral":0.0,"roll_rate_rad_s":0.0,"rpm":1839.02616815066,"speed_m_s":0.0106166563928127,"sprung_mass_kg":165.0,"steer_actual_rate":0.0,"steer_deg":0.0,"steer_input":0.0,"steer_target_deg":0.0,"steer_target_rate":0.0,"target_lean_deg":0.0,"ticks":5757,"total_mass_kg":181.0,"yaw_rate_rad_s":0.0}
+PASS top-gear shift request does not disengage clutch null
+PASS first-gear downshift does not interrupt torque null
+PASS combined tire demand stays within friction circle "(519.296, -218.4424)"
+PASS unloading immediately reduces traction limit "(65.9218, -24.73414)"
+PASS sand changes physical grip and rolling resistance null
+PHYSICS_RESULT checks=22 failures=0 output=/workspace/Mx-game/.godot/runtime/data/godot/app_userdata/Terra MX · Dynamics Lab/physics-results.json
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+RIDER_RUNTIME original_skinned_gltf bones=17 arm_lengths=(0.332867, 0.274089) leg_lengths=(0.440256, 0.42)
+TERRA_MX_RUNTIME engine=GodotPhysics3D script=res://src/physics/replacement/motorcycle.gd controller=ReducedCoordinateMotorcycle/v3.2-steering physics_hz=240 terrain=physical_heightfield bike=250F
+PASS small tabletop takeoff, landing, continued ride {"max_air_s":0.654166700784117,"peak_load_n":7070.80276184464,"position":"(0.0, 1.541017, -128.193)","telemetry":{"architecture":"unsprung DOFs + compliant bristle contact","controller":"ReducedCoordinateMotorcycle/v3.2-steering","crashed":false,"engine":"Godot Physics","front_compression_m":0.0,"front_contact_samples":0,"front_force_limited":false,"front_fx_n":0.0,"front_fy_n":0.0,"front_grip_use":0.0,"front_lateral_m_s":0.0,"front_load_n":0.0,"front_slip":0.0,"front_slip_angle_deg":0.0,"front_suspension_velocity_m_s":0.0,"front_world_force":[0.0,0.0,0.0],"gear":3,"hand_torque_nm":0.0,"heading_per_steer":0.891456506171792,"last_crash":"none","lean_deg":0.0,"lean_request_rate_rad_s":0.0,"rear_compression_m":0.0661606761709278,"rear_contact_samples":3,"rear_fx_n":990.136108398438,"rear_fy_n":0.0,"rear_grip_use":0.309612140154325,"rear_lateral_m_s":0.0,"rear_load_n":3263.25371882997,"rear_slip":0.0453920138988881,"rear_slip_angle_deg":0.0,"rear_suspension_velocity_m_s":1.47269840708754,"rear_world_force":[0.0,-237.467361450195,-900.616760253906],"requested_front_fy_n":0.0,"roll_integral":0.0,"roll_rate_rad_s":0.0,"rpm":8233.04253007555,"speed_m_s":15.8146076202393,"sprung_mass_kg":165.0,"steer_actual_rate":0.0,"steer_deg":0.0,"steer_input":0.0,"steer_target_deg":0.0,"steer_target_rate":0.0,"target_lean_deg":0.0,"ticks":1683,"total_mass_kg":181.0,"yaw_rate_rad_s":0.0}}
+PASS braking bumps exercise suspension without a crash {"peak_compression":0.15120169713209,"position":"(22.0, 1.023493, -64.19064)","telemetry":{"architecture":"unsprung DOFs + compliant bristle contact","controller":"ReducedCoordinateMotorcycle/v3.2-steering","crashed":false,"engine":"Godot Physics","front_compression_m":0.026430209894782,"front_contact_samples":0,"front_force_limited":false,"front_fx_n":0.0,"front_fy_n":0.0,"front_grip_use":0.0,"front_lateral_m_s":0.0,"front_load_n":0.0,"front_slip":0.0,"front_slip_angle_deg":0.0,"front_suspension_velocity_m_s":-0.39086279595207,"front_world_force":[0.0,0.0,0.0],"gear":2,"hand_torque_nm":0.0,"heading_per_steer":0.943568296482134,"last_crash":"none","lean_deg":0.0,"lean_request_rate_rad_s":0.0,"rear_compression_m":0.100311016295995,"rear_contact_samples":3,"rear_fx_n":724.677673339844,"rear_fy_n":0.0,"rear_grip_use":0.879305213363234,"rear_lateral_m_s":0.0,"rear_load_n":840.967393771857,"rear_slip":0.0661440294812854,"rear_slip_angle_deg":0.0,"rear_suspension_velocity_m_s":-0.573188325547878,"rear_world_force":[0.0,127.111045837402,-698.061767578125],"requested_front_fy_n":0.0,"roll_integral":0.0,"roll_rate_rad_s":0.0,"rpm":4962.85807017644,"speed_m_s":7.74162149429321,"sprung_mass_kg":165.0,"steer_actual_rate":0.0,"steer_deg":0.0,"steer_input":0.0,"steer_target_deg":0.0,"steer_target_rate":0.0,"target_lean_deg":0.0,"ticks":2886,"total_mass_kg":181.0,"yaw_rate_rad_s":0.0}}
+PASS small lateral slide recovers without slip-triggered crash {"architecture":"unsprung DOFs + compliant bristle contact","controller":"ReducedCoordinateMotorcycle/v3.2-steering","crashed":false,"engine":"Godot Physics","front_compression_m":0.0386582448075868,"front_contact_samples":3,"front_force_limited":false,"front_fx_n":-3.90835642814636,"front_fy_n":-2.18074250221252,"front_grip_use":0.00643367713078233,"front_lateral_m_s":0.00298023223876953,"front_load_n":818.411828491545,"front_slip":-0.000523335061088469,"front_slip_angle_deg":0.0155606826891403,"front_suspension_velocity_m_s":-0.000401626207078477,"front_world_force":[-8.24770927429199,0.0,31.5660209655762],"gear":3,"hand_torque_nm":-0.17743772830472,"heading_per_steer":0.89117954620275,"last_crash":"none","lean_deg":-0.266220647594651,"lean_request_rate_rad_s":0.0,"rear_compression_m":0.046223695125388,"rear_contact_samples":3,"rear_fx_n":198.35221862793,"rear_fy_n":-3.48232746124268,"rear_grip_use":0.243920248695029,"rear_lateral_m_s":0.00213313102722168,"rear_load_n":956.835315900406,"rear_slip":0.014447567983205,"rear_slip_angle_deg":0.0111377279264141,"rear_suspension_velocity_m_s":0.000247446986640635,"rear_world_force":[27.2884120941162,0.0,-162.626174926758],"requested_front_fy_n":-5.69961436277741,"roll_integral":-0.0175995077519857,"roll_rate_rad_s":0.000911866722162813,"rpm":5551.65661348324,"speed_m_s":10.9731464385986,"sprung_mass_kg":165.0,"steer_actual_rate":-0.012618271256017,"steer_deg":0.0842666861373257,"steer_input":0.0,"steer_target_deg":0.0166968160409998,"steer_target_rate":-0.00826617533643158,"target_lean_deg":0.0,"ticks":3369,"total_mass_kg":181.0,"yaw_rate_rad_s":-0.0102845644578338}
+TRACK_RESULT checks=3 failures=0
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+RIDER_RUNTIME original_skinned_gltf bones=17 arm_lengths=(0.332867, 0.274089) leg_lengths=(0.440256, 0.42)
+TERRA_MX_RUNTIME engine=GodotPhysics3D script=res://src/physics/replacement/motorcycle.gd controller=ReducedCoordinateMotorcycle/v3.2-steering physics_hz=240 terrain=physical_heightfield bike=250F
+PASS keyboard W reaches authoritative throttle input
+PASS keyboard release clears throttle
+PASS keyboard steering is smoothed into analog command
+PASS Escape opens settings and freezes riding
+PASS Resume button restores physics and controls
+PASS manual gear key shifts live transmission
+PASS camera key changes viewpoint
+PASS reset key clears drivetrain and restores spawn
+PASS gamepad axis deadzone preserves analog magnitude and sign
+CONTROLS_RESULT checks=9 failures=0
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+RIDER_RUNTIME original_skinned_gltf bones=17 arm_lengths=(0.332867, 0.274089) leg_lengths=(0.440256, 0.42)
+TERRA_MX_RUNTIME engine=GodotPhysics3D script=res://src/physics/replacement/motorcycle.gd controller=ReducedCoordinateMotorcycle/v3.2-steering physics_hz=240 terrain=physical_heightfield bike=250F
+PASS Controls UI captures a new keyboard throttle binding
+PASS old throttle key no longer drives the motorcycle
+PASS rebound throttle key drives the active controller
+PASS resume waits for held riding input to return to neutral
+PASS neutral release restores input without stale throttle
+PASS duplicate binding warns before changing either action
+PASS Swap exchanges the two keyboard bindings
+PASS axis drift and sub-threshold noise do not capture a binding
+PASS firm analog movement captures signed axis binding
+PASS mapped analog axis retains progressive engine input values
+PASS controller button conflict is reported
+PASS Replace clears the old controller assignment explicitly
+PASS Escape cancels capture without closing settings or changing a binding
+PASS controller disconnect cancels capture and clears transient input
+PASS D-pad remapping produces a working digital input
+PASS control profile was written to disk
+BINDINGS_RESULT checks=16 failures=0
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS bindings and response options reload in a separate Godot process
+PERSISTENCE_RESULT checks=1 failures=0
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+RIDER_RUNTIME original_skinned_gltf bones=17 arm_lengths=(0.332867, 0.274089) leg_lengths=(0.440256, 0.42)
+TERRA_MX_RUNTIME engine=GodotPhysics3D script=res://src/physics/replacement/motorcycle.gd controller=ReducedCoordinateMotorcycle/v3.2-steering physics_hz=240 terrain=physical_heightfield bike=250F
+PASS active rider is driven by a 17-bone Skeleton3D null
+PASS rendered rider uses actual imported skin weights 1
+PASS sit and stand produce distinct correctly scaled skeletal poses ["(0.0, 0.674997, 0.2)","(0.0, 0.440029, 0.2)"]
+PASS posture and body movement blend smoothly at 60 FPS 0.0270078182220459
+PASS two-bone IK preserves arm and leg lengths across body and steering extremes 0.0000000894069671630859
+PASS actual wrist bones remain attached to rotating handlebar targets 0.000000133280039449346
+PASS actual ankle bones remain attached to footpeg targets 0.00000012287812012346
+PASS rider visibly shifts forward, backward, left and right null
+PASS rider animation adds no chassis velocity or stabilizing force null
+PASS helmet camera hides the self-occluding rider skin; chase camera restores it null
+RIDER_RESULT checks=10 failures=0
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+RIDER_RUNTIME original_skinned_gltf bones=17 arm_lengths=(0.332867, 0.274089) leg_lengths=(0.440256, 0.42)
+TERRA_MX_RUNTIME engine=GodotPhysics3D script=res://src/physics/replacement/motorcycle.gd controller=ReducedCoordinateMotorcycle/v3.2-steering physics_hz=240 terrain=physical_heightfield bike=250F
+PASS shipped scene selects replacement implementation {"architecture":"unsprung DOFs + compliant bristle contact","controller":"ReducedCoordinateMotorcycle/v3.2-steering","crashed":false,"engine":"Godot Physics","front_compression_m":0.0,"front_contact_samples":0,"front_force_limited":false,"front_fx_n":0.0,"front_fy_n":0.0,"front_grip_use":0.0,"front_lateral_m_s":0.0,"front_load_n":0.0,"front_slip":0.0,"front_slip_angle_deg":0.0,"front_suspension_velocity_m_s":0.0,"front_world_force":[0.0,0.0,0.0],"gear":1,"hand_torque_nm":0.0,"heading_per_steer":0.891006524188368,"last_crash":"none","lean_deg":0.0,"lean_request_rate_rad_s":0.0,"rear_compression_m":0.0,"rear_contact_samples":0,"rear_fx_n":0.0,"rear_fy_n":0.0,"rear_grip_use":0.0,"rear_lateral_m_s":0.0,"rear_load_n":0.0,"rear_slip":0.0,"rear_slip_angle_deg":0.0,"rear_suspension_velocity_m_s":0.0,"rear_world_force":[0.0,0.0,0.0],"requested_front_fy_n":0.0,"roll_integral":0.0,"roll_rate_rad_s":0.0,"rpm":1900.0,"speed_m_s":0.0,"sprung_mass_kg":165.0,"steer_actual_rate":0.0,"steer_deg":0.0,"steer_input":0.0,"steer_target_deg":0.0,"steer_target_rate":0.0,"target_lean_deg":0.0,"ticks":0,"total_mass_kg":181.0,"yaw_rate_rad_s":0.0}
+PASS collision backend explicitly selected: Godot Physics null
+PASS sprung and unsprung masses sum to 181 kg [165.0,7,9]
+PASS independent tire loads support total mass [891.450603470958,884.150763894808]
+PASS no idle creep from raked suspension guide 0.00406325655058026
+PASS contact load is distinct from suspension force (unsprung mass) [891.450603470958,728.238294398706]
+PASS road step excites wheel inertia instead of directly assigning compression {"legacy_instant_load":1680.0,"new_compression":0.00151624735122985,"new_contact_load":12087.0744441973}
+PASS wheel transient settles through spring and carcass compliance [0.105725142857143,-0.00000000000000383071076254994]
+PASS rider inverse requests the intended transient force from the production tire law "(-0.186014, 300.0)"
+PASS new tread contact opposes lateral slip without velocity locking "(-0.186014, -179.1045)"
+PASS tread stores and progressively releases elastic shear [-179.104476928711,-139.978530883789]
+PASS combined high-slip demand enters finite sliding friction ["(605.1724, -294.9532)",2.35,0.880031770195057]
+PASS unloading immediately reduces combined force "(34.40664, -14.66096)"
+PASS airborne tire clears stored ground shear null
+PASS front fender and axle share steering assembly null
+PASS fork compression moves axle relative to fixed high fender 0.18000054359436
+PASS rendered axle exactly matches simulated raked fork geometry null
+PASS rear axle follows constant-length swingarm arc [0.653069674968719,0.653069674968719]
+PASS telescopic fork tube lengths remain fixed null
+PASS freefall guide reactions do not generate unexplained chassis rotation "(0.00707, 0.0, 0.0)"
+PASS airborne rider movement transfers angular momentum through torque {"pitch_change":0.166122328024358,"reaction":"(63.80321, 0.0, 0.0)"}
+PASS ground support never adds airborne stabilization null
+PASS right turn begins with countersteering then develops right lean [-2.46590901837449,11.2265955195983]
+PASS six-second corner remains supported and rideable {"peak_front_slip":0.848661343846919,"peak_lean":11.9995812675161,"speed":14.4327402114868}
+REBUILD_RESULT checks=24 failures=0
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS ground steering derivative [0, 0, 0] analytic=0.89386524545305 measured=0.89386157924309
+PASS ground steering derivative [20, 0, 0] analytic=0.83995863965075 measured=0.83994906162843
+PASS ground steering derivative [40, 0, 0] analytic=0.68474053381413 measured=0.68475329317153
+PASS ground steering derivative [-35, 0.25, 0] analytic=0.80957421332232 measured=0.80958043690771
+PASS ground steering derivative [30, -0.3, 0.12] analytic=0.81032847372949 measured=0.81031612353399
+PASS ground steering derivative [-20, 0.4, -0.1] analytic=0.91200100253711 measured=0.91201451141387
+STEERING_GEOMETRY_RESULT checks=6 failures=0
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+RIDER_RUNTIME original_skinned_gltf bones=17 arm_lengths=(0.332867, 0.274089) leg_lengths=(0.440256, 0.42)
+TERRA_MX_RUNTIME engine=GodotPhysics3D script=res://src/physics/replacement/motorcycle.gd controller=ReducedCoordinateMotorcycle/v3.2-steering physics_hz=240 terrain=physical_heightfield bike=250F
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":0.0,"final_speed":13.116117477417,"heading_x":0.0,"lateral_travel_m":0.0,"peak_front_slip_deg":0.0,"peak_lean_deg":0.0,"peak_roll_rad_s":0.0,"scenario":"straight"}
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":0.00290654096487451,"final_speed":13.1155214309692,"heading_x":0.0252260081470013,"lateral_travel_m":0.0580004409108974,"peak_front_slip_deg":0.555942565659795,"peak_lean_deg":2.01061588778275,"peak_roll_rad_s":0.110902242362499,"scenario":"small_correction"}
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":13.7827760238916,"final_speed":13.0508241653442,"heading_x":0.579985678195953,"lateral_travel_m":0.234219683989371,"peak_front_slip_deg":1.14871735862632,"peak_lean_deg":14.3517684000126,"peak_roll_rad_s":0.560982346534729,"scenario":"held_corner"}
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":-13.1006625889981,"final_speed":13.0646963119507,"heading_x":0.0350467674434185,"lateral_travel_m":0.569849701942986,"peak_front_slip_deg":1.43196813280362,"peak_lean_deg":13.493345044957,"peak_roll_rad_s":0.945751786231995,"scenario":"reversal"}
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":8.83572672429248,"final_speed":6.01697635650635,"heading_x":0.69373631477356,"lateral_travel_m":0.481201841945615,"peak_front_slip_deg":0.937235244823287,"peak_lean_deg":9.17097273040597,"peak_roll_rad_s":0.336358934640884,"scenario":"low_speed"}
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":9.98666659769075,"final_speed":7.97305059432983,"heading_x":0.491760075092316,"lateral_travel_m":0.202560425894444,"peak_front_slip_deg":0.875045002202965,"peak_lean_deg":10.4440616409264,"peak_roll_rad_s":0.416144728660583,"scenario":"corner_brake"}
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":0.00500192830988233,"final_speed":13.149432182312,"heading_x":0.250122725963593,"lateral_travel_m":0.390589645504952,"peak_front_slip_deg":6.05896569007146,"peak_lean_deg":10.0291767452921,"peak_roll_rad_s":1.17812895774841,"scenario":"slide"}
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":27.2830021853286,"final_speed":12.9570627212524,"heading_x":0.921197533607483,"lateral_travel_m":0.42251338384746,"peak_front_slip_deg":1.96391693051766,"peak_lean_deg":27.2830021853286,"peak_roll_rad_s":0.924454569816589,"scenario":"full_input"}
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":5.90110029624954,"final_speed":3.82061362266541,"heading_x":0.138702213764191,"lateral_travel_m":0.172524593915053,"peak_front_slip_deg":0.723431420596651,"peak_lean_deg":5.90110029624954,"peak_roll_rad_s":0.100872240960598,"scenario":"standing_start"}
+HANDLING {"both_detached_ticks":93,"crashed":false,"final_lean_deg":0.0176171324217994,"final_speed":13.1427145004272,"heading_x":-0.00349001726135612,"lateral_travel_m":0.49538787007817,"peak_front_slip_deg":4.02024561935819,"peak_lean_deg":9.97049193357051,"peak_roll_rad_s":1.01601576805115,"scenario":"landing_left"}
+HANDLING {"both_detached_ticks":93,"crashed":false,"final_lean_deg":0.0320777548961783,"final_speed":13.2319965362549,"heading_x":0.42410796880722,"lateral_travel_m":1.06008751491706,"peak_front_slip_deg":3.37893433219946,"peak_lean_deg":29.0925146640895,"peak_roll_rad_s":1.7381911277771,"scenario":"landing_right"}
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":13.7998475351295,"final_speed":19.5541744232178,"heading_x":0.375923901796341,"lateral_travel_m":0.384747614448771,"peak_front_slip_deg":1.14099527489857,"peak_lean_deg":14.2572227914331,"peak_roll_rad_s":0.636235654354095,"scenario":"fast_corner"}
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":-12.9456286105539,"final_speed":19.5716724395752,"heading_x":-0.000793889863416553,"lateral_travel_m":0.563029845603311,"peak_front_slip_deg":1.34561843952039,"peak_lean_deg":13.1801145230869,"peak_roll_rad_s":0.975728034973145,"scenario":"fast_reversal"}
+PASS handling/straight
+PASS handling/small_correction
+PASS handling/held_corner
+PASS handling/reversal
+PASS handling/low_speed
+PASS handling/corner_brake
+PASS handling/slide
+PASS handling/full_input
+PASS handling/standing_start
+PASS handling/landing_left
+PASS handling/landing_right
+PASS handling/fast_corner
+PASS handling/fast_reversal
+HANDLING_RESULT checks=13 failures=0
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+RIDER_RUNTIME original_skinned_gltf bones=17 arm_lengths=(0.332867, 0.274089) leg_lengths=(0.440256, 0.42)
+TERRA_MX_RUNTIME engine=GodotPhysics3D script=res://src/physics/replacement/motorcycle.gd controller=ReducedCoordinateMotorcycle/v3.2-steering physics_hz=240 terrain=physical_heightfield bike=250F
+TARGETED {"crashed":false,"final_lean_deg":0.0,"final_rear_slip":0.0207218953069925,"final_speed":14.8997526168823,"force_limited_fraction":0.0,"force_tracking_rms_n":0.0,"front_positive_shear_power_fraction":0.0,"front_saturated_fraction":0.0,"lateral_travel_m":0.0,"lean_tracking_rms_deg":0.0,"peak_front_lateral_m_s":0.0,"peak_integral":0.0,"peak_lean_deg":0.0,"peak_rear_lateral_m_s":0.0,"rear_peak_slip":0.0319473626634014,"response_s":-1.0,"scenario":"straight"}
+TARGETED {"crashed":false,"final_lean_deg":15.7696251139381,"final_rear_slip":0.012768250141598,"final_speed":14.8285036087036,"force_limited_fraction":0.0,"force_tracking_rms_n":8.05601847634099,"front_positive_shear_power_fraction":0.0,"front_saturated_fraction":0.0,"lateral_travel_m":0.246294219729149,"lean_tracking_rms_deg":1.89691126541281,"peak_front_lateral_m_s":0.25332498550415,"peak_integral":0.514591503135585,"peak_lean_deg":15.7696251139381,"peak_rear_lateral_m_s":0.34190034866333,"rear_peak_slip":0.0319473626634014,"response_s":0.0291666666666667,"scenario":"gradual_turn"}
+TARGETED {"crashed":false,"final_lean_deg":-12.580643361223,"final_rear_slip":0.0208850871416714,"final_speed":14.8153247833252,"force_limited_fraction":0.0,"force_tracking_rms_n":23.2784009279392,"front_positive_shear_power_fraction":0.00378787878787879,"front_saturated_fraction":0.0,"lateral_travel_m":0.605264075344227,"lean_tracking_rms_deg":5.09523011893699,"peak_front_lateral_m_s":0.301844120025635,"peak_integral":1.04753894627164,"peak_lean_deg":13.4827442171366,"peak_rear_lateral_m_s":0.232863903045654,"rear_peak_slip":0.0319473626634014,"response_s":0.0083333333333333,"scenario":"reversal"}
+TARGETED {"crashed":false,"final_lean_deg":9.29369617714807,"final_rear_slip":0.00598979518285067,"final_speed":4.86279249191284,"force_limited_fraction":0.0,"force_tracking_rms_n":6.67786600008153,"front_positive_shear_power_fraction":0.0,"front_saturated_fraction":0.0,"lateral_travel_m":1.02095849835824,"lean_tracking_rms_deg":1.37632792517959,"peak_front_lateral_m_s":0.0891706943511963,"peak_integral":0.335559589751748,"peak_lean_deg":9.29369617714807,"peak_rear_lateral_m_s":0.0788223743438721,"rear_peak_slip":0.278988434295285,"response_s":0.0166666666666667,"scenario":"low_speed"}
+TARGETED {"crashed":false,"final_lean_deg":6.53258568041122,"final_rear_slip":0.0192591025885141,"final_speed":13.7972450256348,"force_limited_fraction":0.00757575757575758,"force_tracking_rms_n":29.9974559629546,"front_positive_shear_power_fraction":0.00227272727272727,"front_saturated_fraction":0.00681818181818182,"lateral_travel_m":0.464549245393634,"lean_tracking_rms_deg":1.78797268278486,"peak_front_lateral_m_s":0.577009320259094,"peak_integral":0.336902157897137,"peak_lean_deg":6.59302634090431,"peak_rear_lateral_m_s":1.08773791790009,"rear_peak_slip":1.0,"response_s":0.0083333333333333,"scenario":"rear_slide"}
+PASS targeted/straight
+PASS targeted/gradual_turn
+PASS targeted/reversal
+PASS targeted/low_speed
+PASS targeted/rear_slide
+TARGETED_RESULT checks=5 failures=0
+TARGETED_GEOMETRY [{"heading_per_steer":0.891006551682949,"lean_deg":0,"v3_response_fraction":1.00000008280989},{"heading_per_steer":0.837272265926003,"lean_deg":20,"v3_response_fraction":0.883022278058821},{"heading_per_steer":0.682550598867238,"lean_deg":40,"v3_response_fraction":0.586824121237384}]
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+RIDER_RUNTIME original_skinned_gltf bones=17 arm_lengths=(0.332867, 0.274089) leg_lengths=(0.440256, 0.42)
+TERRA_MX_RUNTIME engine=GodotPhysics3D script=res://src/physics/replacement/motorcycle.gd controller=ReducedCoordinateMotorcycle/v3.2-steering physics_hz=240 terrain=physical_heightfield bike=250F
+TARGETED {"crashed":false,"final_lean_deg":0.0,"final_rear_slip":0.0207218953069925,"final_speed":14.8997526168823,"force_limited_fraction":0.0,"force_tracking_rms_n":0.0,"front_positive_shear_power_fraction":0.0,"front_saturated_fraction":0.0,"last_outside_band_s":0.0,"lateral_travel_m":0.0,"lean_initiation_s":-1.0,"lean_reversal_s":-1.0,"lean_tracking_rms_deg":0.0,"peak_front_lateral_m_s":0.0,"peak_grip_use":0.622371479339258,"peak_integral":0.0,"peak_lean_deg":0.0,"peak_rear_lateral_m_s":0.0,"peak_roll_rate_rad_s":0.0,"peak_tire_load_n":1130.11311943235,"peak_yaw_rate_rad_s":0.0,"rear_peak_slip":0.0319473626634014,"response_s":-1.0,"reversal_overshoot_deg":0.0,"scenario":"straight"}
+TARGETED {"crashed":false,"final_lean_deg":13.1680766654257,"final_rear_slip":0.0247568346386971,"final_speed":14.3837947845459,"force_limited_fraction":0.0,"force_tracking_rms_n":9.31100398354291,"front_positive_shear_power_fraction":0.0,"front_saturated_fraction":0.0,"last_outside_band_s":0.0,"lateral_travel_m":0.226013213192814,"lean_initiation_s":0.3375,"lean_reversal_s":-1.0,"lean_tracking_rms_deg":1.56080411487776,"peak_front_lateral_m_s":0.195473194122314,"peak_grip_use":0.622371479339258,"peak_integral":0.418943272575969,"peak_lean_deg":13.1784742878518,"peak_rear_lateral_m_s":0.268871307373047,"peak_roll_rate_rad_s":0.202897489070892,"peak_tire_load_n":2686.53899766466,"peak_yaw_rate_rad_s":0.364345967769623,"rear_peak_slip":0.0319473626634014,"response_s":0.133333333333333,"reversal_overshoot_deg":0.0,"scenario":"gradual_turn"}
+TARGETED {"crashed":false,"final_lean_deg":-9.87177103901717,"final_rear_slip":0.0208244226272313,"final_speed":14.8489742279053,"force_limited_fraction":0.0,"force_tracking_rms_n":19.532844657716,"front_positive_shear_power_fraction":0.00151515151515152,"front_saturated_fraction":0.0,"last_outside_band_s":3.63333333333333,"lateral_travel_m":0.475539632726881,"lean_initiation_s":0.0958333333333333,"lean_reversal_s":0.366666666666667,"lean_tracking_rms_deg":4.18164463060534,"peak_front_lateral_m_s":0.264372110366821,"peak_grip_use":0.622371479339258,"peak_integral":0.851684472821089,"peak_lean_deg":10.5915378895704,"peak_rear_lateral_m_s":0.183466672897339,"peak_roll_rate_rad_s":0.767863869667053,"peak_tire_load_n":1130.11311943235,"peak_yaw_rate_rad_s":0.438935518264771,"rear_peak_slip":0.0319473626634014,"response_s":0.0083333333333333,"reversal_overshoot_deg":0.762233463203993,"scenario":"reversal"}
+TARGETED {"crashed":false,"final_lean_deg":6.08519105944544,"final_rear_slip":0.00670778114815949,"final_speed":4.83032512664795,"force_limited_fraction":0.0,"force_tracking_rms_n":3.06129571514911,"front_positive_shear_power_fraction":0.0,"front_saturated_fraction":0.0,"last_outside_band_s":0.0,"lateral_travel_m":0.69253717061773,"lean_initiation_s":0.3125,"lean_reversal_s":-1.0,"lean_tracking_rms_deg":0.919734755946866,"peak_front_lateral_m_s":0.0614676475524902,"peak_grip_use":0.999068204704309,"peak_integral":0.231861000761327,"peak_lean_deg":6.38554037056592,"peak_rear_lateral_m_s":0.0546169281005859,"peak_roll_rate_rad_s":0.176179245114326,"peak_tire_load_n":1333.01139033547,"peak_yaw_rate_rad_s":0.281453490257263,"rear_peak_slip":0.278988434295285,"response_s":0.0791666666666667,"reversal_overshoot_deg":0.0,"scenario":"low_speed"}
+TARGETED {"crashed":false,"final_lean_deg":3.86462702459956,"final_rear_slip":0.0199323826323804,"final_speed":13.8011522293091,"force_limited_fraction":0.0,"force_tracking_rms_n":22.039242244875,"front_positive_shear_power_fraction":0.00303030303030303,"front_saturated_fraction":0.00227272727272727,"last_outside_band_s":0.0,"lateral_travel_m":0.270607469405771,"lean_initiation_s":0.129166666666667,"lean_reversal_s":-1.0,"lean_tracking_rms_deg":0.78802560203119,"peak_front_lateral_m_s":0.561074256896973,"peak_grip_use":0.999338521592458,"peak_integral":0.14879213205693,"peak_lean_deg":4.05142401169697,"peak_rear_lateral_m_s":0.66716194152832,"peak_roll_rate_rad_s":0.326370030641556,"peak_tire_load_n":1473.07434322834,"peak_yaw_rate_rad_s":0.485179275274277,"rear_peak_slip":1.0,"response_s":0.0125,"reversal_overshoot_deg":0.0,"scenario":"rear_slide"}
+TARGETED {"crashed":false,"final_lean_deg":-0.0000254331757843895,"final_rear_slip":0.0207222231458231,"final_speed":14.8996562957764,"force_limited_fraction":0.0,"force_tracking_rms_n":1.98296372397509,"front_positive_shear_power_fraction":0.0,"front_saturated_fraction":0.0,"last_outside_band_s":1.875,"lateral_travel_m":0.0248683243436365,"lean_initiation_s":0.266666666666667,"lean_reversal_s":-1.0,"lean_tracking_rms_deg":0.245594205996049,"peak_front_lateral_m_s":0.0291606485843658,"peak_grip_use":0.622371479339258,"peak_integral":0.0372766488544522,"peak_lean_deg":0.856682593442701,"peak_rear_lateral_m_s":0.0162181779742241,"peak_roll_rate_rad_s":0.0470494665205479,"peak_tire_load_n":1130.11311943235,"peak_yaw_rate_rad_s":0.0403764508664608,"rear_peak_slip":0.0319473626634014,"response_s":0.025,"reversal_overshoot_deg":0.0,"scenario":"small_correction"}
+TARGETED {"crashed":false,"final_lean_deg":-9.86767629292172,"final_rear_slip":0.0176584790985069,"final_speed":20.1953048706055,"force_limited_fraction":0.0,"force_tracking_rms_n":25.6208166417656,"front_positive_shear_power_fraction":0.00151515151515152,"front_saturated_fraction":0.0,"last_outside_band_s":3.56666666666667,"lateral_travel_m":0.586013290520016,"lean_initiation_s":0.0833333333333334,"lean_reversal_s":0.3375,"lean_tracking_rms_deg":3.85524202511942,"peak_front_lateral_m_s":0.382383108139038,"peak_grip_use":0.937532184694366,"peak_integral":0.773152508022347,"peak_lean_deg":10.3347521068269,"peak_rear_lateral_m_s":0.258775949478149,"peak_roll_rate_rad_s":0.841798841953278,"peak_tire_load_n":1272.19972387538,"peak_yaw_rate_rad_s":0.322082579135895,"rear_peak_slip":0.0623927945982806,"response_s":0.0125,"reversal_overshoot_deg":0.505447679783092,"scenario":"fast_reversal"}
+PASS targeted/straight
+PASS targeted/gradual_turn
+PASS targeted/reversal
+PASS targeted/low_speed
+PASS targeted/rear_slide
+PASS targeted/small_correction
+PASS targeted/fast_reversal
+TARGETED_RESULT checks=7 failures=0
+TARGETED_GEOMETRY [{"heading_per_steer":0.891006551682949,"lean_deg":0,"v3_response_fraction":1.00000008280989},{"heading_per_steer":0.837272265926003,"lean_deg":20,"v3_response_fraction":0.883022278058821},{"heading_per_steer":0.682550598867238,"lean_deg":40,"v3_response_fraction":0.586824121237384}]
+
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+RIDER_RUNTIME original_skinned_gltf bones=17 arm_lengths=(0.332867, 0.274089) leg_lengths=(0.440256, 0.42)
+TERRA_MX_RUNTIME engine=GodotPhysics3D script=res://src/physics/replacement/motorcycle.gd controller=ReducedCoordinateMotorcycle/v3.2-steering physics_hz=240 terrain=physical_heightfield bike=250F
+BUILD_SMOKE {"accelerated":true,"braked":true,"controller":"ReducedCoordinateMotorcycle/v3.2-steering","passed":true,"rider_rig":true,"speed_after_brake":2.52033591270447,"speed_before_brake":4.57969045639038,"supported":true,"ticks":1260}

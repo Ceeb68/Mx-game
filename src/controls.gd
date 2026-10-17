@@ -14,7 +14,7 @@ var keyboard: Dictionary = {}
 var gamepad: Dictionary = {}
 # Kept as a read-only-style compatibility view for diagnostics and old scripts.
 var bindings: Dictionary = {}
-var options := {"steering_sensitivity": 1.0, "steering_deadzone": 0.10, "lean_sensitivity": 1.0, "lean_deadzone": 0.10, "throttle_deadzone": 0.03, "brake_deadzone": 0.03, "steering_curve": 1.35, "smoothing_s": 0.10, "invert_steering": false, "invert_lean": false, "invert_weight": false, "combined_lean": false, "vibration": true, "vibration_strength": 0.35, "steering_assist": true, "foot_support": true, "automatic": true, "clutch_assist": true, "fov": 72.0, "follow_distance": 5.0}
+var options := {"steering_sensitivity": 1.0, "steering_deadzone": 0.10, "lean_sensitivity": 1.0, "lean_deadzone": 0.10, "throttle_deadzone": 0.03, "brake_deadzone": 0.03, "invert_steering": false, "invert_lean": false, "invert_weight": false, "combined_lean": false, "vibration": true, "vibration_strength": 0.35, "steering_assist": true, "foot_support": true, "automatic": true, "clutch_assist": true, "fov": 72.0, "follow_distance": 5.0}
 var paused: bool = false
 var steer: float = 0.0
 var capture_action: String = ""
@@ -30,6 +30,11 @@ var was_impact: bool = false
 var await_neutral: bool = false
 const CONTINUOUS := ["throttle", "front_brake", "rear_brake", "left", "right", "lean_left", "lean_right", "forward", "backward", "clutch"]
 const RANGES := {"steering_sensitivity": Vector2(0.2, 2), "steering_deadzone": Vector2(0, 0.4), "lean_sensitivity": Vector2(0.2, 2), "lean_deadzone": Vector2(0, 0.4), "throttle_deadzone": Vector2(0, 0.3), "brake_deadzone": Vector2(0, 0.3), "steering_curve": Vector2(0.6, 2.5), "smoothing_s": Vector2(0, 0.35), "vibration_strength": Vector2(0, 1), "fov": Vector2(50, 100), "follow_distance": Vector2(3, 10)}
+
+func _init() -> void:
+ # Bike response defaults seed the profile; saved user values remain authoritative.
+ var setup: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/250f.json"))
+ options.merge(setup.handling.input)
 
 func defaults() -> void:
  var keys := [KEY_W, KEY_S, KEY_SPACE, KEY_A, KEY_D, KEY_Q, KEY_E, KEY_UP, KEY_DOWN, KEY_SHIFT, KEY_PAGEUP, KEY_PAGEDOWN, KEY_TAB, KEY_R, KEY_C, KEY_ESCAPE, KEY_F6, KEY_F1]

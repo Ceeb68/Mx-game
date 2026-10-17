@@ -79,7 +79,7 @@ func make_ui() -> void:
  root.add_child(header)
  var subtitle := Label.new()
  subtitle.position = Vector2(31, 55)
- subtitle.text = "250F   /   TARGETED REPAIR 3.1   /   240 Hz"
+ subtitle.text = "250F   /   STEERING REFINEMENT 3.2   /   240 Hz"
  subtitle.modulate = Color(1, 0.65, 0.3)
  root.add_child(subtitle)
  hud = Label.new()
@@ -96,7 +96,7 @@ func make_ui() -> void:
  var help := Label.new()
  help.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
  help.position = Vector2(-560, -100)
- help.text = "250F  /  TARGETED REPAIR 3.1
+ help.text = "250F  /  STEERING REFINEMENT 3.2
 Controls: open Settings → Controls
 Escape: menu recovery   •   All bindings save automatically"
  root.add_child(help)

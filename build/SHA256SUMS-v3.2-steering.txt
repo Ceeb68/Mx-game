@@ -1,0 +1,2 @@
+84ffa5b0e17a0f2db77ed8a8dab2563b2e66a9643372cd4371273be87dd0d3c8  TerraMX-v3.2-steering-windows.zip
+1be4ce466bb51ac16033eb01609ccd0379473b5e2bb3d476d4f6232e508bdc22  TerraMX-v3.2-steering-source.zip

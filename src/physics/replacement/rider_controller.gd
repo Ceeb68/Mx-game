@@ -5,6 +5,7 @@ var lean_request: float = 0
 var steering_request: float = 0
 var roll_integral: float = 0
 var previous_roll_error: float = 0
+var lean_request_rate: float = 0
 var grounded: bool = true
 var passive_roll_moment: float = 0
 var front_roll_arm: float = -0.7
@@ -21,6 +22,7 @@ var front_longitudinal: float = 0
 var front_inverse_mass: float = 0.04
 func reset() -> void:
  lean_request = 0
+ lean_request_rate = 0
  steering_request = 0
  roll_integral = 0
  previous_roll_error = 0
@@ -29,13 +31,16 @@ func reset() -> void:
 func step(dt: float, input: float, body_lean: float, speed: float, roll: float, roll_rate: float, mu: float, config: Dictionary) -> float:
  force_limited = false
  unconstrained_front_force = 0
+ var tuning: Dictionary = config.handling.rider
  var v2: float = maxf(speed * speed, 1)
- var limit: float = minf(atan(mu * 0.55), atan(v2 * tan(0.48) / (9.81 * config.wheelbase_m)))
- var target: float = input * minf(limit, deg_to_rad(40)) + body_lean * deg_to_rad(5)
+ var limit: float = minf(atan(mu * tuning.grip_lean_fraction), atan(v2 * tan(0.48) / (9.81 * config.wheelbase_m)))
+ var target: float = input * minf(limit, deg_to_rad(tuning.max_lean_deg)) + body_lean * deg_to_rad(tuning.body_lean_deg)
  # Bound requested roll acceleration/lean rate to avoid saturating the front patch.
- lean_request = move_toward(lean_request,target,deg_to_rad(100)*dt)
+ var previous_request: float = lean_request
+ lean_request = move_toward(lean_request,target,deg_to_rad(tuning.lean_rate_deg_s)*dt)
+ lean_request_rate = (lean_request - previous_request) / dt
  if not grounded:
-  steering_request = input * 0.30
+  steering_request = input * tuning.air_steer_rad
   roll_integral = 0
   previous_roll_error = 0
   desired_front_force = 0
@@ -46,10 +51,11 @@ func step(dt: float, input: float, body_lean: float, speed: float, roll: float, 
  if error * previous_roll_error < 0: roll_integral = 0
  previous_roll_error = error
  if grounded and absf(speed)>2.2:
-  roll_integral = clampf(roll_integral + error * dt * 6, -3, 3)
+  roll_integral = clampf(roll_integral + error * dt * tuning.roll_ki, -tuning.integral_limit, tuning.integral_limit)
  else:
   roll_integral = 0
- var desired_acceleration: float = clampf(10.24 * error + 8.32 * roll_rate + roll_integral,-20,20)
+ # Follow a bounded fraction of target motion; retain damping of unexpected roll.
+ var desired_acceleration: float = clampf(tuning.roll_kp * error + tuning.roll_kd * (roll_rate - lean_request_rate * tuning.target_rate_tracking) + roll_integral,-tuning.max_roll_acceleration_rad_s2,tuning.max_roll_acceleration_rad_s2)
  var equilibrium: float = atan(9.81 * tan(roll) * config.wheelbase_m / v2)
  var dynamic: float = config.wheelbase_m * 0.62 / v2 * desired_acceleration
  # Invert the active tread model against actual ground roll moments.
@@ -63,6 +69,6 @@ func step(dt: float, input: float, body_lean: float, speed: float, roll: float, 
   controlled_force = actual_steer + tire_heading_change / maxf(0.2, front_heading_gain)
  else:
   controlled_force = equilibrium + dynamic
- var blend: float = smoothstep(0.4, 2.2, absf(speed))
- steering_request = clampf(lerpf(input * 0.52, controlled_force, blend), -0.56, 0.56)
+ var blend: float = smoothstep(tuning.blend_start_m_s, tuning.blend_end_m_s, absf(speed))
+ steering_request = clampf(lerpf(input * tuning.low_speed_steer_rad, controlled_force, blend), -tuning.max_steer_rad, tuning.max_steer_rad)
  return steering_request

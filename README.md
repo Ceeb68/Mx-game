@@ -1,3 +1,18 @@
+# Terra MX 3.2 steering test update
+
+This is the steering/stability stage of the v3.2 request. Read
+[change notes and manual tests](docs/refinement/REPORT.md) and
+[active configuration](docs/refinement/CONFIGURATION.md). Suspension and whip
+changes are pending separate updates.
+
+**Open in Godot:** use `TerraMX-v3.2-steering-source.zip`, extract it, and import
+`project.godot` in Godot **4.6.3 standard**. Press F5 to play.
+The Windows ZIP is a standalone game: extract it and run `TerraMX.exe`.
+Existing controller profiles keep their response settings; try smoothing 0.06
+seconds in Settings to evaluate the new default.
+
+The earlier release documentation below is retained as history.
+
 # Terra MX — targeted steering repair / 0.3.1
 
 **[Download the Windows test build](https://github.com/Ceeb68/Mx-game/raw/refs/heads/repair/traction-steering-v3/build/TerraMX-targeted-v3.1-windows.zip)**
