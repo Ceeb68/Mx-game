@@ -1,0 +1,3 @@
+dd29f31642ae93a33d7806dc9456ee4cda3d710eb38a45f15fc090b00daad08c  TerraMX-rebuild-v3-windows.zip
+e9d425109ddcb5353f637ce0d13c63c39e5bf3a15820141bc820676e385831e2  TerraMX-rebuild-v3-linux.zip
+4d39b47651f3ded131ec76bd00967f495dbd4f102f79ebbd3e105abc4c6c847b  TerraMX-rebuild-v3-source.zip

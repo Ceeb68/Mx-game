@@ -4,6 +4,11 @@ var bike: RigidBody3D
 var wheel_nodes: Array[Node3D] = []
 var hubs: Array[Node3D] = []
 var rider: Node3D
+const Geometry = preload("res://src/physics/replacement/geometry.gd")
+var steering: Node3D
+var upper_forks: Array = []
+var lower_forks: Array = []
+var shock: MeshInstance3D
 var handlebar: Node3D
 var limbs: Array[MeshInstance3D] = []
 var red: StandardMaterial3D
@@ -56,22 +61,35 @@ func _ready() -> void:
  box(Vector3(0.35, 0.28, 0.48), Vector3(0, 0.18, -0.25), red)
  box(Vector3(0.24, 0.30, 0.28), Vector3(0, -0.08, 0), metal)
  box(Vector3(0.22, 0.06, 0.55), Vector3(0, 0.28, 0.70), red)
- box(Vector3(0.25, 0.05, 0.6), Vector3(0, 0.12, -0.92), red)
- box(Vector3(0.23, 0.25, 0.045), Vector3(0, 0.30, -0.66), white)
+ steering = Node3D.new()
+ steering.name = "SteeringHead"
+ steering.position = Geometry.HEAD
+ add_child(steering)
+ box(Vector3(0.25, 0.05, 0.6), Vector3(0, 0.30, -0.92) - Geometry.HEAD, red, steering).name = "FrontFender"
+ box(Vector3(0.23, 0.25, 0.045), Vector3(0, 0.30, -0.66) - Geometry.HEAD, white, steering)
+ for y in [0.28,0.40]:
+  box(Vector3(0.27,0.035,0.10),Vector3(0,y,Geometry.HEAD.z-(Geometry.HEAD.y-y)*tan(Geometry.RAKE))-Geometry.HEAD,metal,steering)
+ for side in [-1.0,1.0]:
+  upper_forks.append(rod(Vector3.ZERO,Vector3.UP,0.026,metal,steering))
+  lower_forks.append(rod(Vector3.ZERO,Vector3.UP,0.033,black,steering))
+ shock = rod(Vector3(0,0.16,0.40),Geometry.REAR_PIVOT,0.045,metal)
  for x in [-0.13, 0.13]:
   rod(Vector3(x, -0.22, 0.3), Vector3(x, 0.32, -0.4), 0.025, metal)
   rod(Vector3(x, -0.22, 0.3), Vector3(x, -0.10, -0.35), 0.025, metal)
  rod(Vector3(0.18, 0.1, 0.48), Vector3(0.18, 0.13, 0.86), 0.065, metal)
  handlebar = Node3D.new()
- handlebar.position = Vector3(0, 0.48, -0.55)
- add_child(handlebar)
+ handlebar.position = Vector3(0, 0.48, -0.55) - Geometry.HEAD
+ steering.add_child(handlebar)
  rod(Vector3(-0.4, 0, 0), Vector3(0.4, 0, 0), 0.025, metal, handlebar)
  for side in [-1.0, 1.0]:
   rod(Vector3(side * 0.11, -0.25, 0.12), Vector3(side * 0.28, -0.25, 0.12), 0.025, metal)
   box(Vector3(0.15, 0.025, 0.065), Vector3(side * 0.19, -0.235, 0.12), black)
  for i in range(2):
   var hub := Node3D.new()
-  add_child(hub)
+  if i == 0:
+   steering.add_child(hub)
+  else:
+   add_child(hub)
   hubs.append(hub)
   var spin := Node3D.new()
   hub.add_child(spin)
@@ -100,15 +118,20 @@ func _ready() -> void:
  rider.bike = bike
  add_child(rider)
  # Animated fork/swingarm rods are updated from actual spring extension.
- for i in range(4): limbs.append(rod(Vector3.ZERO, Vector3.UP, 0.022, metal))
+ for i in range(2): limbs.append(rod(Vector3.ZERO, Vector3.UP, 0.022, metal))
 
-func _process(_dt: float) -> void:
- for i in range(2):
-  hubs[i].position = Vector3(0, -0.02 - bike.wheels[i].extension, -0.74 if i == 0 else 0.74)
-  hubs[i].rotation.y = -bike.steer_angle if i == 0 else 0.0
-  wheel_nodes[i].rotate_x(-bike.wheels[i].omega * _dt)
- handlebar.rotation.y = -bike.steer_angle
+func _process(dt: float) -> void:
+ steering.basis = Geometry.steering_basis(bike.steer_angle)
+ var front: Vector3 = Geometry.hub(0,bike.wheels[0].extension,0)
+ hubs[0].position = front - Geometry.HEAD
+ hubs[1].position = Geometry.hub(1,bike.wheels[1].extension,0)
+ for i in range(2): wheel_nodes[i].rotate_x(-bike.wheels[i].omega * dt)
  for side in range(2):
-  var x: float = -1.0 if side == 0 else 1.0
-  align_rod(limbs[side], Vector3(x * 0.10, 0.40, -0.50), hubs[0].position + Vector3(x * 0.10, 0, 0))
-  align_rod(limbs[2 + side], Vector3(x * 0.11, -0.17, 0.15), hubs[1].position + Vector3(x * 0.11, 0, 0))
+  var x: float = -0.10 if side == 0 else 0.10
+  var top := Vector3(x,0,0)
+  var axle: Vector3 = front + Vector3(x,0,0) - Geometry.HEAD
+  var direction: Vector3 = (axle-top).normalized()
+  align_rod(upper_forks[side],top,top+direction*0.62)
+  align_rod(lower_forks[side],axle,axle-direction*0.44)
+  align_rod(limbs[side],Geometry.REAR_PIVOT+Vector3(x,0,0),hubs[1].position+Vector3(x,0,0))
+ align_rod(shock,Vector3(0,0.16,0.40),Geometry.REAR_PIVOT.lerp(hubs[1].position,0.42))

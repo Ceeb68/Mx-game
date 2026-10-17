@@ -1,0 +1,119 @@
+{
+  "version": "0.3.0",
+  "engine": "Godot 4.6.3 / Godot Physics",
+  "controller": "ReducedCoordinateMotorcycle/v3",
+  "active_script": "res://src/physics/replacement/motorcycle.gd",
+  "baseline_commit": "94da04347ba8d94f6a5301c2ef0ad83e2fffc26d",
+  "assertions_passed": 98,
+  "assertions_failed": 0,
+  "suites": {
+    "PHYSICS_RESULT": {
+      "checks": 22,
+      "failures": 0
+    },
+    "TRACK_RESULT": {
+      "checks": 3,
+      "failures": 0
+    },
+    "CONTROLS_RESULT": {
+      "checks": 9,
+      "failures": 0
+    },
+    "BINDINGS_RESULT": {
+      "checks": 16,
+      "failures": 0
+    },
+    "PERSISTENCE_RESULT": {
+      "checks": 1,
+      "failures": 0
+    },
+    "RIDER_RESULT": {
+      "checks": 10,
+      "failures": 0
+    },
+    "REBUILD_RESULT": {
+      "checks": 24,
+      "failures": 0
+    },
+    "HANDLING_RESULT": {
+      "checks": 13,
+      "failures": 0
+    }
+  },
+  "full_input_command": 1.0,
+  "linux_exported_self_tests": [
+    {
+      "accelerated": true,
+      "braked": true,
+      "controller": "ReducedCoordinateMotorcycle/v3",
+      "passed": true,
+      "rider_rig": true,
+      "speed_after_brake": 2.52033591270447,
+      "speed_before_brake": 4.57969045639038,
+      "supported": true,
+      "ticks": 1260
+    },
+    {
+      "accelerated": true,
+      "braked": true,
+      "controller": "MotorcycleSimulation/v2",
+      "passed": true,
+      "rider_rig": true,
+      "speed_after_brake": 1.87139642238617,
+      "speed_before_brake": 4.15507841110229,
+      "supported": true,
+      "ticks": 1260
+    }
+  ],
+  "windows_executed": false,
+  "human_riding_tested": false,
+  "physical_gamepad_tested": false,
+  "source_sha256": {
+    "assets/rider/terra_rider.glb": "9861d9751e8d3ae2a9a3c6b1942200fb90fee1761e572414fdd06147d3800d26",
+    "data/250f.json": "580f211e2289e1abb4ec44c622b2880918baed2a2ae13363db14c84e58efbec4",
+    "export_presets.cfg": "78ba2823ff4672f951653abd73b1a68ecf8702f6dcd841c633d426308559fce3",
+    "launch.sh": "e73cdd61a77828fbbf359cdc5ca23f0dbf75d7b232e62bd55d04f6e537759168",
+    "project.godot": "3ce76d8842461137c30ff34adb44f52e21d465e2191f2040feb3a0bf4cccb288",
+    "src/controls.gd": "a572b0a83a981921fb5fb6c3943ad87e266def400733f19e24e16d6559c65a63",
+    "src/diagnostics/build_smoke.gd": "0e6cd2995adaec22250ebef3254998e474254768384cd90d7ce37db05d369b16",
+    "src/main.gd": "aecb7eabac5f84e46f53d9bcfe8a2a6d6ee536e4fb8a665310dc167db234728d",
+    "src/physics/legacy/bike_visual.gd": "58837676b71937efb746762db9c3b8f3790c3824d1d3377c38a3d264af97f6c4",
+    "src/physics/legacy/motorcycle.gd": "bf4c2015154151df3587ed14cf6bda953a4268364b0995664305b0155230ba76",
+    "src/physics/legacy/powertrain.gd": "535efc7f502f8ca70e0bc63383b1e984920748cc6353af798dffb1cbaabfd885",
+    "src/physics/legacy/suspension.gd": "f5ce0cb4a8e5cfdd914161127a62951b9670a766af1e00c84f14e6eb52716495",
+    "src/physics/legacy/tire.gd": "a9387fad82237655bd58521ed05d1ce644d93312dcdc3d4d88b2b78078d878aa",
+    "src/physics/legacy/virtual_rider.gd": "ae9d9bf40343355013c5c6b2b14adf2c5dedfbfb0114d62b7dccb8fde0918708",
+    "src/physics/motorcycle.gd": "c57d9d626dd2d5fa4e140d6b5b2ba2928b6ca77c00124e020ca36106542e76e1",
+    "src/physics/powertrain.gd": "535efc7f502f8ca70e0bc63383b1e984920748cc6353af798dffb1cbaabfd885",
+    "src/physics/replacement/contact_tire.gd": "2860eb72f6de26d9efa164c366a8e571ec7e19d71e477f4697ddcb00e6fcca99",
+    "src/physics/replacement/geometry.gd": "c9397e4f344502b1b7c7bf15039d855441bc49c91c94f54126d21db10f546787",
+    "src/physics/replacement/motorcycle.gd": "cd3d57f5f014531604f633aff75d0e0be631afcbe1a73c8dc389a13094adad97",
+    "src/physics/replacement/rider_controller.gd": "2de67cabf13e08c8a71cb0c897d88e61dd2e950917739b1602b134e66163a5d4",
+    "src/physics/replacement/wheel_station.gd": "c4b6add2fc99580ee1e1f34980c4178dd9b9a1540205e9fbad251b80352c52d8",
+    "src/physics/suspension.gd": "f5ce0cb4a8e5cfdd914161127a62951b9670a766af1e00c84f14e6eb52716495",
+    "src/physics/tire.gd": "a9387fad82237655bd58521ed05d1ce644d93312dcdc3d4d88b2b78078d878aa",
+    "src/physics/virtual_rider.gd": "ae9d9bf40343355013c5c6b2b14adf2c5dedfbfb0114d62b7dccb8fde0918708",
+    "src/presentation/bike_visual.gd": "c9699ce1e22400c92f68edb60a719f3a7b2a15cefbcde6f4a51b1f4f759e07d6",
+    "src/presentation/rider_animator.gd": "f3cc689081f3d4d7590a157a4c63de501a3c6e0f129d5a6b319d8c1e2edbecc2",
+    "src/ui/controls_panel.gd": "5bd7a9b8e28f7708d98b3e4fd2376e3d9b29db14849e8f80b342181bd7d5b177",
+    "src/world/test_track.gd": "1fe61aac979e4149ed9875073b23270133792c0d095ea03af2d5d50bd8901d03",
+    "tests/capture.gd": "108f9274592c058129339dad1149de3a61befcfcb34db851852f2b7814e676b7",
+    "tests/capture_phase2.gd": "1a39ebc4eea91618bf0cf1646bab78ad15cade02de15f03679b8b2032ab7336b",
+    "tests/capture_rebuild.gd": "f69d04f195c0cd74683e424cc4eaf1cb5c7b14dd1593611451eb9cc434e9b93a",
+    "tests/handling_probe.gd": "7575320f7d343e781138f08feb93a930b911701a74ffcbb2f370e1d9ca0e1cdd",
+    "tests/profile_restart.gd": "71078aeb5423a5713a1066a8f3f016ab82df73ba0b6a4bf5fe066eb7feeab76d",
+    "tests/rebuild_trace.gd": "9aed966edae4e1693a0077094f6aa7020053c890a2f28753680ad80bd2bb37c5",
+    "tests/run_all.sh": "4abe1fae7256a7b6cccabb8329096c4eb9e383a5b2e0f1d74b324b7efd12aced",
+    "tests/run_bindings.gd": "0b5f76061ce7bc36a5f59e80d3bf4022f7ebb141a6fff35db517f863baf61a5e",
+    "tests/run_controls.gd": "6949321a4a931fc3144080a2e635a4bb7ca58455b33d9040f23fe82633089859",
+    "tests/run_physics.gd": "b1097a023faf09449dbb0341b4d54e6f0451ae1f7c311e81b1dda0a06a11d9e1",
+    "tests/run_rebuild.gd": "1b794d15514b27cfbaae68ece6855e00b4121c3bfc9eb1f8e83030964f284baf",
+    "tests/run_rider.gd": "acce46754241e94a9cd3306d74575d297be2ecd604370bcd496c44c7dfcd5b25",
+    "tests/run_track.gd": "f2abe65dbb2f7cdd2b8ddcf7f443b9ce9b75fa52f68f519fe54b9cb72bb83887",
+    "tests/start_probe.gd": "ae4fca9ae1a480a1f522b1adc1ab2babecd51c05cb068e0ef50b93f23f7992e0"
+  },
+  "executable_sha256": {
+    "windows": "74e110b3b750c80e37018830b926397fa196efe97fbb60758c0a024738f7f905",
+    "linux": "4c3cfc11e2ed71f22a05ad98adda9751026eb86c09cfdb2c29cb8bc99eaec174"
+  }
+}

@@ -1,5 +1,5 @@
 extends Node3D
-const Motorcycle = preload("res://src/physics/motorcycle.gd")
+const Motorcycle = preload("res://src/physics/replacement/motorcycle.gd")
 const Track = preload("res://src/world/test_track.gd")
 const Visual = preload("res://src/presentation/bike_visual.gd")
 const SettingsPanel = preload("res://src/ui/controls_panel.gd")
@@ -44,11 +44,11 @@ func _ready() -> void:
  add_child(sun)
  var track := Track.new()
  add_child(track)
- bike = Motorcycle.new()
+ bike = load("res://src/physics/legacy/motorcycle.gd").new() if "--legacy" in OS.get_cmdline_user_args() else Motorcycle.new()
  bike.position = spawn_points[0]
  bike.track = track
  add_child(bike)
- var presentation := Visual.new()
+ var presentation = load("res://src/physics/legacy/bike_visual.gd").new() if "--legacy" in OS.get_cmdline_user_args() else Visual.new()
  bike.add_child(presentation)
  rider_animation = presentation.rider
  controls = Controls.new()
@@ -63,7 +63,7 @@ func _ready() -> void:
  camera.current = true
  make_ui()
  if "--self-test" in OS.get_cmdline_user_args(): add_child(preload("res://src/diagnostics/build_smoke.gd").new())
- print("TERRA_MX_RUNTIME controller=", bike.SIMULATION_VERSION, " physics_hz=", Engine.physics_ticks_per_second, " terrain=physical_heightfield bike=250F")
+ print("TERRA_MX_RUNTIME engine=GodotPhysics3D script=",bike.get_script().resource_path," controller=", bike.SIMULATION_VERSION, " physics_hz=", Engine.physics_ticks_per_second, " terrain=physical_heightfield bike=250F")
 
 func make_ui() -> void:
  var canvas := CanvasLayer.new()
@@ -79,7 +79,7 @@ func make_ui() -> void:
  root.add_child(header)
  var subtitle := Label.new()
  subtitle.position = Vector2(31, 55)
- subtitle.text = "250F   /   PHASE 2   /   240 Hz"
+ subtitle.text = "250F   /   REBUILD PROTOTYPE   /   240 Hz"
  subtitle.modulate = Color(1, 0.65, 0.3)
  root.add_child(subtitle)
  hud = Label.new()
@@ -96,7 +96,7 @@ func make_ui() -> void:
  var help := Label.new()
  help.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
  help.position = Vector2(-560, -100)
- help.text = "250F  /  PHASE 2
+ help.text = "250F  /  REBUILD PROTOTYPE
 Controls: open Settings → Controls
 Escape: menu recovery   •   All bindings save automatically"
  root.add_child(help)
@@ -167,7 +167,7 @@ func _process(dt: float) -> void:
  if debug_visible:
   var f = bike.wheels[0]
   var r = bike.wheels[1]
-  diagnostics.text = "ACTIVE: %s   |   tick %d   Δt %.5f s
+  diagnostics.text = "Godot Physics • ACTIVE: %s   |   tick %d   Δt %.5f s
 Lean %+5.1f°   steer %+5.1f°   assist %s   feet %s
 Angular rate xyz: %+.2f / %+.2f / %+.2f rad/s
              FRONT          REAR
@@ -183,3 +183,6 @@ Crank %.0f RPM   clutch %.1f Nm   air %.2f s
 Last crash: %s" % [bike.SIMULATION_VERSION, bike.simulation_ticks, bike.last_dt, rad_to_deg(bike.lean_angle), rad_to_deg(bike.steer_angle), "ON" if bike.steering_assist else "OFF", "ON" if bike.foot_support else "OFF", bike.angular_velocity.x, bike.angular_velocity.y, bike.angular_velocity.z, f.load, r.load, f.compression * 1000, r.compression * 1000, f.slip, r.slip, rad_to_deg(f.slip_angle), rad_to_deg(r.slip_angle), str(f.grounded), str(r.grounded), f.surface, r.surface, bike.force_total.x, bike.force_total.y, bike.force_total.z, bike.steering_torque, bike.support_torque, rpm, bike.engine.clutch_torque, bike.airborne_time, bike.last_crash]
 
   diagnostics.text += "\nTarget lean %+.1f°   patch samples %d / %d\nGrip use %.0f / %.0f%%   saved input profile v2" % [rad_to_deg(bike.virtual_rider.lean_request), f.contact_samples, r.contact_samples, f.utilization * 100, r.utilization * 100]
+
+  if bike.SIMULATION_VERSION == "ReducedCoordinateMotorcycle/v3":
+   diagnostics.text += "\nSprung 165 + unsprung 7 / 9 kg   wheel steps 960 Hz\nAxle velocity %+.2f / %+.2f m/s   requested front Fy %+.0f N" % [bike.stations[0].velocity,bike.stations[1].velocity,bike.virtual_rider.desired_front_force]

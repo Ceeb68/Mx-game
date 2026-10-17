@@ -113,4 +113,6 @@ func update_pose(dt: float) -> void:
   limb_error = maxf(limb_error, absf(knee.distance_to(ankle) - leg.y))
 
 func grip_target(side: float) -> Vector3:
- return Vector3(0, 0.48, -0.55) + Vector3(side * 0.35, 0, 0).rotated(Vector3.UP, -bike.steer_angle)
+ if bike.SIMULATION_VERSION == "MotorcycleSimulation/v2":
+  return Vector3(0, 0.48, -0.55) + Vector3(side * 0.35, 0, 0).rotated(Vector3.UP, -bike.steer_angle)
+ return preload("res://src/physics/replacement/geometry.gd").grip(side, bike.steer_angle)

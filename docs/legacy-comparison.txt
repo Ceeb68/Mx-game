@@ -1,0 +1,31 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+RIDER_RUNTIME original_skinned_gltf bones=17 arm_lengths=(0.332867, 0.274089) leg_lengths=(0.440256, 0.42)
+TERRA_MX_RUNTIME engine=GodotPhysics3D script=res://src/physics/legacy/motorcycle.gd controller=MotorcycleSimulation/v2 physics_hz=240 terrain=physical_heightfield bike=250F
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":0.0,"final_speed":10.4070930480957,"heading_x":0.0,"lateral_travel_m":0.0,"peak_front_slip_deg":0.0,"peak_lean_deg":0.0,"peak_roll_rad_s":0.0,"scenario":"straight"}
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":0.00112959990736878,"final_speed":10.4061117172241,"heading_x":0.0421223156154156,"lateral_travel_m":0.0811845258440797,"peak_front_slip_deg":0.688821179683579,"peak_lean_deg":3.12409295636768,"peak_roll_rad_s":0.140205606818199,"scenario":"small_correction"}
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":20.5152276917161,"final_speed":10.2585468292236,"heading_x":0.850660800933838,"lateral_travel_m":0.305366514760905,"peak_front_slip_deg":1.81325319492484,"peak_lean_deg":20.5152276917161,"peak_roll_rad_s":0.594469010829926,"scenario":"held_corner"}
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":-18.036108185541,"final_speed":10.300971031189,"heading_x":0.13453620672226,"lateral_travel_m":0.664350498605424,"peak_front_slip_deg":2.07614496141496,"peak_lean_deg":18.036108185541,"peak_roll_rad_s":0.762519836425781,"scenario":"reversal"}
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":12.4320171734506,"final_speed":4.50413131713867,"heading_x":0.924578487873077,"lateral_travel_m":0.682363232631409,"peak_front_slip_deg":2.71431885631665,"peak_lean_deg":12.6128006586406,"peak_roll_rad_s":0.439908415079117,"scenario":"low_speed"}
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":14.618785662774,"final_speed":5.70471620559692,"heading_x":0.763710141181946,"lateral_travel_m":0.25905393251643,"peak_front_slip_deg":1.82939431673395,"peak_lean_deg":15.0969872139178,"peak_roll_rad_s":0.494883835315704,"scenario":"corner_brake"}
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":0.0000567575593256536,"final_speed":10.4252042770386,"heading_x":0.155723601579666,"lateral_travel_m":0.294623201837143,"peak_front_slip_deg":6.74700415255147,"peak_lean_deg":6.71901121820335,"peak_roll_rad_s":1.2536404132843,"scenario":"slide"}
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":39.3760356306189,"final_speed":9.4954948425293,"heading_x":0.889481723308563,"lateral_travel_m":1.03683413156734,"peak_front_slip_deg":5.35374113982148,"peak_lean_deg":39.3760356306189,"peak_roll_rad_s":0.751575529575348,"scenario":"full_input"}
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":4.46811232901071,"final_speed":3.34400343894958,"heading_x":0.143050968647003,"lateral_travel_m":0.14172574896342,"peak_front_slip_deg":2.12115352813726,"peak_lean_deg":4.50706471288576,"peak_roll_rad_s":0.120240621268749,"scenario":"standing_start"}
+HANDLING {"both_detached_ticks":95,"crashed":false,"final_lean_deg":-0.000115982256158165,"final_speed":10.4093456268311,"heading_x":-0.067035049200058,"lateral_travel_m":0.213869261741638,"peak_front_slip_deg":12.4422649213419,"peak_lean_deg":8.04628518282671,"peak_roll_rad_s":1.35546731948853,"scenario":"landing_left"}
+HANDLING {"both_detached_ticks":95,"crashed":false,"final_lean_deg":0.000313704997743014,"final_speed":10.4321231842041,"heading_x":0.134924083948135,"lateral_travel_m":0.588712938254078,"peak_front_slip_deg":6.82693239490328,"peak_lean_deg":9.34086358398695,"peak_roll_rad_s":0.543790757656097,"scenario":"landing_right"}
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":22.0229218534238,"final_speed":14.6928443908691,"heading_x":0.655089974403381,"lateral_travel_m":0.754899215193887,"peak_front_slip_deg":1.87447343230154,"peak_lean_deg":22.0229218534238,"peak_roll_rad_s":0.643172681331635,"scenario":"fast_corner"}
+HANDLING {"both_detached_ticks":0,"crashed":false,"final_lean_deg":-18.9948317555144,"final_speed":14.7592973709106,"heading_x":0.0665457993745804,"lateral_travel_m":0.801915103189449,"peak_front_slip_deg":1.90565608853291,"peak_lean_deg":19.3601166514878,"peak_roll_rad_s":0.780174136161804,"scenario":"fast_reversal"}
+PASS handling/straight
+PASS handling/small_correction
+PASS handling/held_corner
+PASS handling/reversal
+PASS handling/low_speed
+PASS handling/corner_brake
+PASS handling/slide
+PASS handling/full_input
+PASS handling/standing_start
+PASS handling/landing_left
+PASS handling/landing_right
+PASS handling/fast_corner
+PASS handling/fast_reversal
+HANDLING_RESULT checks=13 failures=0

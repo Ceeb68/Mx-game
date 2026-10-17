@@ -38,7 +38,7 @@ func run() -> void:
  await ticks(720)
  verify(bike.wheels[0].grounded and bike.wheels[1].grounded and not bike.crashed, "settles upright on two suspension contacts", bike.telemetry())
  var load: float = bike.wheels[0].load + bike.wheels[1].load
- verify(absf(load - bike.mass * 9.81) < bike.mass * 9.81 * 0.12, "static tire loads support total mass", load)
+ verify(absf(load - bike.config.mass_kg * 9.81) < bike.config.mass_kg * 9.81 * 0.12, "static tire loads support total mass", load)
  verify(bike.linear_velocity.length() < 0.1, "idle does not propel motorcycle", bike.linear_velocity.length())
  bike.command.throttle = 1.0
  var maximum_speed: float = 0
@@ -51,6 +51,11 @@ func run() -> void:
   maximum_gear = maxi(maximum_gear, bike.engine.gear)
  verify(maximum_speed > 8 and not bike.crashed, "engine torque accelerates the live chassis", {"speed": maximum_speed, "telemetry": bike.telemetry()})
  verify(maximum_rpm > 4500 and maximum_gear > 1, "engine revs and automatic gearbox shifts", {"rpm": maximum_rpm, "gear": maximum_gear})
+ # Independent flat-ground brake scenario: acceleration speed no longer depends on world damping.
+ await reset(Vector3(-24,0.78,25),Vector3(0,0,-12))
+ for wheel in bike.wheels: wheel.omega=12/wheel.radius
+ bike.command.clutch=1
+ await ticks(60)
  var before_braking: float = bike.linear_velocity.length()
  var front_peak: float = 0
  var rear_min: float = 99999
@@ -62,7 +67,7 @@ func run() -> void:
   front_peak = maxf(front_peak, bike.wheels[0].load)
   rear_min = minf(rear_min, bike.wheels[1].load)
  verify(bike.linear_velocity.length() < before_braking * 0.7, "independent brakes slow chassis", {"before": before_braking, "after": bike.linear_velocity.length()})
- verify(front_peak > bike.mass * 9.81 * 0.55 and rear_min < bike.mass * 9.81 * 0.45, "braking transfers load to front", {"front_peak": front_peak, "rear_min": rear_min})
+ verify(front_peak > bike.config.mass_kg * 9.81 * 0.55 and rear_min < bike.config.mass_kg * 9.81 * 0.45, "braking transfers load to front", {"front_peak": front_peak, "rear_min": rear_min})
  await reset(Vector3(-24, 0.78, 25), Vector3(0, 0, -9))
  for wheel in bike.wheels: wheel.omega = 9 / wheel.radius
  bike.command.clutch = 1.0
@@ -107,7 +112,7 @@ func run() -> void:
  bike.engine.shift(-1)
  verify(bike.engine.shift_cooldown == 0, "first-gear downshift does not interrupt torque")
  # Test the exact production tire law under combined loading / unloading.
- var tire = load("res://src/physics/tire.gd").new(0.335, 0.85)
+ var tire = load("res://src/physics/replacement/contact_tire.gd").new(0.335, 0.85)
  tire.load = 800
  tire.omega = 80
  var force: Vector2

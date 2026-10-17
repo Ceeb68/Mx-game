@@ -1,0 +1,12 @@
+extends SceneTree
+func _initialize() -> void: call_deferred("run")
+func run() -> void:
+ var body=RigidBody3D.new()
+ var shape=CollisionShape3D.new()
+ shape.shape=SphereShape3D.new()
+ body.add_child(shape)
+ root.add_child(body)
+ for i in range(60): await physics_frame
+ var ok: bool=body.linear_velocity.y< -2
+ print("JOLT_AVAILABILITY backend=",ProjectSettings.get_setting("physics/3d/physics_engine")," falling_velocity=",body.linear_velocity," passed=",ok)
+ quit(0 if ok else 1)

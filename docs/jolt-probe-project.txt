@@ -1,0 +1,6 @@
+config_version=5
+[application]
+config/name="MX backend availability probe"
+[physics]
+3d/physics_engine="Jolt Physics"
+common/physics_ticks_per_second=240
