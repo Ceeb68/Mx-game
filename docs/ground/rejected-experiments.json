@@ -1,0 +1,3516 @@
+[
+  {
+    "experiment": "grid",
+    "description": "0.5 m physical triangles only",
+    "retained": false,
+    "results": [
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          0,
+          1,
+          1399
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0361673880570962,
+        "final_position": [
+          -19.902982711792,
+          0.743924200534821,
+          3.62492704391479
+        ],
+        "final_speed_m_s": 1.88736844062805,
+        "peak_load_n": 2663.09651586426,
+        "peak_roll_deg": 4.47832233707188,
+        "peak_roll_rate_rad_s": 0.0937186628580093,
+        "scenario": "slow_figure_eight"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          0,
+          1,
+          1399
+        ],
+        "crashed": false,
+        "final_lean_deg": -0.0901713980559695,
+        "final_position": [
+          100.428260803223,
+          0.970014750957489,
+          -81.8538665771484
+        ],
+        "final_speed_m_s": 1.82643866539001,
+        "peak_load_n": 2687.34996283998,
+        "peak_roll_deg": 4.12278146362043,
+        "peak_roll_rate_rad_s": 0.116396345198154,
+        "scenario": "berm_entry"
+      },
+      {
+        "berm_radius_error_m": 3.87362289428711,
+        "contact_ticks": [
+          37,
+          2,
+          0,
+          1401
+        ],
+        "crashed": false,
+        "final_lean_deg": -4.47802336358702,
+        "final_position": [
+          96.7707748413086,
+          0.82502019405365,
+          -84.5831146240234
+        ],
+        "final_speed_m_s": 4.16076803207397,
+        "peak_load_n": 2567.82965370593,
+        "peak_roll_deg": 4.63604839992882,
+        "peak_roll_rate_rad_s": 0.368164390325546,
+        "scenario": "berm_hold"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          0,
+          39,
+          0,
+          681
+        ],
+        "crashed": false,
+        "final_lean_deg": -5.77339333283132,
+        "final_position": [
+          104.712280273438,
+          0.791000843048096,
+          -64.9928207397461
+        ],
+        "final_speed_m_s": 2.8395471572876,
+        "peak_load_n": 3214.16151347508,
+        "peak_roll_deg": 5.77339333283132,
+        "peak_roll_rate_rad_s": 0.920472741127014,
+        "scenario": "berm_climb"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          5,
+          0,
+          81,
+          634
+        ],
+        "crashed": false,
+        "final_lean_deg": -0.000249852816688827,
+        "final_position": [
+          97.9626159667969,
+          0.743912756443024,
+          -65.0007095336914
+        ],
+        "final_speed_m_s": 3.76040196418762,
+        "peak_load_n": 2604.33437452069,
+        "peak_roll_deg": 0.00631031732465313,
+        "peak_roll_rate_rad_s": 0.00231406162492931,
+        "scenario": "berm_descend"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          37,
+          2,
+          0,
+          1401
+        ],
+        "crashed": false,
+        "final_lean_deg": -5.87023034422093,
+        "final_position": [
+          91.2454833984375,
+          0.766811788082123,
+          -88.0370635986328
+        ],
+        "final_speed_m_s": 7.34324312210083,
+        "peak_load_n": 2567.82965370593,
+        "peak_roll_deg": 5.87110989085573,
+        "peak_roll_rate_rad_s": 0.368164390325546,
+        "scenario": "berm_exit"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          980,
+          127,
+          167,
+          166
+        ],
+        "crashed": true,
+        "final_lean_deg": 177.217143125628,
+        "final_position": [
+          19.6052055358887,
+          0.456432074308395,
+          -67.5275039672852
+        ],
+        "final_speed_m_s": 8.37897605379112e-05,
+        "peak_load_n": 7854.38562665309,
+        "peak_roll_deg": 179.965602640228,
+        "peak_roll_rate_rad_s": 4.20908832550049,
+        "scenario": "bump_correction"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          931,
+          181,
+          145,
+          183
+        ],
+        "crashed": true,
+        "final_lean_deg": 78.9555965029337,
+        "final_position": [
+          19.9327716827393,
+          0.237628951668739,
+          -70.4014739990234
+        ],
+        "final_speed_m_s": 0.337511032819748,
+        "peak_load_n": 6141.54745823988,
+        "peak_roll_deg": 179.969314888866,
+        "peak_roll_rate_rad_s": 10.076473236084,
+        "scenario": "braking_bumps"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          1573,
+          136,
+          66,
+          145
+        ],
+        "crashed": true,
+        "final_lean_deg": -77.1145648763857,
+        "final_position": [
+          39.1877899169922,
+          0.351132780313492,
+          -53.6352577209473
+        ],
+        "final_speed_m_s": 1.46528600453166e-05,
+        "peak_load_n": 20013.6712912815,
+        "peak_roll_deg": 179.875368319419,
+        "peak_roll_rate_rad_s": 6.3674430847168,
+        "scenario": "whoops"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          0,
+          15,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0,
+        "final_position": [
+          -24.0,
+          0.743928194046021,
+          -4.25112867355347
+        ],
+        "final_speed_m_s": 2.92758250236511,
+        "peak_load_n": 4590.34298864237,
+        "peak_roll_deg": 0.0,
+        "peak_roll_rate_rad_s": 0.0,
+        "scenario": "front_unload"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          15,
+          0,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0,
+        "final_position": [
+          -24.0,
+          0.74392831325531,
+          -4.26647090911865
+        ],
+        "final_speed_m_s": 2.94680452346802,
+        "peak_load_n": 4526.7136621946,
+        "peak_roll_deg": 0.0,
+        "peak_roll_rate_rad_s": 0.0,
+        "scenario": "rear_unload"
+      }
+    ]
+  },
+  {
+    "experiment": "speed",
+    "description": "road-tangent balance speed only",
+    "retained": false,
+    "results": [
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          0,
+          1,
+          1399
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.036125921420584,
+        "final_position": [
+          -19.9021644592285,
+          0.743924260139465,
+          3.62533140182495
+        ],
+        "final_speed_m_s": 1.88735461235046,
+        "peak_load_n": 2663.0965584247,
+        "peak_roll_deg": 4.47859163666298,
+        "peak_roll_rate_rad_s": 0.0937282517552376,
+        "scenario": "slow_figure_eight"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          0,
+          2,
+          1398
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.135496717270367,
+        "final_position": [
+          100.043548583984,
+          0.911812365055084,
+          -81.7126235961914
+        ],
+        "final_speed_m_s": 1.9535448551178,
+        "peak_load_n": 2687.34979078212,
+        "peak_roll_deg": 5.82928219473288,
+        "peak_roll_rate_rad_s": 0.212781459093094,
+        "scenario": "berm_entry"
+      },
+      {
+        "berm_radius_error_m": 3.95342826843262,
+        "contact_ticks": [
+          36,
+          3,
+          1,
+          1400
+        ],
+        "crashed": false,
+        "final_lean_deg": -3.67655238884778,
+        "final_position": [
+          96.7149276733398,
+          0.828578948974609,
+          -84.5261001586914
+        ],
+        "final_speed_m_s": 4.02562808990479,
+        "peak_load_n": 2524.77947631031,
+        "peak_roll_deg": 4.6766724489424,
+        "peak_roll_rate_rad_s": 0.392073184251785,
+        "scenario": "berm_hold"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          0,
+          39,
+          0,
+          681
+        ],
+        "crashed": false,
+        "final_lean_deg": 16.1070769149608,
+        "final_position": [
+          104.705940246582,
+          0.757517993450165,
+          -64.6180419921875
+        ],
+        "final_speed_m_s": 2.88564705848694,
+        "peak_load_n": 3227.7037466707,
+        "peak_roll_deg": 16.1070769149608,
+        "peak_roll_rate_rad_s": 0.604997456073761,
+        "scenario": "berm_climb"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          18,
+          3,
+          67,
+          632
+        ],
+        "crashed": false,
+        "final_lean_deg": -0.000177576818978436,
+        "final_position": [
+          98.0013809204102,
+          0.743910431861877,
+          -64.995719909668
+        ],
+        "final_speed_m_s": 3.75277829170227,
+        "peak_load_n": 2549.88954734711,
+        "peak_roll_deg": 0.0203631912130638,
+        "peak_roll_rate_rad_s": 0.00290226354263723,
+        "scenario": "berm_descend"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          36,
+          5,
+          16,
+          1383
+        ],
+        "crashed": false,
+        "final_lean_deg": -5.87471256451985,
+        "final_position": [
+          91.2263717651367,
+          0.785128355026245,
+          -88.0172348022461
+        ],
+        "final_speed_m_s": 7.16680860519409,
+        "peak_load_n": 2524.77947631031,
+        "peak_roll_deg": 6.13689916296149,
+        "peak_roll_rate_rad_s": 0.392073184251785,
+        "scenario": "berm_exit"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          552,
+          371,
+          384,
+          133
+        ],
+        "crashed": false,
+        "final_lean_deg": 74.8831944727361,
+        "final_position": [
+          20.3077259063721,
+          0.507038414478302,
+          -87.6294021606445
+        ],
+        "final_speed_m_s": 10.7198762893677,
+        "peak_load_n": 5133.90935891832,
+        "peak_roll_deg": 74.8831944727361,
+        "peak_roll_rate_rad_s": 3.85873532295227,
+        "scenario": "bump_correction"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          600,
+          358,
+          359,
+          123
+        ],
+        "crashed": true,
+        "final_lean_deg": -56.1148411092384,
+        "final_position": [
+          22.3062496185303,
+          0.631465375423431,
+          -84.7003784179688
+        ],
+        "final_speed_m_s": 5.56608247756958,
+        "peak_load_n": 5239.21700378542,
+        "peak_roll_deg": 179.648784023012,
+        "peak_roll_rate_rad_s": 7.80741500854492,
+        "scenario": "braking_bumps"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          1600,
+          51,
+          91,
+          178
+        ],
+        "crashed": true,
+        "final_lean_deg": 90.668521324809,
+        "final_position": [
+          40.2520866394043,
+          0.595633029937744,
+          -54.469123840332
+        ],
+        "final_speed_m_s": 0.000107583138742484,
+        "peak_load_n": 18258.2609563674,
+        "peak_roll_deg": 92.3749373591438,
+        "peak_roll_rate_rad_s": 6.49640130996704,
+        "scenario": "whoops"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          0,
+          15,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0,
+        "final_position": [
+          -24.0,
+          0.743928134441376,
+          -4.25114107131958
+        ],
+        "final_speed_m_s": 2.92758536338806,
+        "peak_load_n": 4590.33965051151,
+        "peak_roll_deg": 0.0,
+        "peak_roll_rate_rad_s": 0.0,
+        "scenario": "front_unload"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          15,
+          0,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0,
+        "final_position": [
+          -24.0,
+          0.743928194046021,
+          -4.26646327972412
+        ],
+        "final_speed_m_s": 2.94680380821228,
+        "peak_load_n": 4526.71299709707,
+        "peak_roll_deg": 0.0,
+        "peak_roll_rate_rad_s": 0.0,
+        "scenario": "rear_unload"
+      }
+    ]
+  },
+  {
+    "experiment": "arc",
+    "description": "circle-envelope wheel contact sampling",
+    "retained": false,
+    "results": [
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          39,
+          0,
+          1,
+          1400
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0362077287571735,
+        "final_position": [
+          -19.9062786102295,
+          0.748731136322021,
+          3.62074708938599
+        ],
+        "final_speed_m_s": 1.88721776008606,
+        "peak_load_n": 2639.71978650232,
+        "peak_roll_deg": 4.47536831879059,
+        "peak_roll_rate_rad_s": 0.0937702804803848,
+        "scenario": "slow_figure_eight"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          39,
+          0,
+          1,
+          1400
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.143404687426169,
+        "final_position": [
+          101.233009338379,
+          1.0389609336853,
+          -81.1774520874023
+        ],
+        "final_speed_m_s": 1.5763748884201,
+        "peak_load_n": 2663.26295795165,
+        "peak_roll_deg": 4.73949130513326,
+        "peak_roll_rate_rad_s": 0.21850374341011,
+        "scenario": "berm_entry"
+      },
+      {
+        "berm_radius_error_m": 3.92728042602539,
+        "contact_ticks": [
+          36,
+          2,
+          0,
+          1402
+        ],
+        "crashed": false,
+        "final_lean_deg": -3.02620260238614,
+        "final_position": [
+          96.6692352294922,
+          0.83270537853241,
+          -84.6059112548828
+        ],
+        "final_speed_m_s": 4.02192640304565,
+        "peak_load_n": 2520.71502035575,
+        "peak_roll_deg": 4.67511153258702,
+        "peak_roll_rate_rad_s": 0.372698217630386,
+        "scenario": "berm_hold"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          0,
+          38,
+          0,
+          682
+        ],
+        "crashed": false,
+        "final_lean_deg": 15.3620943041644,
+        "final_position": [
+          104.858985900879,
+          0.783294141292572,
+          -64.676139831543
+        ],
+        "final_speed_m_s": 2.79963254928589,
+        "peak_load_n": 3185.56967162012,
+        "peak_roll_deg": 15.3620943041644,
+        "peak_roll_rate_rad_s": 0.606288909912109,
+        "scenario": "berm_climb"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          18,
+          0,
+          66,
+          636
+        ],
+        "crashed": false,
+        "final_lean_deg": -0.000133300269684957,
+        "final_position": [
+          97.9130096435547,
+          0.748720705509186,
+          -64.9957809448242
+        ],
+        "final_speed_m_s": 3.78017592430115,
+        "peak_load_n": 2525.45247598312,
+        "peak_roll_deg": 0.0158059073661701,
+        "peak_roll_rate_rad_s": 0.00264012161642313,
+        "scenario": "berm_descend"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          36,
+          2,
+          0,
+          1402
+        ],
+        "crashed": false,
+        "final_lean_deg": -2.11644076391551,
+        "final_position": [
+          91.294319152832,
+          0.818287193775177,
+          -88.3308334350586
+        ],
+        "final_speed_m_s": 7.14501905441284,
+        "peak_load_n": 2520.71502035575,
+        "peak_roll_deg": 5.83779092176466,
+        "peak_roll_rate_rad_s": 0.372698217630386,
+        "scenario": "berm_exit"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          879,
+          210,
+          231,
+          120
+        ],
+        "crashed": true,
+        "final_lean_deg": -94.6767246469396,
+        "final_position": [
+          21.0157108306885,
+          0.249012038111687,
+          -70.6106185913086
+        ],
+        "final_speed_m_s": 0.00127350189723074,
+        "peak_load_n": 4427.13200749115,
+        "peak_roll_deg": 179.688695225878,
+        "peak_roll_rate_rad_s": 7.5190281867981,
+        "scenario": "bump_correction"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          650,
+          296,
+          358,
+          136
+        ],
+        "crashed": true,
+        "final_lean_deg": -98.2008884645948,
+        "final_position": [
+          17.9199867248535,
+          0.31308901309967,
+          -78.8782730102539
+        ],
+        "final_speed_m_s": 1.22404086589813,
+        "peak_load_n": 4776.82311840519,
+        "peak_roll_deg": 116.406633768963,
+        "peak_roll_rate_rad_s": 5.19108390808105,
+        "scenario": "braking_bumps"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          1640,
+          66,
+          50,
+          164
+        ],
+        "crashed": true,
+        "final_lean_deg": -176.178855266243,
+        "final_position": [
+          37.4166030883789,
+          0.268715441226959,
+          -52.7208251953125
+        ],
+        "final_speed_m_s": 7.34557324904017e-05,
+        "peak_load_n": 26102.0008696695,
+        "peak_roll_deg": 179.987814508753,
+        "peak_roll_rate_rad_s": 5.86084079742432,
+        "scenario": "whoops"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          0,
+          14,
+          1353
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0,
+        "final_position": [
+          -24.0,
+          0.748735249042511,
+          -4.31700611114502
+        ],
+        "final_speed_m_s": 2.93799901008606,
+        "peak_load_n": 4553.95715672732,
+        "peak_roll_deg": 0.0,
+        "peak_roll_rate_rad_s": 0.0,
+        "scenario": "front_unload"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          15,
+          0,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0,
+        "final_position": [
+          -24.0,
+          0.748735249042511,
+          -4.24885177612305
+        ],
+        "final_speed_m_s": 2.94392514228821,
+        "peak_load_n": 4621.01290276707,
+        "peak_roll_deg": 0.0,
+        "peak_roll_rate_rad_s": 0.0,
+        "scenario": "rear_unload"
+      }
+    ]
+  },
+  {
+    "experiment": "current",
+    "description": "current contact moment prediction",
+    "retained": false,
+    "results": [
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          0,
+          1,
+          1399
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0287276365446024,
+        "final_position": [
+          -19.9554023742676,
+          0.743923783302307,
+          3.60192227363586
+        ],
+        "final_speed_m_s": 1.88837277889252,
+        "peak_load_n": 2663.0965584247,
+        "peak_roll_deg": 4.39285212667455,
+        "peak_roll_rate_rad_s": 0.0880668982863426,
+        "scenario": "slow_figure_eight"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          0,
+          2,
+          1398
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.104663256430336,
+        "final_position": [
+          100.376960754395,
+          0.952174186706543,
+          -81.6044082641602
+        ],
+        "final_speed_m_s": 1.83642590045929,
+        "peak_load_n": 2687.3498552215,
+        "peak_roll_deg": 5.01657739601006,
+        "peak_roll_rate_rad_s": 0.172300800681114,
+        "scenario": "berm_entry"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          454,
+          6,
+          11,
+          969
+        ],
+        "crashed": true,
+        "final_lean_deg": 74.0810220203043,
+        "final_position": [
+          109.267913818359,
+          1.37055885791779,
+          -70.5249176025391
+        ],
+        "final_speed_m_s": 0.0399472825229168,
+        "peak_load_n": 4989.19919893115,
+        "peak_roll_deg": 114.265891643177,
+        "peak_roll_rate_rad_s": 5.49674844741821,
+        "scenario": "berm_crawl"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          768,
+          28,
+          11,
+          633
+        ],
+        "crashed": true,
+        "final_lean_deg": 76.0584991118637,
+        "final_position": [
+          108.279113769531,
+          0.950211465358734,
+          -66.6736373901367
+        ],
+        "final_speed_m_s": 2.1859514163225e-05,
+        "peak_load_n": 4381.75528829697,
+        "peak_roll_deg": 100.532375010285,
+        "peak_roll_rate_rad_s": 5.74208641052246,
+        "scenario": "berm_transition"
+      },
+      {
+        "berm_radius_error_m": 3.88276863098145,
+        "contact_ticks": [
+          36,
+          4,
+          1,
+          1399
+        ],
+        "crashed": false,
+        "final_lean_deg": -3.69877303113311,
+        "final_position": [
+          96.7896499633789,
+          0.840745031833649,
+          -84.5523223876953
+        ],
+        "final_speed_m_s": 4.08161497116089,
+        "peak_load_n": 2525.04415889724,
+        "peak_roll_deg": 4.65871700843659,
+        "peak_roll_rate_rad_s": 0.39022833108902,
+        "scenario": "berm_hold"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          0,
+          39,
+          0,
+          681
+        ],
+        "crashed": false,
+        "final_lean_deg": 15.1168866909873,
+        "final_position": [
+          104.698402404785,
+          0.761198937892914,
+          -64.6456756591797
+        ],
+        "final_speed_m_s": 2.87836217880249,
+        "peak_load_n": 3227.70769408284,
+        "peak_roll_deg": 15.1168866909873,
+        "peak_roll_rate_rad_s": 0.614520728588104,
+        "scenario": "berm_climb"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          18,
+          3,
+          67,
+          632
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.000226969747791595,
+        "final_position": [
+          98.0013732910156,
+          0.743910372257233,
+          -64.9958038330078
+        ],
+        "final_speed_m_s": 3.75277996063232,
+        "peak_load_n": 2549.89932053337,
+        "peak_roll_deg": 0.0149168348884713,
+        "peak_roll_rate_rad_s": 0.00292917550541461,
+        "scenario": "berm_descend"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          36,
+          4,
+          15,
+          1385
+        ],
+        "crashed": false,
+        "final_lean_deg": -5.65010963403191,
+        "final_position": [
+          91.3638153076172,
+          0.787085235118866,
+          -87.9991912841797
+        ],
+        "final_speed_m_s": 7.16648817062378,
+        "peak_load_n": 2525.04415889724,
+        "peak_roll_deg": 5.8385906389911,
+        "peak_roll_rate_rad_s": 0.39022833108902,
+        "scenario": "berm_exit"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          852,
+          229,
+          238,
+          121
+        ],
+        "crashed": true,
+        "final_lean_deg": 85.9869288822874,
+        "final_position": [
+          21.2726898193359,
+          0.36340868473053,
+          -71.2256774902344
+        ],
+        "final_speed_m_s": 5.10162753926124e-05,
+        "peak_load_n": 6905.4175438795,
+        "peak_roll_deg": 98.5202535357223,
+        "peak_roll_rate_rad_s": 3.47001147270203,
+        "scenario": "bump_correction"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          629,
+          346,
+          341,
+          124
+        ],
+        "crashed": true,
+        "final_lean_deg": 131.931113329934,
+        "final_position": [
+          16.8532638549805,
+          0.469133108854294,
+          -83.390022277832
+        ],
+        "final_speed_m_s": 3.93418908119202,
+        "peak_load_n": 5544.11347055838,
+        "peak_roll_deg": 179.98414550708,
+        "peak_roll_rate_rad_s": 5.57183456420898,
+        "scenario": "braking_bumps"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          1588,
+          55,
+          85,
+          192
+        ],
+        "crashed": true,
+        "final_lean_deg": 173.870481464073,
+        "final_position": [
+          42.4980697631836,
+          2.09907078742981,
+          -59.6862144470215
+        ],
+        "final_speed_m_s": 0.0420722551643848,
+        "peak_load_n": 18530.8275018746,
+        "peak_roll_deg": 179.998903689493,
+        "peak_roll_rate_rad_s": 3.71680688858032,
+        "scenario": "whoops"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          0,
+          15,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0,
+        "final_position": [
+          -24.0,
+          0.743928134441376,
+          -4.25114107131958
+        ],
+        "final_speed_m_s": 2.92758536338806,
+        "peak_load_n": 4590.33965051151,
+        "peak_roll_deg": 0.0,
+        "peak_roll_rate_rad_s": 0.0,
+        "scenario": "front_unload"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          15,
+          0,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0,
+        "final_position": [
+          -24.0,
+          0.743928194046021,
+          -4.26646327972412
+        ],
+        "final_speed_m_s": 2.94680380821228,
+        "peak_load_n": 4526.71299709707,
+        "peak_roll_deg": 0.0,
+        "peak_roll_rate_rad_s": 0.0,
+        "scenario": "rear_unload"
+      }
+    ]
+  },
+  {
+    "experiment": "signed",
+    "description": "signed rebound reaction",
+    "retained": false,
+    "results": [
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          0,
+          1,
+          1399
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0361689622750986,
+        "final_position": [
+          -19.9029884338379,
+          0.743924200534821,
+          3.62491989135742
+        ],
+        "final_speed_m_s": 1.88737082481384,
+        "peak_load_n": 2663.0965584247,
+        "peak_roll_deg": 4.47832148588077,
+        "peak_roll_rate_rad_s": 0.0937187150120735,
+        "scenario": "slow_figure_eight"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          0,
+          2,
+          1398
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.452749519620492,
+        "final_position": [
+          100.050163269043,
+          0.907741606235504,
+          -81.6827774047852
+        ],
+        "final_speed_m_s": 1.97601902484894,
+        "peak_load_n": 2687.34979078212,
+        "peak_roll_deg": 5.85266749429483,
+        "peak_roll_rate_rad_s": 0.221352010965347,
+        "scenario": "berm_entry"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          464,
+          8,
+          9,
+          959
+        ],
+        "crashed": true,
+        "final_lean_deg": 73.6815090273517,
+        "final_position": [
+          109.296127319336,
+          1.37640178203583,
+          -70.4690856933594
+        ],
+        "final_speed_m_s": 2.70186301349895e-05,
+        "peak_load_n": 4646.62422036736,
+        "peak_roll_deg": 110.048201000504,
+        "peak_roll_rate_rad_s": 5.53050422668457,
+        "scenario": "berm_crawl"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          764,
+          27,
+          8,
+          641
+        ],
+        "crashed": true,
+        "final_lean_deg": 75.9849558051849,
+        "final_position": [
+          108.312042236328,
+          0.959206879138947,
+          -66.6495056152344
+        ],
+        "final_speed_m_s": 8.47678747959435e-05,
+        "peak_load_n": 4334.89679548776,
+        "peak_roll_deg": 102.003387891728,
+        "peak_roll_rate_rad_s": 5.74778890609741,
+        "scenario": "berm_transition"
+      },
+      {
+        "berm_radius_error_m": 3.95342826843262,
+        "contact_ticks": [
+          36,
+          3,
+          1,
+          1400
+        ],
+        "crashed": false,
+        "final_lean_deg": -3.68096949885322,
+        "final_position": [
+          96.7149276733398,
+          0.82857882976532,
+          -84.5261001586914
+        ],
+        "final_speed_m_s": 4.02562475204468,
+        "peak_load_n": 2524.77947631031,
+        "peak_roll_deg": 4.6766724489424,
+        "peak_roll_rate_rad_s": 0.392073184251785,
+        "scenario": "berm_hold"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          0,
+          39,
+          0,
+          681
+        ],
+        "crashed": false,
+        "final_lean_deg": 15.4289605515106,
+        "final_position": [
+          104.703735351562,
+          0.759972751140594,
+          -64.6279754638672
+        ],
+        "final_speed_m_s": 2.87902045249939,
+        "peak_load_n": 3227.70681815602,
+        "peak_roll_deg": 15.4289605515106,
+        "peak_roll_rate_rad_s": 0.605457365512848,
+        "scenario": "berm_climb"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          14,
+          4,
+          72,
+          630
+        ],
+        "crashed": false,
+        "final_lean_deg": -0.00015436593330453,
+        "final_position": [
+          97.9827728271484,
+          0.743909358978271,
+          -64.9963912963867
+        ],
+        "final_speed_m_s": 3.75150060653687,
+        "peak_load_n": 2547.51850359821,
+        "peak_roll_deg": 0.0159967128376723,
+        "peak_roll_rate_rad_s": 0.00306849577464163,
+        "scenario": "berm_descend"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          36,
+          5,
+          15,
+          1384
+        ],
+        "crashed": false,
+        "final_lean_deg": -5.77022210536307,
+        "final_position": [
+          91.2261352539062,
+          0.785293102264404,
+          -88.0172424316406
+        ],
+        "final_speed_m_s": 7.16802930831909,
+        "peak_load_n": 2524.77947631031,
+        "peak_roll_deg": 6.10433137739177,
+        "peak_roll_rate_rad_s": 0.392073184251785,
+        "scenario": "berm_exit"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          422,
+          473,
+          419,
+          126
+        ],
+        "crashed": false,
+        "final_lean_deg": -16.0623932954771,
+        "final_position": [
+          27.0611877441406,
+          0.80408239364624,
+          -87.3675537109375
+        ],
+        "final_speed_m_s": 10.8027191162109,
+        "peak_load_n": 5567.04344552515,
+        "peak_roll_deg": 29.7363486075622,
+        "peak_roll_rate_rad_s": 1.58051800727844,
+        "scenario": "bump_correction"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          613,
+          353,
+          348,
+          126
+        ],
+        "crashed": false,
+        "final_lean_deg": -100.329655018524,
+        "final_position": [
+          18.184497833252,
+          0.323362648487091,
+          -82.9412155151367
+        ],
+        "final_speed_m_s": 2.00701880455017,
+        "peak_load_n": 4506.51792616325,
+        "peak_roll_deg": 115.741385564064,
+        "peak_roll_rate_rad_s": 4.37444162368774,
+        "scenario": "braking_bumps"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          1611,
+          82,
+          49,
+          178
+        ],
+        "crashed": true,
+        "final_lean_deg": 87.5174464780627,
+        "final_position": [
+          41.2096939086914,
+          0.278423190116882,
+          -53.0224418640137
+        ],
+        "final_speed_m_s": 7.69797861721599e-06,
+        "peak_load_n": 12253.3269006522,
+        "peak_roll_deg": 179.991764869098,
+        "peak_roll_rate_rad_s": 4.62064695358276,
+        "scenario": "whoops"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          0,
+          15,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0,
+        "final_position": [
+          -24.0,
+          0.743928134441376,
+          -4.25114107131958
+        ],
+        "final_speed_m_s": 2.92758536338806,
+        "peak_load_n": 4590.33965051151,
+        "peak_roll_deg": 0.0,
+        "peak_roll_rate_rad_s": 0.0,
+        "scenario": "front_unload"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          15,
+          0,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0,
+        "final_position": [
+          -24.0,
+          0.743928194046021,
+          -4.26646327972412
+        ],
+        "final_speed_m_s": 2.94680380821228,
+        "peak_load_n": 4526.71299709707,
+        "peak_roll_deg": 0.0,
+        "peak_roll_rate_rad_s": 0.0,
+        "scenario": "rear_unload"
+      }
+    ]
+  },
+  {
+    "experiment": "impulses-fixed",
+    "description": "suspension stop impulses and substep averaging",
+    "retained": false,
+    "results": [
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          0,
+          1,
+          1399
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0499439229872571,
+        "final_position": [
+          -19.8833026885986,
+          0.743923783302307,
+          3.53479266166687
+        ],
+        "final_speed_m_s": 1.90177178382874,
+        "peak_load_n": 2872.78795462616,
+        "peak_roll_deg": 4.5144580683571,
+        "peak_roll_rate_rad_s": 0.0942428112030029,
+        "scenario": "slow_figure_eight"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          0,
+          2,
+          1398
+        ],
+        "crashed": false,
+        "final_lean_deg": 1.0386828243632,
+        "final_position": [
+          100.160545349121,
+          0.925136387348175,
+          -81.6945877075195
+        ],
+        "final_speed_m_s": 1.93412899971008,
+        "peak_load_n": 2900.31447234212,
+        "peak_roll_deg": 5.54125663205015,
+        "peak_roll_rate_rad_s": 0.220185041427612,
+        "scenario": "berm_entry"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          413,
+          7,
+          5,
+          1015
+        ],
+        "crashed": true,
+        "final_lean_deg": 71.3335255093073,
+        "final_position": [
+          109.318222045898,
+          1.40035223960876,
+          -70.6823577880859
+        ],
+        "final_speed_m_s": 0.125660225749016,
+        "peak_load_n": 4404.51994572065,
+        "peak_roll_deg": 112.826044948716,
+        "peak_roll_rate_rad_s": 5.72471809387207,
+        "scenario": "berm_crawl"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          741,
+          29,
+          5,
+          665
+        ],
+        "crashed": true,
+        "final_lean_deg": 75.4226153193791,
+        "final_position": [
+          108.319747924805,
+          0.958644807338715,
+          -66.4891204833984
+        ],
+        "final_speed_m_s": 6.19109778199345e-05,
+        "peak_load_n": 3541.87407115679,
+        "peak_roll_deg": 83.8440274829898,
+        "peak_roll_rate_rad_s": 4.72231435775757,
+        "scenario": "berm_transition"
+      },
+      {
+        "berm_radius_error_m": 3.85610961914062,
+        "contact_ticks": [
+          36,
+          3,
+          1,
+          1400
+        ],
+        "crashed": false,
+        "final_lean_deg": -4.45856718288652,
+        "final_position": [
+          96.7885360717773,
+          0.842119693756104,
+          -84.5903472900391
+        ],
+        "final_speed_m_s": 4.05256414413452,
+        "peak_load_n": 2722.73867804081,
+        "peak_roll_deg": 4.65064789503583,
+        "peak_roll_rate_rad_s": 0.372489035129547,
+        "scenario": "berm_hold"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          0,
+          39,
+          0,
+          681
+        ],
+        "crashed": false,
+        "final_lean_deg": 15.1476714778657,
+        "final_position": [
+          104.726341247559,
+          0.763389468193054,
+          -64.6324768066406
+        ],
+        "final_speed_m_s": 2.88804125785828,
+        "peak_load_n": 3525.91447321732,
+        "peak_roll_deg": 15.1476714778657,
+        "peak_roll_rate_rad_s": 0.60842490196228,
+        "scenario": "berm_climb"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          23,
+          3,
+          61,
+          633
+        ],
+        "crashed": false,
+        "final_lean_deg": -8.85411223125191e-05,
+        "final_position": [
+          97.9838027954102,
+          0.743911921977997,
+          -64.9956512451172
+        ],
+        "final_speed_m_s": 3.76103663444519,
+        "peak_load_n": 2716.88145685882,
+        "peak_roll_deg": 0.0182896922119745,
+        "peak_roll_rate_rad_s": 0.00296041811816394,
+        "scenario": "berm_descend"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          36,
+          5,
+          15,
+          1384
+        ],
+        "crashed": false,
+        "final_lean_deg": -1.4535578891697,
+        "final_position": [
+          91.3423309326172,
+          0.801850438117981,
+          -88.1834564208984
+        ],
+        "final_speed_m_s": 7.15869522094727,
+        "peak_load_n": 2722.73867804081,
+        "peak_roll_deg": 5.86783476410021,
+        "peak_roll_rate_rad_s": 0.372489035129547,
+        "scenario": "berm_exit"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          794,
+          241,
+          269,
+          136
+        ],
+        "crashed": true,
+        "final_lean_deg": 94.0873896984603,
+        "final_position": [
+          24.2031154632568,
+          0.400736004114151,
+          -80.3810043334961
+        ],
+        "final_speed_m_s": 1.07917237281799,
+        "peak_load_n": 5279.09234771635,
+        "peak_roll_deg": 98.1646140546918,
+        "peak_roll_rate_rad_s": 3.77845573425293,
+        "scenario": "bump_correction"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          708,
+          304,
+          309,
+          119
+        ],
+        "crashed": true,
+        "final_lean_deg": -165.221590975491,
+        "final_position": [
+          16.7430973052979,
+          0.420718669891357,
+          -83.1442642211914
+        ],
+        "final_speed_m_s": 2.67851614952087,
+        "peak_load_n": 5411.65620976179,
+        "peak_roll_deg": 179.880824875229,
+        "peak_roll_rate_rad_s": 6.00160837173462,
+        "scenario": "braking_bumps"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          1605,
+          87,
+          51,
+          177
+        ],
+        "crashed": true,
+        "final_lean_deg": 75.1015790823957,
+        "final_position": [
+          39.8440170288086,
+          0.434132635593414,
+          -58.0897331237793
+        ],
+        "final_speed_m_s": 8.11930149211548e-05,
+        "peak_load_n": 21037.7853501141,
+        "peak_roll_deg": 179.949289805799,
+        "peak_roll_rate_rad_s": 4.88811683654785,
+        "scenario": "whoops"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          0,
+          14,
+          1353
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0,
+        "final_position": [
+          -24.0,
+          0.743928253650665,
+          -4.46787691116333
+        ],
+        "final_speed_m_s": 2.96102285385132,
+        "peak_load_n": 4909.89082024868,
+        "peak_roll_deg": 0.0,
+        "peak_roll_rate_rad_s": 0.0,
+        "scenario": "front_unload"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          15,
+          0,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0,
+        "final_position": [
+          -24.0,
+          0.74392831325531,
+          -4.33575201034546
+        ],
+        "final_speed_m_s": 2.95697045326233,
+        "peak_load_n": 5052.50875361238,
+        "peak_roll_deg": 0.0,
+        "peak_roll_rate_rad_s": 0.0,
+        "scenario": "rear_unload"
+      }
+    ]
+  },
+  {
+    "experiment": "inverse",
+    "description": "unbounded signed-vector force inverse",
+    "retained": false,
+    "results": [
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          0,
+          1,
+          1399
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0362196907831568,
+        "final_position": [
+          -19.9027652740479,
+          0.743924260139465,
+          3.62499690055847
+        ],
+        "final_speed_m_s": 1.88736927509308,
+        "peak_load_n": 2663.0965584247,
+        "peak_roll_deg": 4.47838771985491,
+        "peak_roll_rate_rad_s": 0.0937043428421021,
+        "scenario": "slow_figure_eight"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          0,
+          3,
+          1397
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.182783730188077,
+        "final_position": [
+          100.077285766602,
+          0.913257718086243,
+          -81.6925964355469
+        ],
+        "final_speed_m_s": 1.94865691661835,
+        "peak_load_n": 2687.34978397413,
+        "peak_roll_deg": 5.96070973775162,
+        "peak_roll_rate_rad_s": 0.22479373216629,
+        "scenario": "berm_entry"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          468,
+          7,
+          7,
+          958
+        ],
+        "crashed": true,
+        "final_lean_deg": 73.5069875954529,
+        "final_position": [
+          109.318542480469,
+          1.38114106655121,
+          -70.427360534668
+        ],
+        "final_speed_m_s": 6.13022493780591e-05,
+        "peak_load_n": 4336.987059061,
+        "peak_roll_deg": 110.70315221046,
+        "peak_roll_rate_rad_s": 5.72938394546509,
+        "scenario": "berm_crawl"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          758,
+          25,
+          9,
+          648
+        ],
+        "crashed": true,
+        "final_lean_deg": 77.468178789217,
+        "final_position": [
+          108.318511962891,
+          0.961084425449371,
+          -66.6025848388672
+        ],
+        "final_speed_m_s": 4.60568480775692e-05,
+        "peak_load_n": 4556.8580780741,
+        "peak_roll_deg": 102.174516909487,
+        "peak_roll_rate_rad_s": 5.99696016311646,
+        "scenario": "berm_transition"
+      },
+      {
+        "berm_radius_error_m": 3.93589210510254,
+        "contact_ticks": [
+          36,
+          3,
+          1,
+          1400
+        ],
+        "crashed": false,
+        "final_lean_deg": -4.36804112091618,
+        "final_position": [
+          96.7352752685547,
+          0.831627070903778,
+          -84.5308837890625
+        ],
+        "final_speed_m_s": 4.04263973236084,
+        "peak_load_n": 2524.61273611528,
+        "peak_roll_deg": 4.66741304216145,
+        "peak_roll_rate_rad_s": 0.391837239265442,
+        "scenario": "berm_hold"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          0,
+          39,
+          0,
+          681
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.134351618518484,
+        "final_position": [
+          104.595993041992,
+          0.812796533107758,
+          -65.0029830932617
+        ],
+        "final_speed_m_s": 2.89605593681335,
+        "peak_load_n": 3227.70667976935,
+        "peak_roll_deg": 0.134351618518484,
+        "peak_roll_rate_rad_s": 0.00391935370862484,
+        "scenario": "berm_climb"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          18,
+          3,
+          67,
+          632
+        ],
+        "crashed": false,
+        "final_lean_deg": -1.62542637128701e-05,
+        "final_position": [
+          98.0013809204102,
+          0.743910491466522,
+          -64.9957504272461
+        ],
+        "final_speed_m_s": 3.75277948379517,
+        "peak_load_n": 2549.87784900746,
+        "peak_roll_deg": 0.019371865641308,
+        "peak_roll_rate_rad_s": 0.00291691068559885,
+        "scenario": "berm_descend"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          36,
+          4,
+          15,
+          1385
+        ],
+        "crashed": false,
+        "final_lean_deg": -6.81647491137685,
+        "final_position": [
+          91.2238998413086,
+          0.780050158500671,
+          -87.9622802734375
+        ],
+        "final_speed_m_s": 7.17947673797607,
+        "peak_load_n": 2524.61273611528,
+        "peak_roll_deg": 6.87312846377014,
+        "peak_roll_rate_rad_s": 0.391837239265442,
+        "scenario": "berm_exit"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          666,
+          305,
+          335,
+          134
+        ],
+        "crashed": true,
+        "final_lean_deg": 91.7312566954853,
+        "final_position": [
+          19.6140193939209,
+          0.409458041191101,
+          -83.4423370361328
+        ],
+        "final_speed_m_s": 1.46263706684113,
+        "peak_load_n": 5199.47955428883,
+        "peak_roll_deg": 96.9182579761593,
+        "peak_roll_rate_rad_s": 3.32148694992065,
+        "scenario": "bump_correction"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          496,
+          410,
+          411,
+          123
+        ],
+        "crashed": false,
+        "final_lean_deg": 7.95490336032804,
+        "final_position": [
+          22.0398769378662,
+          0.9232417345047,
+          -86.572868347168
+        ],
+        "final_speed_m_s": 10.2747344970703,
+        "peak_load_n": 4854.83873583065,
+        "peak_roll_deg": 24.7930583454975,
+        "peak_roll_rate_rad_s": 1.12161457538605,
+        "scenario": "braking_bumps"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          1606,
+          52,
+          84,
+          178
+        ],
+        "crashed": true,
+        "final_lean_deg": 89.8506612750344,
+        "final_position": [
+          40.2929840087891,
+          0.721781849861145,
+          -54.8675689697266
+        ],
+        "final_speed_m_s": 6.48398636258207e-05,
+        "peak_load_n": 14462.4607489074,
+        "peak_roll_deg": 90.8745766426978,
+        "peak_roll_rate_rad_s": 6.73632621765137,
+        "scenario": "whoops"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          0,
+          15,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.00025376006895044,
+        "final_position": [
+          -24.0,
+          0.743928194046021,
+          -4.25112962722778
+        ],
+        "final_speed_m_s": 2.92758393287659,
+        "peak_load_n": 4590.33965051155,
+        "peak_roll_deg": 0.00129247160493611,
+        "peak_roll_rate_rad_s": 7.04955382389016e-05,
+        "scenario": "front_unload"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          15,
+          0,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": -0.000231964196965806,
+        "final_position": [
+          -24.0,
+          0.743928194046021,
+          -4.26646661758423
+        ],
+        "final_speed_m_s": 2.94680643081665,
+        "peak_load_n": 4526.71299709683,
+        "peak_roll_deg": 0.00128999169984045,
+        "peak_roll_rate_rad_s": 7.32784465071745e-05,
+        "scenario": "rear_unload"
+      }
+    ]
+  },
+  {
+    "experiment": "gyro",
+    "description": "front precession into steering DOF",
+    "retained": false,
+    "results": [
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          0,
+          1,
+          1399
+        ],
+        "crashed": false,
+        "final_lean_deg": -0.0883471195783087,
+        "final_position": [
+          -19.0384635925293,
+          0.74390697479248,
+          4.12983465194702
+        ],
+        "final_speed_m_s": 1.88004183769226,
+        "peak_load_n": 2663.0965584247,
+        "peak_roll_deg": 4.78340456356088,
+        "peak_roll_rate_rad_s": 0.0940283015370369,
+        "scenario": "slow_figure_eight"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          0,
+          2,
+          1398
+        ],
+        "crashed": false,
+        "final_lean_deg": -1.6569984189213,
+        "final_position": [
+          98.0888214111328,
+          0.741797804832458,
+          -81.0774765014648
+        ],
+        "final_speed_m_s": 2.62099885940552,
+        "peak_load_n": 2687.34978634576,
+        "peak_roll_deg": 6.98593258991683,
+        "peak_roll_rate_rad_s": 0.176922589540482,
+        "scenario": "berm_entry"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          479,
+          10,
+          10,
+          941
+        ],
+        "crashed": true,
+        "final_lean_deg": 73.5079653251406,
+        "final_position": [
+          109.380165100098,
+          1.39838171005249,
+          -70.40478515625
+        ],
+        "final_speed_m_s": 1.04787104646675e-05,
+        "peak_load_n": 4637.5397240109,
+        "peak_roll_deg": 107.157326177366,
+        "peak_roll_rate_rad_s": 5.52228212356567,
+        "scenario": "berm_crawl"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          771,
+          28,
+          7,
+          634
+        ],
+        "crashed": true,
+        "final_lean_deg": 75.6864277723297,
+        "final_position": [
+          108.374382019043,
+          0.978545486927032,
+          -66.6879730224609
+        ],
+        "final_speed_m_s": 6.62298771203496e-05,
+        "peak_load_n": 3265.41466050876,
+        "peak_roll_deg": 97.022927855373,
+        "peak_roll_rate_rad_s": 5.83955001831055,
+        "scenario": "berm_transition"
+      },
+      {
+        "berm_radius_error_m": 8.21702194213867,
+        "contact_ticks": [
+          36,
+          6,
+          6,
+          1392
+        ],
+        "crashed": false,
+        "final_lean_deg": -5.23818105759331,
+        "final_position": [
+          93.8254776000977,
+          0.739933609962463,
+          -81.3895797729492
+        ],
+        "final_speed_m_s": 3.85922861099243,
+        "peak_load_n": 2524.43018535448,
+        "peak_roll_deg": 7.60824004552472,
+        "peak_roll_rate_rad_s": 0.391310393810272,
+        "scenario": "berm_hold"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          0,
+          39,
+          0,
+          681
+        ],
+        "crashed": false,
+        "final_lean_deg": 14.3580565547628,
+        "final_position": [
+          104.69246673584,
+          0.766027808189392,
+          -64.6480102539062
+        ],
+        "final_speed_m_s": 2.8786416053772,
+        "peak_load_n": 3227.70125280235,
+        "peak_roll_deg": 14.3580565547628,
+        "peak_roll_rate_rad_s": 0.596235752105713,
+        "scenario": "berm_climb"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          18,
+          3,
+          67,
+          632
+        ],
+        "crashed": false,
+        "final_lean_deg": -0.00108983958887021,
+        "final_position": [
+          98.0013809204102,
+          0.743910253047943,
+          -64.9957427978516
+        ],
+        "final_speed_m_s": 3.75277948379517,
+        "peak_load_n": 2549.87657044273,
+        "peak_roll_deg": 0.0154518486030969,
+        "peak_roll_rate_rad_s": 0.00291545153595507,
+        "scenario": "berm_descend"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          36,
+          3,
+          6,
+          1395
+        ],
+        "crashed": false,
+        "final_lean_deg": -11.6148342644139,
+        "final_position": [
+          87.3665390014648,
+          0.728600144386292,
+          -81.5529556274414
+        ],
+        "final_speed_m_s": 7.46212291717529,
+        "peak_load_n": 2524.43018535448,
+        "peak_roll_deg": 12.355879231931,
+        "peak_roll_rate_rad_s": 0.391310393810272,
+        "scenario": "berm_exit"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          493,
+          409,
+          408,
+          130
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.591268286333761,
+        "final_position": [
+          23.8680400848389,
+          0.764087378978729,
+          -88.2989883422852
+        ],
+        "final_speed_m_s": 10.966103553772,
+        "peak_load_n": 4697.78050350119,
+        "peak_roll_deg": 1.69205797849383,
+        "peak_roll_rate_rad_s": 0.176395520567894,
+        "scenario": "bump_correction"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          472,
+          432,
+          411,
+          125
+        ],
+        "crashed": false,
+        "final_lean_deg": 1.37044285401354,
+        "final_position": [
+          23.8221397399902,
+          0.91387665271759,
+          -87.0802841186523
+        ],
+        "final_speed_m_s": 10.3951072692871,
+        "peak_load_n": 4824.26862838347,
+        "peak_roll_deg": 1.58473133420403,
+        "peak_roll_rate_rad_s": 0.112049467861652,
+        "scenario": "braking_bumps"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          1605,
+          70,
+          67,
+          178
+        ],
+        "crashed": true,
+        "final_lean_deg": 174.319610890747,
+        "final_position": [
+          39.9291801452637,
+          0.626926839351654,
+          -57.4991302490234
+        ],
+        "final_speed_m_s": 4.26384249294642e-05,
+        "peak_load_n": 16725.2467641596,
+        "peak_roll_deg": 179.980965607278,
+        "peak_roll_rate_rad_s": 4.75200223922729,
+        "scenario": "whoops"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          0,
+          15,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0,
+        "final_position": [
+          -24.0,
+          0.743928134441376,
+          -4.25114107131958
+        ],
+        "final_speed_m_s": 2.92758536338806,
+        "peak_load_n": 4590.33965051151,
+        "peak_roll_deg": 0.0,
+        "peak_roll_rate_rad_s": 0.0,
+        "scenario": "front_unload"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          15,
+          0,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0,
+        "final_position": [
+          -24.0,
+          0.743928194046021,
+          -4.26646327972412
+        ],
+        "final_speed_m_s": 2.94680380821228,
+        "peak_load_n": 4526.71299709707,
+        "peak_roll_deg": 0.0,
+        "peak_roll_rate_rad_s": 0.0,
+        "scenario": "rear_unload"
+      }
+    ]
+  },
+  {
+    "experiment": "gyro-plane",
+    "description": "steering precession plus wheel/road plane frame",
+    "retained": false,
+    "results": [
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          0,
+          1,
+          1399
+        ],
+        "crashed": false,
+        "final_lean_deg": -0.0858030340105635,
+        "final_position": [
+          -19.0146903991699,
+          0.74390721321106,
+          4.14501905441284
+        ],
+        "final_speed_m_s": 1.87975788116455,
+        "peak_load_n": 2663.0965584247,
+        "peak_roll_deg": 4.80207468128068,
+        "peak_roll_rate_rad_s": 0.0945344269275665,
+        "scenario": "slow_figure_eight"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          0,
+          3,
+          1397
+        ],
+        "crashed": false,
+        "final_lean_deg": -1.20262060476212,
+        "final_position": [
+          98.4511260986328,
+          0.763191759586334,
+          -81.3395233154297
+        ],
+        "final_speed_m_s": 2.57539367675781,
+        "peak_load_n": 2687.34979885149,
+        "peak_roll_deg": 6.41403392618397,
+        "peak_roll_rate_rad_s": 0.136841341853142,
+        "scenario": "berm_entry"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          430,
+          6,
+          9,
+          995
+        ],
+        "crashed": true,
+        "final_lean_deg": 73.7745243011672,
+        "final_position": [
+          109.394790649414,
+          1.40114068984985,
+          -70.375129699707
+        ],
+        "final_speed_m_s": 0.0697761401534081,
+        "peak_load_n": 4483.50194277353,
+        "peak_roll_deg": 100.344470011016,
+        "peak_roll_rate_rad_s": 5.5628023147583,
+        "scenario": "berm_crawl"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          715,
+          30,
+          9,
+          686
+        ],
+        "crashed": true,
+        "final_lean_deg": 75.9628570320669,
+        "final_position": [
+          108.127113342285,
+          0.905260384082794,
+          -66.4838485717773
+        ],
+        "final_speed_m_s": 4.6618159103673e-05,
+        "peak_load_n": 4267.15474360886,
+        "peak_roll_deg": 99.5292335044381,
+        "peak_roll_rate_rad_s": 6.07631397247314,
+        "scenario": "berm_transition"
+      },
+      {
+        "berm_radius_error_m": 8.46199417114258,
+        "contact_ticks": [
+          36,
+          7,
+          5,
+          1392
+        ],
+        "crashed": false,
+        "final_lean_deg": -6.56881577683109,
+        "final_position": [
+          93.8598098754883,
+          0.737693190574646,
+          -81.0133743286133
+        ],
+        "final_speed_m_s": 3.84682703018188,
+        "peak_load_n": 2522.3750317276,
+        "peak_roll_deg": 8.20791659339807,
+        "peak_roll_rate_rad_s": 0.374466806650162,
+        "scenario": "berm_hold"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          0,
+          39,
+          0,
+          681
+        ],
+        "crashed": false,
+        "final_lean_deg": 15.0678733547626,
+        "final_position": [
+          104.71231842041,
+          0.758352696895599,
+          -64.6577911376953
+        ],
+        "final_speed_m_s": 2.83148550987244,
+        "peak_load_n": 3227.70347994977,
+        "peak_roll_deg": 15.0678733547626,
+        "peak_roll_rate_rad_s": 0.646050214767456,
+        "scenario": "berm_climb"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          18,
+          3,
+          67,
+          632
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.000327814184242941,
+        "final_position": [
+          98.0013885498047,
+          0.743910372257233,
+          -64.9865798950195
+        ],
+        "final_speed_m_s": 3.75278067588806,
+        "peak_load_n": 2550.08360081402,
+        "peak_roll_deg": 0.0358081924817454,
+        "peak_roll_rate_rad_s": 0.00302441185340285,
+        "scenario": "berm_descend"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          36,
+          4,
+          8,
+          1392
+        ],
+        "crashed": false,
+        "final_lean_deg": -11.2493813210754,
+        "final_position": [
+          87.5192031860352,
+          0.729588449001312,
+          -82.0936889648438
+        ],
+        "final_speed_m_s": 7.45775127410889,
+        "peak_load_n": 2522.3750317276,
+        "peak_roll_deg": 11.3820095833297,
+        "peak_roll_rate_rad_s": 0.374466806650162,
+        "scenario": "berm_exit"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          487,
+          412,
+          408,
+          133
+        ],
+        "crashed": false,
+        "final_lean_deg": -1.27107169633517,
+        "final_position": [
+          24.777042388916,
+          0.763107895851135,
+          -88.2023010253906
+        ],
+        "final_speed_m_s": 10.946403503418,
+        "peak_load_n": 4665.95320057974,
+        "peak_roll_deg": 4.66525551681251,
+        "peak_roll_rate_rad_s": 0.697755634784698,
+        "scenario": "bump_correction"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          465,
+          437,
+          414,
+          124
+        ],
+        "crashed": false,
+        "final_lean_deg": -0.390307622353945,
+        "final_position": [
+          24.990083694458,
+          0.91776442527771,
+          -86.9753723144531
+        ],
+        "final_speed_m_s": 10.4168567657471,
+        "peak_load_n": 4736.79127822789,
+        "peak_roll_deg": 4.65226511116414,
+        "peak_roll_rate_rad_s": 0.349794059991837,
+        "scenario": "braking_bumps"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          1576,
+          75,
+          78,
+          191
+        ],
+        "crashed": true,
+        "final_lean_deg": 105.741358808298,
+        "final_position": [
+          42.1453590393066,
+          2.04961538314819,
+          -59.9073295593262
+        ],
+        "final_speed_m_s": 6.10737770330161e-05,
+        "peak_load_n": 16005.7004409698,
+        "peak_roll_deg": 111.28893036939,
+        "peak_roll_rate_rad_s": 3.48353362083435,
+        "scenario": "whoops"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          0,
+          15,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0,
+        "final_position": [
+          -24.0,
+          0.743928134441376,
+          -4.25114107131958
+        ],
+        "final_speed_m_s": 2.92758536338806,
+        "peak_load_n": 4590.33965051151,
+        "peak_roll_deg": 0.0,
+        "peak_roll_rate_rad_s": 0.0,
+        "scenario": "front_unload"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          15,
+          0,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0,
+        "final_position": [
+          -24.0,
+          0.743928194046021,
+          -4.26646327972412
+        ],
+        "final_speed_m_s": 2.94680380821228,
+        "peak_load_n": 4526.71299709707,
+        "peak_roll_deg": 0.0,
+        "peak_roll_rate_rad_s": 0.0,
+        "scenario": "rear_unload"
+      }
+    ]
+  },
+  {
+    "experiment": "gravity-frame",
+    "description": "consistent gravity lean acceleration mapping",
+    "retained": false,
+    "results": [
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          0,
+          1,
+          1399
+        ],
+        "crashed": false,
+        "final_lean_deg": -1.39192998285149,
+        "final_position": [
+          -19.0475845336914,
+          0.743350505828857,
+          4.14324522018433
+        ],
+        "final_speed_m_s": 1.87571811676025,
+        "peak_load_n": 2663.0965584247,
+        "peak_roll_deg": 4.73742357331106,
+        "peak_roll_rate_rad_s": 0.0847004503011703,
+        "scenario": "slow_figure_eight"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          0,
+          2,
+          1398
+        ],
+        "crashed": false,
+        "final_lean_deg": -3.26897538969437,
+        "final_position": [
+          98.0237808227539,
+          0.737108528614044,
+          -80.8436813354492
+        ],
+        "final_speed_m_s": 2.63266801834106,
+        "peak_load_n": 2687.34979885149,
+        "peak_roll_deg": 6.42688934199143,
+        "peak_roll_rate_rad_s": 0.098884180188179,
+        "scenario": "berm_entry"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          729,
+          5,
+          9,
+          697
+        ],
+        "crashed": true,
+        "final_lean_deg": 75.6228364837905,
+        "final_position": [
+          109.683349609375,
+          1.44794929027557,
+          -69.7022857666016
+        ],
+        "final_speed_m_s": 4.24745594500564e-05,
+        "peak_load_n": 5391.66799410786,
+        "peak_roll_deg": 98.3902041308448,
+        "peak_roll_rate_rad_s": 5.58718347549438,
+        "scenario": "berm_crawl"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          878,
+          27,
+          5,
+          530
+        ],
+        "crashed": true,
+        "final_lean_deg": 75.9907105105652,
+        "final_position": [
+          108.663803100586,
+          1.07251703739166,
+          -67.1305999755859
+        ],
+        "final_speed_m_s": 5.17207954544574e-05,
+        "peak_load_n": 3259.97189095403,
+        "peak_roll_deg": 97.8648370099691,
+        "peak_roll_rate_rad_s": 5.50563526153564,
+        "scenario": "berm_transition"
+      },
+      {
+        "berm_radius_error_m": 8.74542427062988,
+        "contact_ticks": [
+          36,
+          4,
+          3,
+          1397
+        ],
+        "crashed": false,
+        "final_lean_deg": -5.72385791882185,
+        "final_position": [
+          93.8229446411133,
+          0.739185273647308,
+          -80.649299621582
+        ],
+        "final_speed_m_s": 3.85238838195801,
+        "peak_load_n": 2522.3836977275,
+        "peak_roll_deg": 8.21769347628404,
+        "peak_roll_rate_rad_s": 0.374455392360687,
+        "scenario": "berm_hold"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          0,
+          39,
+          0,
+          681
+        ],
+        "crashed": false,
+        "final_lean_deg": 14.6125222392335,
+        "final_position": [
+          104.667724609375,
+          0.764656126499176,
+          -64.8021392822266
+        ],
+        "final_speed_m_s": 2.83996200561523,
+        "peak_load_n": 3227.70258189838,
+        "peak_roll_deg": 14.6125222392335,
+        "peak_roll_rate_rad_s": 0.756610929965973,
+        "scenario": "berm_climb"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          18,
+          3,
+          67,
+          632
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.000862163402448324,
+        "final_position": [
+          98.0013885498047,
+          0.743910431861877,
+          -64.9848022460938
+        ],
+        "final_speed_m_s": 3.75277948379517,
+        "peak_load_n": 2550.08577204087,
+        "peak_roll_deg": 0.0380789556240215,
+        "peak_roll_rate_rad_s": 0.00294646387919784,
+        "scenario": "berm_descend"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          36,
+          3,
+          7,
+          1394
+        ],
+        "crashed": false,
+        "final_lean_deg": -10.2206430196981,
+        "final_position": [
+          87.4794464111328,
+          0.732073128223419,
+          -81.8999252319336
+        ],
+        "final_speed_m_s": 7.46264266967773,
+        "peak_load_n": 2522.3836977275,
+        "peak_roll_deg": 10.5359835635459,
+        "peak_roll_rate_rad_s": 0.374455392360687,
+        "scenario": "berm_exit"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          484,
+          413,
+          410,
+          133
+        ],
+        "crashed": false,
+        "final_lean_deg": -1.32071946791878,
+        "final_position": [
+          24.8481521606445,
+          0.763170957565308,
+          -88.2051010131836
+        ],
+        "final_speed_m_s": 10.9702262878418,
+        "peak_load_n": 4664.32377529509,
+        "peak_roll_deg": 4.68021012737276,
+        "peak_roll_rate_rad_s": 0.689624547958374,
+        "scenario": "bump_correction"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          463,
+          439,
+          414,
+          124
+        ],
+        "crashed": false,
+        "final_lean_deg": -4.16272535193712,
+        "final_position": [
+          24.9561176300049,
+          0.91501796245575,
+          -86.9981384277344
+        ],
+        "final_speed_m_s": 10.4274063110352,
+        "peak_load_n": 4955.81366357048,
+        "peak_roll_deg": 5.11707844701028,
+        "peak_roll_rate_rad_s": 0.439679980278015,
+        "scenario": "braking_bumps"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          1575,
+          76,
+          79,
+          190
+        ],
+        "crashed": true,
+        "final_lean_deg": 105.563762657848,
+        "final_position": [
+          42.2553329467773,
+          2.03104615211487,
+          -59.8105926513672
+        ],
+        "final_speed_m_s": 6.83063844917342e-05,
+        "peak_load_n": 15986.3027957213,
+        "peak_roll_deg": 109.07542128612,
+        "peak_roll_rate_rad_s": 3.34718561172485,
+        "scenario": "whoops"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          0,
+          15,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0,
+        "final_position": [
+          -24.0,
+          0.743928134441376,
+          -4.25114107131958
+        ],
+        "final_speed_m_s": 2.92758536338806,
+        "peak_load_n": 4590.33965051151,
+        "peak_roll_deg": 0.0,
+        "peak_roll_rate_rad_s": 0.0,
+        "scenario": "front_unload"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          15,
+          0,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0,
+        "final_position": [
+          -24.0,
+          0.743928194046021,
+          -4.26646327972412
+        ],
+        "final_speed_m_s": 2.94680380821228,
+        "peak_load_n": 4526.71299709707,
+        "peak_roll_deg": 0.0,
+        "peak_roll_rate_rad_s": 0.0,
+        "scenario": "rear_unload"
+      }
+    ]
+  },
+  {
+    "experiment": "conserve",
+    "description": "wheel angular momentum sign experiment",
+    "retained": false,
+    "results": [
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          37,
+          6,
+          0,
+          1397
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0752271819406528,
+        "final_position": [
+          -19.5029735565186,
+          0.743928968906403,
+          3.83925867080688
+        ],
+        "final_speed_m_s": 1.88203310966492,
+        "peak_load_n": 2804.51770209444,
+        "peak_roll_deg": 4.80638493373001,
+        "peak_roll_rate_rad_s": 0.106646791100502,
+        "scenario": "slow_figure_eight"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          37,
+          6,
+          0,
+          1397
+        ],
+        "crashed": false,
+        "final_lean_deg": -1.92600206941056,
+        "final_position": [
+          99.0367431640625,
+          0.84486597776413,
+          -81.95849609375
+        ],
+        "final_speed_m_s": 2.23665809631348,
+        "peak_load_n": 2828.28508250057,
+        "peak_roll_deg": 4.46014109636154,
+        "peak_roll_rate_rad_s": 0.157968983054161,
+        "scenario": "berm_entry"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          340,
+          14,
+          6,
+          1080
+        ],
+        "crashed": true,
+        "final_lean_deg": 70.2520992907298,
+        "final_position": [
+          109.25431060791,
+          1.40901780128479,
+          -71.1379699707031
+        ],
+        "final_speed_m_s": 0.320065289735794,
+        "peak_load_n": 4870.82441186477,
+        "peak_roll_deg": 97.1514632983127,
+        "peak_roll_rate_rad_s": 5.1872410774231,
+        "scenario": "berm_crawl"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          513,
+          29,
+          9,
+          889
+        ],
+        "crashed": true,
+        "final_lean_deg": 74.7590731197473,
+        "final_position": [
+          105.678268432617,
+          0.358260571956635,
+          -66.4473648071289
+        ],
+        "final_speed_m_s": 0.13556832075119,
+        "peak_load_n": 3327.76961334786,
+        "peak_roll_deg": 179.803318362188,
+        "peak_roll_rate_rad_s": 7.16225242614746,
+        "scenario": "berm_transition"
+      },
+      {
+        "berm_radius_error_m": 5.23152351379395,
+        "contact_ticks": [
+          34,
+          11,
+          7,
+          1388
+        ],
+        "crashed": false,
+        "final_lean_deg": -4.61330379988024,
+        "final_position": [
+          95.2586441040039,
+          0.757421612739563,
+          -84.135139465332
+        ],
+        "final_speed_m_s": 3.86774682998657,
+        "peak_load_n": 2595.11674075779,
+        "peak_roll_deg": 6.38828513473942,
+        "peak_roll_rate_rad_s": 0.269773215055466,
+        "scenario": "berm_hold"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          0,
+          43,
+          0,
+          677
+        ],
+        "crashed": false,
+        "final_lean_deg": 16.0189785707573,
+        "final_position": [
+          104.713890075684,
+          0.758884847164154,
+          -64.6172103881836
+        ],
+        "final_speed_m_s": 2.84821724891663,
+        "peak_load_n": 3280.44394347924,
+        "peak_roll_deg": 16.0189785707573,
+        "peak_roll_rate_rad_s": 0.569458544254303,
+        "scenario": "berm_climb"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          47,
+          3,
+          20,
+          650
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.00404249345086147,
+        "final_position": [
+          98.1383590698242,
+          0.743924796581268,
+          -64.9938278198242
+        ],
+        "final_speed_m_s": 3.79219770431519,
+        "peak_load_n": 2401.82856562335,
+        "peak_roll_deg": 0.0402824533768809,
+        "peak_roll_rate_rad_s": 0.00565184699371457,
+        "scenario": "berm_descend"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          34,
+          8,
+          16,
+          1382
+        ],
+        "crashed": false,
+        "final_lean_deg": -6.4992081513753,
+        "final_position": [
+          89.2403717041016,
+          0.740269184112549,
+          -87.1102676391602
+        ],
+        "final_speed_m_s": 7.41466093063354,
+        "peak_load_n": 2595.11674075779,
+        "peak_roll_deg": 7.66392068181968,
+        "peak_roll_rate_rad_s": 0.269773215055466,
+        "scenario": "berm_exit"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          1032,
+          143,
+          147,
+          118
+        ],
+        "crashed": true,
+        "final_lean_deg": -94.2749826428416,
+        "final_position": [
+          18.4038925170898,
+          0.390890121459961,
+          -59.7836799621582
+        ],
+        "final_speed_m_s": 4.34339272032958e-05,
+        "peak_load_n": 5620.85367012023,
+        "peak_roll_deg": 118.74662855231,
+        "peak_roll_rate_rad_s": 4.59261703491211,
+        "scenario": "bump_correction"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          1047,
+          130,
+          145,
+          118
+        ],
+        "crashed": true,
+        "final_lean_deg": -89.8079818499863,
+        "final_position": [
+          20.3021392822266,
+          0.275281608104706,
+          -58.7328910827637
+        ],
+        "final_speed_m_s": 3.72759714082349e-05,
+        "peak_load_n": 4540.19663129057,
+        "peak_roll_deg": 107.240412048826,
+        "peak_roll_rate_rad_s": 3.70436477661133,
+        "scenario": "braking_bumps"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          1607,
+          78,
+          56,
+          179
+        ],
+        "crashed": true,
+        "final_lean_deg": 88.1713542383822,
+        "final_position": [
+          37.5959205627441,
+          0.258637368679047,
+          -59.03955078125
+        ],
+        "final_speed_m_s": 0.000176149580511265,
+        "peak_load_n": 36830.7220484142,
+        "peak_roll_deg": 179.629944890216,
+        "peak_roll_rate_rad_s": 11.4687900543213,
+        "scenario": "whoops"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          74,
+          0,
+          13,
+          1353
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0,
+        "final_position": [
+          -24.0,
+          0.743934035301208,
+          -4.31434297561646
+        ],
+        "final_speed_m_s": 2.93843698501587,
+        "peak_load_n": 4483.20670113397,
+        "peak_roll_deg": 0.0,
+        "peak_roll_rate_rad_s": 0.0,
+        "scenario": "front_unload"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          72,
+          17,
+          0,
+          1351
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.0,
+        "final_position": [
+          -24.0,
+          0.743934094905853,
+          -4.27166080474854
+        ],
+        "final_speed_m_s": 2.94779062271118,
+        "peak_load_n": 4582.44380838424,
+        "peak_roll_deg": 0.0,
+        "peak_roll_rate_rad_s": 0.0,
+        "scenario": "rear_unload"
+      }
+    ]
+  },
+  {
+    "experiment": "inverse-gyro",
+    "description": "force inverse plus precession",
+    "retained": false,
+    "results": [
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          0,
+          1,
+          1399
+        ],
+        "crashed": false,
+        "final_lean_deg": -0.0883334852642962,
+        "final_position": [
+          -19.0384330749512,
+          0.743907034397125,
+          4.1298131942749
+        ],
+        "final_speed_m_s": 1.88003921508789,
+        "peak_load_n": 2663.0965584247,
+        "peak_roll_deg": 4.78346185335625,
+        "peak_roll_rate_rad_s": 0.0940208956599236,
+        "scenario": "slow_figure_eight"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          0,
+          2,
+          1398
+        ],
+        "crashed": false,
+        "final_lean_deg": -1.70334757261134,
+        "final_position": [
+          98.0660552978516,
+          0.741167604923248,
+          -81.0651473999023
+        ],
+        "final_speed_m_s": 2.62387871742249,
+        "peak_load_n": 2687.34972616728,
+        "peak_roll_deg": 7.02308719699974,
+        "peak_roll_rate_rad_s": 0.177641630172729,
+        "scenario": "berm_entry"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          488,
+          8,
+          9,
+          935
+        ],
+        "crashed": true,
+        "final_lean_deg": 73.5036418082919,
+        "final_position": [
+          109.387367248535,
+          1.39845716953278,
+          -70.368049621582
+        ],
+        "final_speed_m_s": 0.0388963297009468,
+        "peak_load_n": 4522.93451054453,
+        "peak_roll_deg": 109.412010342009,
+        "peak_roll_rate_rad_s": 5.43717908859253,
+        "scenario": "berm_crawl"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          762,
+          26,
+          12,
+          640
+        ],
+        "crashed": true,
+        "final_lean_deg": 77.1082192766739,
+        "final_position": [
+          108.319709777832,
+          0.961508989334106,
+          -66.6460342407227
+        ],
+        "final_speed_m_s": 2.60603792412439e-05,
+        "peak_load_n": 4232.5439302886,
+        "peak_roll_deg": 107.812377581276,
+        "peak_roll_rate_rad_s": 6.09071397781372,
+        "scenario": "berm_transition"
+      },
+      {
+        "berm_radius_error_m": 8.17082977294922,
+        "contact_ticks": [
+          36,
+          7,
+          5,
+          1392
+        ],
+        "crashed": false,
+        "final_lean_deg": -5.01990645538676,
+        "final_position": [
+          93.8487854003906,
+          0.740228474140167,
+          -81.431282043457
+        ],
+        "final_speed_m_s": 3.86066842079163,
+        "peak_load_n": 2524.15210265453,
+        "peak_roll_deg": 7.60727933498687,
+        "peak_roll_rate_rad_s": 0.391079425811768,
+        "scenario": "berm_hold"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          0,
+          39,
+          0,
+          681
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.184526618358745,
+        "final_position": [
+          104.595977783203,
+          0.81280243396759,
+          -65.0023727416992
+        ],
+        "final_speed_m_s": 2.89610719680786,
+        "peak_load_n": 3227.7012527407,
+        "peak_roll_deg": 0.184526618358745,
+        "peak_roll_rate_rad_s": 0.00321655860170722,
+        "scenario": "berm_climb"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          18,
+          3,
+          67,
+          632
+        ],
+        "crashed": false,
+        "final_lean_deg": -0.000261905918884554,
+        "final_position": [
+          98.0013809204102,
+          0.743910372257233,
+          -64.9957427978516
+        ],
+        "final_speed_m_s": 3.7527801990509,
+        "peak_load_n": 2549.8765690832,
+        "peak_roll_deg": 0.0154668890669886,
+        "peak_roll_rate_rad_s": 0.00291545153595507,
+        "scenario": "berm_descend"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          36,
+          4,
+          5,
+          1395
+        ],
+        "crashed": false,
+        "final_lean_deg": -12.3107298789375,
+        "final_position": [
+          87.4050598144531,
+          0.726746737957001,
+          -81.3601531982422
+        ],
+        "final_speed_m_s": 7.45910120010376,
+        "peak_load_n": 2524.15210265453,
+        "peak_roll_deg": 13.2928912383832,
+        "peak_roll_rate_rad_s": 0.391079425811768,
+        "scenario": "berm_exit"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          493,
+          409,
+          408,
+          130
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.590616248821437,
+        "final_position": [
+          23.8685169219971,
+          0.76410311460495,
+          -88.2989959716797
+        ],
+        "final_speed_m_s": 10.9660596847534,
+        "peak_load_n": 4697.48304708883,
+        "peak_roll_deg": 1.69198661447169,
+        "peak_roll_rate_rad_s": 0.176467448472977,
+        "scenario": "bump_correction"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          472,
+          432,
+          411,
+          125
+        ],
+        "crashed": false,
+        "final_lean_deg": 1.36725493394768,
+        "final_position": [
+          23.8218898773193,
+          0.913874328136444,
+          -87.080322265625
+        ],
+        "final_speed_m_s": 10.3951139450073,
+        "peak_load_n": 4824.87790811064,
+        "peak_roll_deg": 1.5844272674575,
+        "peak_roll_rate_rad_s": 0.111858412623405,
+        "scenario": "braking_bumps"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          1605,
+          70,
+          67,
+          178
+        ],
+        "crashed": true,
+        "final_lean_deg": 176.378668325029,
+        "final_position": [
+          39.9628448486328,
+          0.600055158138275,
+          -57.6045608520508
+        ],
+        "final_speed_m_s": 0.000282895984128118,
+        "peak_load_n": 16736.0234233005,
+        "peak_roll_deg": 179.999637823082,
+        "peak_roll_rate_rad_s": 4.74939012527466,
+        "scenario": "whoops"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          0,
+          15,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.000830176722307169,
+        "final_position": [
+          -24.0,
+          0.743928194046021,
+          -4.25113439559937
+        ],
+        "final_speed_m_s": 2.92758417129517,
+        "peak_load_n": 4590.33965051155,
+        "peak_roll_deg": 0.000830176722307169,
+        "peak_roll_rate_rad_s": 3.97878648072947e-05,
+        "scenario": "front_unload"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          15,
+          0,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.000353241772211887,
+        "final_position": [
+          -24.0,
+          0.74392831325531,
+          -4.26646566390991
+        ],
+        "final_speed_m_s": 2.94680595397949,
+        "peak_load_n": 4526.71299709684,
+        "peak_roll_deg": 0.000852569418034416,
+        "peak_roll_rate_rad_s": 4.41188385593705e-05,
+        "scenario": "rear_unload"
+      }
+    ]
+  },
+  {
+    "experiment": "feedback",
+    "description": "precession including feedback moment",
+    "retained": false,
+    "results": [
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          0,
+          1,
+          1399
+        ],
+        "crashed": false,
+        "final_lean_deg": -0.0849344334033867,
+        "final_position": [
+          -19.0721302032471,
+          0.743907630443573,
+          4.10640001296997
+        ],
+        "final_speed_m_s": 1.88039076328278,
+        "peak_load_n": 2663.0965584247,
+        "peak_roll_deg": 4.76218872986015,
+        "peak_roll_rate_rad_s": 0.0945187211036682,
+        "scenario": "slow_figure_eight"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          40,
+          1,
+          3,
+          1396
+        ],
+        "crashed": false,
+        "final_lean_deg": -1.28327803565449,
+        "final_position": [
+          98.4052276611328,
+          0.759253740310669,
+          -81.3186340332031
+        ],
+        "final_speed_m_s": 2.58756494522095,
+        "peak_load_n": 2687.34972616728,
+        "peak_roll_deg": 6.4734865736924,
+        "peak_roll_rate_rad_s": 0.146451845765114,
+        "scenario": "berm_entry"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          486,
+          9,
+          10,
+          935
+        ],
+        "crashed": true,
+        "final_lean_deg": 73.5310469681441,
+        "final_position": [
+          109.42504119873,
+          1.41020548343658,
+          -70.3722839355469
+        ],
+        "final_speed_m_s": 0.00106845458503813,
+        "peak_load_n": 4889.34727286716,
+        "peak_roll_deg": 99.4441369882859,
+        "peak_roll_rate_rad_s": 5.43744134902954,
+        "scenario": "berm_crawl"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          765,
+          24,
+          9,
+          642
+        ],
+        "crashed": true,
+        "final_lean_deg": 77.3608189549329,
+        "final_position": [
+          108.347801208496,
+          0.969612240791321,
+          -66.6424255371094
+        ],
+        "final_speed_m_s": 5.87539907428436e-05,
+        "peak_load_n": 4508.90920313357,
+        "peak_roll_deg": 100.55277827882,
+        "peak_roll_rate_rad_s": 6.09676313400269,
+        "scenario": "berm_transition"
+      },
+      {
+        "berm_radius_error_m": 8.0811824798584,
+        "contact_ticks": [
+          36,
+          6,
+          6,
+          1392
+        ],
+        "crashed": false,
+        "final_lean_deg": -5.20120254187758,
+        "final_position": [
+          93.9057312011719,
+          0.739997744560242,
+          -81.5009078979492
+        ],
+        "final_speed_m_s": 3.85941910743713,
+        "peak_load_n": 2524.20093321491,
+        "peak_roll_deg": 7.50075141146048,
+        "peak_roll_rate_rad_s": 0.391112446784973,
+        "scenario": "berm_hold"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          0,
+          39,
+          0,
+          681
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.186821640748622,
+        "final_position": [
+          104.595977783203,
+          0.812802612781525,
+          -65.0023498535156
+        ],
+        "final_speed_m_s": 2.89610743522644,
+        "peak_load_n": 3227.70118174701,
+        "peak_roll_deg": 0.186821640748622,
+        "peak_roll_rate_rad_s": 0.00318730063736439,
+        "scenario": "berm_climb"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          18,
+          3,
+          67,
+          632
+        ],
+        "crashed": false,
+        "final_lean_deg": -0.000966197079191564,
+        "final_position": [
+          98.0013732910156,
+          0.743910551071167,
+          -64.9957427978516
+        ],
+        "final_speed_m_s": 3.75277996063232,
+        "peak_load_n": 2549.8765690832,
+        "peak_roll_deg": 0.0156397762287003,
+        "peak_roll_rate_rad_s": 0.00291545153595507,
+        "scenario": "berm_descend"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          36,
+          4,
+          6,
+          1394
+        ],
+        "crashed": false,
+        "final_lean_deg": -10.9806351457441,
+        "final_position": [
+          87.4509582519531,
+          0.730299472808838,
+          -82.0415725708008
+        ],
+        "final_speed_m_s": 7.46881818771362,
+        "peak_load_n": 2524.20093321491,
+        "peak_roll_deg": 11.5133751880278,
+        "peak_roll_rate_rad_s": 0.391112446784973,
+        "scenario": "berm_exit"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          493,
+          409,
+          408,
+          130
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.558004141452236,
+        "final_position": [
+          23.8844451904297,
+          0.764090895652771,
+          -88.3011016845703
+        ],
+        "final_speed_m_s": 10.9662189483643,
+        "peak_load_n": 4694.30387739866,
+        "peak_roll_deg": 1.73832030953589,
+        "peak_roll_rate_rad_s": 0.185659676790237,
+        "scenario": "bump_correction"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          472,
+          432,
+          411,
+          125
+        ],
+        "crashed": false,
+        "final_lean_deg": 1.36424865096607,
+        "final_position": [
+          23.8557662963867,
+          0.913784742355347,
+          -87.0800552368164
+        ],
+        "final_speed_m_s": 10.3979778289795,
+        "peak_load_n": 4822.59422406532,
+        "peak_roll_deg": 1.63385813244716,
+        "peak_roll_rate_rad_s": 0.113178670406342,
+        "scenario": "braking_bumps"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          1601,
+          69,
+          72,
+          178
+        ],
+        "crashed": true,
+        "final_lean_deg": 170.381758670634,
+        "final_position": [
+          39.9760284423828,
+          0.589940011501312,
+          -57.6888542175293
+        ],
+        "final_speed_m_s": 0.0106116989627481,
+        "peak_load_n": 14653.5120084756,
+        "peak_roll_deg": 179.994499979882,
+        "peak_roll_rate_rad_s": 4.68693161010742,
+        "scenario": "whoops"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          0,
+          15,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": -0.000640913820873784,
+        "final_position": [
+          -24.0002899169922,
+          0.743928194046021,
+          -4.25113582611084
+        ],
+        "final_speed_m_s": 2.9275860786438,
+        "peak_load_n": 4590.33965051155,
+        "peak_roll_deg": 0.00112566308546886,
+        "peak_roll_rate_rad_s": 4.00538337999023e-05,
+        "scenario": "front_unload"
+      },
+      {
+        "berm_radius_error_m": 0.0,
+        "contact_ticks": [
+          73,
+          15,
+          0,
+          1352
+        ],
+        "crashed": false,
+        "final_lean_deg": 0.00090729345761901,
+        "final_position": [
+          -24.0,
+          0.743928194046021,
+          -4.26646614074707
+        ],
+        "final_speed_m_s": 2.94680666923523,
+        "peak_load_n": 4526.71299709684,
+        "peak_roll_deg": 0.00101297859592991,
+        "peak_roll_rate_rad_s": 4.41188385593705e-05,
+        "scenario": "rear_unload"
+      }
+    ]
+  }
+]

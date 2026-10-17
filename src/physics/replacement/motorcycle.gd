@@ -1,5 +1,5 @@
 extends RigidBody3D
-const SIMULATION_VERSION := "ReducedCoordinateMotorcycle/v3.3-landing"
+const SIMULATION_VERSION := "ReducedCoordinateMotorcycle/v3.4-ground-experimental"
 const Rider = preload("res://src/physics/replacement/rider_controller.gd")
 const Geometry = preload("res://src/physics/replacement/geometry.gd")
 const Station = preload("res://src/physics/replacement/wheel_station.gd")
@@ -12,6 +12,8 @@ var landing_window_s: float = 0
 var contact_mask: int = 0
 var chassis_impulse_ns: float = 0
 var severe_reason: String = "none"
+var contact_trace: Array = [{},{}]
+var controller_moment_sample: float = 0
 var stations: Array = [Station.new(0), Station.new(1)]
 var previous_mount_velocity: Array[Vector3] = [Vector3.ZERO, Vector3.ZERO]
 const Tire = preload("res://src/physics/replacement/contact_tire.gd")
@@ -131,6 +133,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
  var roll_rate: float = state.angular_velocity.dot(forward)
  var desired_steer: float = command.steer * deg_to_rad(32)
  virtual_rider.grounded = wheels[0].grounded or wheels[1].grounded
+ controller_moment_sample=passive_roll_moment
  virtual_rider.passive_roll_moment = passive_roll_moment
  virtual_rider.front_roll_arm = front_roll_arm
  virtual_rider.front_tire = wheels[0]
@@ -245,6 +248,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
   # The guide transmits forces transverse to travel; spring transmits axial load.
   var wheel_gravity: Vector3 = Vector3.DOWN * station.unsprung_mass * 9.81
   var normal_reaction: Vector3 = suspension_reaction + normal * wheel.load - axis * wheel.load * normal.dot(axis) + (wheel_gravity - station.unsprung_mass * mount_accel_vector).slide(axis)
+  contact_trace[i]={"normal":[normal.x,normal.y,normal.z],"axis":[axis.x,axis.y,axis.z],"terrain_point":[] if hit.is_empty() else [hit.position.x,hit.position.y,hit.position.z],"point":[wheel.point.x,wheel.point.y,wheel.point.z],"normal_roll_nm":(offset-basis*center_of_mass).cross(normal*wheel.load).dot(forward),"guide_roll_nm":(hub_world-state.transform.origin-basis*center_of_mass).cross(normal_reaction-normal*wheel.load).dot(forward),"tangent_roll_nm":0.0,"spring_n":station.spring_force,"mount_acceleration_m_s2":mount_accel,"road_compression_m":road_compression}
   state.apply_force(normal * wheel.load, offset)
   state.apply_force(normal_reaction - normal * wheel.load, hub_world - state.transform.origin)
   force_total += normal_reaction
@@ -271,6 +275,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
    var rolling: float = -tanh(velocity.dot(tire_forward) * 2) * wheel.load * surface.rolling
    var tangential: Vector3 = tire_forward * (tire_force.x + rolling) + right * tire_force.y
    wheel.applied_force = tangential
+   contact_trace[i].tangent_roll_nm=arm.cross(tangential).dot(forward)
    state.apply_force(tangential, offset)
    force_total += tangential
    if i == 0:
@@ -350,4 +355,4 @@ func sample_patch(space: PhysicsDirectSpaceState3D, origin: Vector3, up: Vector3
  return {"position": point_sum / total, "normal": normal_sum.normalized(), "distance": distance_sum / total}
 
 func telemetry() -> Dictionary:
- return {"front_carcass_active":stations[0].carcass_active,"rear_carcass_active":stations[1].carcass_active,"front_penetration_m":stations[0].penetration_m,"rear_penetration_m":stations[1].penetration_m,"landing_preparation_armed":landing_preparation_armed,"landing_preparation_blend":landing_preparation_blend,"landing_preparation_target_deg":rad_to_deg(landing_preparation_target),"steering_assist":steering_assist,"contact_mask":contact_mask,"chassis_impulse_ns":chassis_impulse_ns,"crash_condition":severe_reason,"crash_timer_s":crash_time,"crash_evidence":crash_evidence,"landing_events":landing_events.duplicate(true),"engine": "Godot Physics", "sprung_mass_kg": mass, "total_mass_kg": mass + 16, "architecture": "unsprung DOFs + compliant bristle contact", "controller": SIMULATION_VERSION, "steer_input":command.steer, "steer_target_deg":rad_to_deg(steering_target), "roll_rate_rad_s": angular_velocity.dot(-global_basis.z), "yaw_rate_rad_s": angular_velocity.y, "lean_request_rate_rad_s": virtual_rider.lean_request_rate, "front_slip_angle_deg": rad_to_deg(wheels[0].slip_angle), "rear_slip_angle_deg": rad_to_deg(wheels[1].slip_angle), "front_suspension_velocity_m_s": stations[0].velocity, "rear_suspension_velocity_m_s": stations[1].velocity, "heading_per_steer":virtual_rider.front_heading_gain, "steer_target_rate":steering_target_rate, "steer_actual_rate":steer_rate, "hand_torque_nm":steering_torque, "front_lateral_m_s":wheels[0].lateral_velocity, "rear_lateral_m_s":wheels[1].lateral_velocity, "front_grip_use":wheels[0].utilization, "rear_grip_use":wheels[1].utilization, "front_fx_n":wheels[0].force.x, "front_fy_n":wheels[0].force.y, "rear_fx_n":wheels[1].force.x, "rear_fy_n":wheels[1].force.y, "front_world_force": [wheels[0].applied_force.x,wheels[0].applied_force.y,wheels[0].applied_force.z], "rear_world_force":[wheels[1].applied_force.x,wheels[1].applied_force.y,wheels[1].applied_force.z], "requested_front_fy_n":virtual_rider.desired_front_force, "front_force_limited":virtual_rider.force_limited, "roll_integral":virtual_rider.roll_integral, "target_lean_deg": rad_to_deg(virtual_rider.lean_request), "front_contact_samples": wheels[0].contact_samples, "rear_contact_samples": wheels[1].contact_samples, "ticks": simulation_ticks, "speed_m_s": linear_velocity.length(), "rpm": engine.rpm, "gear": engine.gear, "lean_deg": rad_to_deg(lean_angle), "steer_deg": rad_to_deg(steer_angle), "front_load_n": wheels[0].load, "rear_load_n": wheels[1].load, "front_slip": wheels[0].slip, "rear_slip": wheels[1].slip, "front_compression_m": wheels[0].compression, "rear_compression_m": wheels[1].compression, "crashed": crashed, "last_crash": last_crash}
+ return {"angular_velocity_world":[angular_velocity.x,angular_velocity.y,angular_velocity.z],"basis_columns":[[global_basis.x.x,global_basis.x.y,global_basis.x.z],[global_basis.y.x,global_basis.y.y,global_basis.y.z],[global_basis.z.x,global_basis.z.y,global_basis.z.z]],"contact_trace":contact_trace.duplicate(true),"front_roll_arm_m":front_roll_arm,"controller_roll_moment_nm":controller_moment_sample,"current_passive_roll_moment_nm":passive_roll_moment,"front_force_unconstrained_n":virtual_rider.unconstrained_front_force,"support_torque_nm":support_torque,"front_carcass_active":stations[0].carcass_active,"rear_carcass_active":stations[1].carcass_active,"front_penetration_m":stations[0].penetration_m,"rear_penetration_m":stations[1].penetration_m,"landing_preparation_armed":landing_preparation_armed,"landing_preparation_blend":landing_preparation_blend,"landing_preparation_target_deg":rad_to_deg(landing_preparation_target),"steering_assist":steering_assist,"contact_mask":contact_mask,"chassis_impulse_ns":chassis_impulse_ns,"crash_condition":severe_reason,"crash_timer_s":crash_time,"crash_evidence":crash_evidence,"landing_events":landing_events.duplicate(true),"engine": "Godot Physics", "sprung_mass_kg": mass, "total_mass_kg": mass + 16, "architecture": "unsprung DOFs + compliant bristle contact", "controller": SIMULATION_VERSION, "steer_input":command.steer, "steer_target_deg":rad_to_deg(steering_target), "roll_rate_rad_s": angular_velocity.dot(-global_basis.z), "yaw_rate_rad_s": angular_velocity.y, "lean_request_rate_rad_s": virtual_rider.lean_request_rate, "front_slip_angle_deg": rad_to_deg(wheels[0].slip_angle), "rear_slip_angle_deg": rad_to_deg(wheels[1].slip_angle), "front_suspension_velocity_m_s": stations[0].velocity, "rear_suspension_velocity_m_s": stations[1].velocity, "heading_per_steer":virtual_rider.front_heading_gain, "steer_target_rate":steering_target_rate, "steer_actual_rate":steer_rate, "hand_torque_nm":steering_torque, "front_lateral_m_s":wheels[0].lateral_velocity, "rear_lateral_m_s":wheels[1].lateral_velocity, "front_grip_use":wheels[0].utilization, "rear_grip_use":wheels[1].utilization, "front_fx_n":wheels[0].force.x, "front_fy_n":wheels[0].force.y, "rear_fx_n":wheels[1].force.x, "rear_fy_n":wheels[1].force.y, "front_world_force": [wheels[0].applied_force.x,wheels[0].applied_force.y,wheels[0].applied_force.z], "rear_world_force":[wheels[1].applied_force.x,wheels[1].applied_force.y,wheels[1].applied_force.z], "requested_front_fy_n":virtual_rider.desired_front_force, "front_force_limited":virtual_rider.force_limited, "roll_integral":virtual_rider.roll_integral, "target_lean_deg": rad_to_deg(virtual_rider.lean_request), "front_contact_samples": wheels[0].contact_samples, "rear_contact_samples": wheels[1].contact_samples, "ticks": simulation_ticks, "speed_m_s": linear_velocity.length(), "rpm": engine.rpm, "gear": engine.gear, "lean_deg": rad_to_deg(lean_angle), "steer_deg": rad_to_deg(steer_angle), "front_load_n": wheels[0].load, "rear_load_n": wheels[1].load, "front_slip": wheels[0].slip, "rear_slip": wheels[1].slip, "front_compression_m": wheels[0].compression, "rear_compression_m": wheels[1].compression, "crashed": crashed, "last_crash": last_crash}

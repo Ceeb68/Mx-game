@@ -1,3 +1,17 @@
+# Terra MX 3.4 ground experiment — repair incomplete
+
+Read [the measured comparison and remaining failures](docs/ground/REPORT.md).
+This candidate corrects the signed-velocity tire-force inverse. It does **not**
+meet the requested slow-berm and rough-terrain stability target.
+
+**Godot:** download `TerraMX-v3.4-ground-EXPERIMENTAL-GODOT-SOURCE.zip`, extract,
+import its **project.godot** in **Godot 4.6.3 standard**, wait for import, press F5.
+The Windows ZIP is a separate standalone game; extract and run TerraMX.exe.
+F1 identifies `ReducedCoordinateMotorcycle/v3.4-ground-experimental`.
+
+Previous releases, rider, bindings, settings, track and local reset are retained.
+Older stage documentation follows as history.
+
 # Terra MX 3.3 landing / local recovery test stage
 
 [Changes, measurements, known rough-terrain failures and manual tests](docs/landing/REPORT.md).

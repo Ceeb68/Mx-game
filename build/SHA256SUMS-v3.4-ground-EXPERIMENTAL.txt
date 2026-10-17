@@ -1,0 +1,2 @@
+9fce6409395f3d723ca4cecbffce3ba30e8c038e94e9fed5fe5272e3544f692f  TerraMX-v3.4-ground-EXPERIMENTAL-GODOT-SOURCE.zip
+f46114026ff30f719b35a64fc20d9ec388a97de0ced2eb9323efb1fb6f7f15d1  TerraMX-v3.4-ground-EXPERIMENTAL-windows.zip

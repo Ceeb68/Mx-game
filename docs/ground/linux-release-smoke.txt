@@ -1,0 +1,5 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+RIDER_RUNTIME original_skinned_gltf bones=17 arm_lengths=(0.332867, 0.274089) leg_lengths=(0.440256, 0.42)
+TERRA_MX_RUNTIME engine=GodotPhysics3D script=res://src/physics/replacement/motorcycle.gd controller=ReducedCoordinateMotorcycle/v3.4-ground-experimental physics_hz=240 terrain=physical_heightfield bike=250F
+BUILD_SMOKE {"accelerated":true,"braked":true,"controller":"ReducedCoordinateMotorcycle/v3.4-ground-experimental","passed":true,"rider_rig":true,"speed_after_brake":2.52062559127808,"speed_before_brake":4.57989978790283,"supported":true,"ticks":1260}

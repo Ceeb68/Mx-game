@@ -64,9 +64,16 @@ func step(dt: float, input: float, body_lean: float, speed: float, roll: float, 
   unconstrained_front_force = (-config.inertia_kg_m2[2] * desired_acceleration - passive_roll_moment) / front_roll_arm
   desired_front_force = clampf(unconstrained_front_force, -front_grip, front_grip)
   force_limited = absf(unconstrained_front_force) > front_grip
-  var desired_slip_angle: float = front_tire.lateral_angle_for_force(dt,desired_front_force,front_longitudinal,front_inverse_mass)
-  var tire_heading_change: float = front_slip_angle - desired_slip_angle
-  controlled_force = actual_steer + tire_heading_change / maxf(0.2, front_heading_gain)
+  var gain: float=maxf(0.2,front_heading_gain)
+  var tire_heading_change: float=front_tire.heading_for_force(dt,desired_front_force,front_longitudinal,front_tire.lateral_velocity,front_inverse_mass,(-tuning.max_steer_rad-actual_steer)*gain,(tuning.max_steer_rad-actual_steer)*gain)
+  var low_speed_control: float=actual_steer+tire_heading_change/gain
+  # Preserve the established faster-speed inverse. Apply the signed-vector
+  # repair in the low-speed regime and fade continuously over the same
+  # 2.2--3 m/s region used by the existing balance/support transitions.
+  var desired_slip_angle: float=front_tire.lateral_angle_for_force(dt,desired_front_force,front_longitudinal,front_inverse_mass)
+  var established_control: float=actual_steer+(front_slip_angle-desired_slip_angle)/gain
+  var low_speed_weight: float=1-smoothstep(tuning.blend_end_m_s,3.0,absf(speed))
+  controlled_force=lerpf(established_control,low_speed_control,low_speed_weight)
  else:
   controlled_force = equilibrium + dynamic
  var blend: float = smoothstep(tuning.blend_start_m_s, tuning.blend_end_m_s, absf(speed))

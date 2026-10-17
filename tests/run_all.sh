@@ -12,3 +12,5 @@ done
 
 "$project_dir/launch.sh" --headless --fixed-fps 240 --script res://tests/run_recovery.gd
 "$project_dir/launch.sh" --headless --fixed-fps 240 --script res://tests/landing_probe.gd -- user://landing-v33.json --assert
+
+"$project_dir/launch.sh" --headless --fixed-fps 240 --script res://tests/run_tire_inverse.gd
