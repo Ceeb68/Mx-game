@@ -1,0 +1,79 @@
+[
+  {
+    "both_detached_ticks": 0,
+    "crashed": false,
+    "final_lean_deg": 0.0,
+    "final_speed": 10.4031639099121,
+    "lateral_travel_m": 0.0,
+    "peak_front_slip_deg": 0.0,
+    "peak_lean_deg": 0.0,
+    "peak_roll_rad_s": 0.0,
+    "scenario": "straight"
+  },
+  {
+    "both_detached_ticks": 0,
+    "crashed": false,
+    "final_lean_deg": -0.000221727293097008,
+    "final_speed": 10.3995933532715,
+    "lateral_travel_m": 0.138839338764205,
+    "peak_front_slip_deg": 1.62228532941565,
+    "peak_lean_deg": 3.85165676084952,
+    "peak_roll_rad_s": 0.196483120322227,
+    "scenario": "small_correction"
+  },
+  {
+    "both_detached_ticks": 0,
+    "crashed": false,
+    "final_lean_deg": 22.417018272008,
+    "final_speed": 9.86243438720703,
+    "lateral_travel_m": 1.53402968036257,
+    "peak_front_slip_deg": 7.98134422221653,
+    "peak_lean_deg": 24.4728941973981,
+    "peak_roll_rad_s": 1.09344875812531,
+    "scenario": "held_corner"
+  },
+  {
+    "both_detached_ticks": 0,
+    "crashed": false,
+    "final_lean_deg": -26.8614284574602,
+    "final_speed": 8.80215263366699,
+    "lateral_travel_m": 2.75994196545909,
+    "peak_front_slip_deg": 16.3261046445017,
+    "peak_lean_deg": 33.8478355002017,
+    "peak_roll_rad_s": 2.0277898311615,
+    "scenario": "reversal"
+  },
+  {
+    "both_detached_ticks": 0,
+    "crashed": false,
+    "final_lean_deg": 19.9106525021914,
+    "final_speed": 4.27084589004517,
+    "lateral_travel_m": 0.613003313933321,
+    "peak_front_slip_deg": 4.63866950341113,
+    "peak_lean_deg": 19.9106525021914,
+    "peak_roll_rad_s": 0.328753858804703,
+    "scenario": "low_speed"
+  },
+  {
+    "both_detached_ticks": 0,
+    "crashed": false,
+    "final_lean_deg": 19.2713802138452,
+    "final_speed": 5.47236108779907,
+    "lateral_travel_m": 0.805683963288918,
+    "peak_front_slip_deg": 5.16372979633235,
+    "peak_lean_deg": 19.2713802138452,
+    "peak_roll_rad_s": 0.788240492343903,
+    "scenario": "corner_brake"
+  },
+  {
+    "both_detached_ticks": 0,
+    "crashed": false,
+    "final_lean_deg": 0.00130035474900675,
+    "final_speed": 10.4003562927246,
+    "lateral_travel_m": 0.579670433948439,
+    "peak_front_slip_deg": 9.84711796628701,
+    "peak_lean_deg": 7.27726636705736,
+    "peak_roll_rad_s": 1.16140031814575,
+    "scenario": "slide"
+  }
+]

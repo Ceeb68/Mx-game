@@ -3,8 +3,8 @@ extends Node3D
 var bike: RigidBody3D
 var wheel_nodes: Array[Node3D] = []
 var hubs: Array[Node3D] = []
-var torso: Node3D
-var head: Node3D
+var rider: Node3D
+var handlebar: Node3D
 var limbs: Array[MeshInstance3D] = []
 var red: StandardMaterial3D
 var black: StandardMaterial3D
@@ -62,7 +62,13 @@ func _ready() -> void:
   rod(Vector3(x, -0.22, 0.3), Vector3(x, 0.32, -0.4), 0.025, metal)
   rod(Vector3(x, -0.22, 0.3), Vector3(x, -0.10, -0.35), 0.025, metal)
  rod(Vector3(0.18, 0.1, 0.48), Vector3(0.18, 0.13, 0.86), 0.065, metal)
- rod(Vector3(-0.4, 0.48, -0.55), Vector3(0.4, 0.48, -0.55), 0.025, metal)
+ handlebar = Node3D.new()
+ handlebar.position = Vector3(0, 0.48, -0.55)
+ add_child(handlebar)
+ rod(Vector3(-0.4, 0, 0), Vector3(0.4, 0, 0), 0.025, metal, handlebar)
+ for side in [-1.0, 1.0]:
+  rod(Vector3(side * 0.11, -0.25, 0.12), Vector3(side * 0.28, -0.25, 0.12), 0.025, metal)
+  box(Vector3(0.15, 0.025, 0.065), Vector3(side * 0.19, -0.235, 0.12), black)
  for i in range(2):
   var hub := Node3D.new()
   add_child(hub)
@@ -90,13 +96,9 @@ func _ready() -> void:
    var angle: float = knob * TAU / 24
    var k := box(Vector3(0.13, 0.04, 0.055), Vector3(0, cos(angle), sin(angle)) * (radius - 0.005), black, spin)
    k.rotation.x = angle
- torso = box(Vector3(0.37, 0.42, 0.21), Vector3(0, 0.84, 0.05), mat(Color(0.14, 0.22, 0.25)))
- var helmet := SphereMesh.new()
- helmet.radius = 0.135
- helmet.height = 0.29
- head = instance(helmet, Vector3(0, 1.16, -0.08), white)
- box(Vector3(0.23, 0.075, 0.07), Vector3(0, 1.17, -0.20), black)
- for i in range(8): limbs.append(rod(Vector3.ZERO, Vector3.UP, 0.045, black if i < 4 else white))
+ rider = preload("res://src/presentation/rider_animator.gd").new()
+ rider.bike = bike
+ add_child(rider)
  # Animated fork/swingarm rods are updated from actual spring extension.
  for i in range(4): limbs.append(rod(Vector3.ZERO, Vector3.UP, 0.022, metal))
 
@@ -105,19 +107,8 @@ func _process(_dt: float) -> void:
   hubs[i].position = Vector3(0, -0.02 - bike.wheels[i].extension, -0.74 if i == 0 else 0.74)
   hubs[i].rotation.y = -bike.steer_angle if i == 0 else 0.0
   wheel_nodes[i].rotate_x(-bike.wheels[i].omega * _dt)
- var hip: Vector3 = Vector3(0, 0.62 if bike.command.stand else 0.42, 0.17) + bike.rider_offset
- var shoulder: Vector3 = hip + Vector3(0, 0.38, -0.16)
- torso.position = (hip + shoulder) * 0.5
- torso.rotation.x = -0.25
- head.position = shoulder + Vector3(0, 0.21, -0.08)
+ handlebar.rotation.y = -bike.steer_angle
  for side in range(2):
   var x: float = -1.0 if side == 0 else 1.0
-  var hand: Vector3 = Vector3(x * 0.35, 0.48, -0.55).rotated(Vector3.UP, -bike.steer_angle)
-  var elbow: Vector3 = shoulder + Vector3(x * 0.29, -0.06, -0.09)
-  align_rod(limbs[side * 2], shoulder + Vector3(x * 0.17, 0, 0), elbow)
-  align_rod(limbs[side * 2 + 1], elbow, hand)
-  var knee: Vector3 = hip + Vector3(x * 0.18, -0.26, -0.17)
-  align_rod(limbs[4 + side * 2], hip + Vector3(x * 0.12, 0, 0), knee)
-  align_rod(limbs[5 + side * 2], knee, Vector3(x * 0.20, -0.25, 0.12))
-  align_rod(limbs[8 + side], Vector3(x * 0.10, 0.40, -0.50), hubs[0].position + Vector3(x * 0.10, 0, 0))
-  align_rod(limbs[10 + side], Vector3(x * 0.11, -0.17, 0.15), hubs[1].position + Vector3(x * 0.11, 0, 0))
+  align_rod(limbs[side], Vector3(x * 0.10, 0.40, -0.50), hubs[0].position + Vector3(x * 0.10, 0, 0))
+  align_rod(limbs[2 + side], Vector3(x * 0.11, -0.17, 0.15), hubs[1].position + Vector3(x * 0.11, 0, 0))

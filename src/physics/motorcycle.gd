@@ -1,7 +1,12 @@
 extends RigidBody3D
+const SIMULATION_VERSION := "MotorcycleSimulation/v2"
+const Rider = preload("res://src/physics/virtual_rider.gd")
 const Suspension = preload("res://src/physics/suspension.gd")
 const Tire = preload("res://src/physics/tire.gd")
 const Powertrain = preload("res://src/physics/powertrain.gd")
+var virtual_rider = Rider.new()
+var longitudinal_acceleration: float = 0.0
+var previous_velocity: Vector3 = Vector3.ZERO
 var config: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/250f.json"))
 var wheels: Array = []
 var engine: RefCounted
@@ -46,6 +51,7 @@ func _ready() -> void:
  collider.shape = shape
  add_child(collider)
  wheels = [Tire.new(config.front_radius_m, config.wheel_inertia_kg_m2[0]), Tire.new(config.rear_radius_m, config.wheel_inertia_kg_m2[1])]
+ for i in range(2): wheels[i].configure(config, i)
  engine = Powertrain.new(config)
 
 func reset_at(pose: Transform3D, velocity: Vector3 = Vector3.ZERO) -> void:
@@ -63,6 +69,9 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
   state.angular_velocity = Vector3.ZERO
   for wheel in wheels: wheel.reset()
   engine.reset()
+  virtual_rider.reset()
+  previous_velocity = spawn_velocity
+  longitudinal_acceleration = 0
   steer_angle = 0.0
   steer_rate = 0.0
   rider_offset = Vector3.ZERO
@@ -81,10 +90,11 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
  lean_angle = atan2(basis.x.dot(Vector3.DOWN), up.dot(Vector3.UP))
  var roll_rate: float = state.angular_velocity.dot(forward)
  var desired_steer: float = command.steer * deg_to_rad(32)
- if steering_assist and absf(speed) > 2.5:
-  var target_lean: float = command.steer * deg_to_rad(37) + command.lean * deg_to_rad(8)
-  var feedforward: float = atan(9.81 * tan(target_lean) * config.wheelbase_m / maxf(speed * speed, 9))
-  desired_steer = feedforward + 0.85 * (lean_angle - target_lean) + 0.22 * roll_rate
+ if steering_assist:
+  var surface_mu: float = track.surface_at(state.transform.origin).mu if track else 0.95
+  desired_steer = virtual_rider.step(dt, command.steer, command.lean, speed, lean_angle, roll_rate, surface_mu, config)
+ longitudinal_acceleration = lerpf(longitudinal_acceleration, (state.linear_velocity - previous_velocity).dot(forward) / dt, 1 - exp(-dt * 6))
+ previous_velocity = state.linear_velocity
  desired_steer = clampf(desired_steer, -0.56, 0.56)
  # Explicit steering inertia/servo + trail aligning moment; never sets chassis rotation.
  var trail_torque: float = -wheels[0].force.y * config.trail_m * cos(deg_to_rad(config.rake_deg))
@@ -103,17 +113,17 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
   var wheel = wheels[i]
   var mount := Vector3(0, -0.02, -config.wheelbase_m * 0.5 if i == 0 else config.wheelbase_m * 0.5)
   var origin: Vector3 = state.transform * mount
-  var query := PhysicsRayQueryParameters3D.create(origin, origin - up * (config.suspension_rest_m + wheel.radius), 1, [get_rid()])
-  var hit: Dictionary = state.get_space_state().intersect_ray(query)
+  var hit: Dictionary = sample_patch(state.get_space_state(), origin, up, forward, wheel)
   wheel.grounded = not hit.is_empty() and up.dot(hit.get("normal", Vector3.UP)) > 0.2
   wheel.load = 0.0
   if wheel.grounded:
    contacts += 1
    var normal: Vector3 = hit.normal
+   wheel.normal = normal
    wheel.point = hit.position
    var offset: Vector3 = hit.position - state.transform.origin
    var velocity: Vector3 = state.linear_velocity + state.angular_velocity.cross(offset - basis * center_of_mass)
-   wheel.extension = clampf(origin.distance_to(hit.position) - wheel.radius, 0, config.suspension_rest_m)
+   wheel.extension = clampf(float(hit.distance) - wheel.radius, 0, config.suspension_rest_m)
    wheel.compression = config.suspension_rest_m - wheel.extension
    var compression_speed: float = -velocity.dot(normal) / maxf(up.dot(normal), 0.3)
    wheel.load = Suspension.normal_load(config, i, wheel.compression, compression_speed)
@@ -122,7 +132,12 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
    var right: Vector3 = tire_forward.cross(normal).normalized()
    var surface: Dictionary = track.surface_at(hit.position) if track else {"name": "hardpack", "mu": 0.95, "rolling": 0.018}
    wheel.surface = surface.name
-   var tire_force: Vector2 = wheel.forces(dt, velocity.dot(tire_forward), velocity.dot(right), surface.mu, config.tire_relaxation_s)
+   var brake_request: float = command.front_brake * config.brake_nm[0] if i == 0 else command.rear_brake * config.brake_nm[1]
+   var contact_arm: Vector3 = offset - basis * center_of_mass
+   var long_arm: Vector3 = contact_arm.cross(tire_forward)
+   var lat_arm: Vector3 = contact_arm.cross(right)
+   var effective := Vector2(state.inverse_mass + long_arm.dot(state.inverse_inertia_tensor * long_arm), state.inverse_mass + lat_arm.dot(state.inverse_inertia_tensor * lat_arm))
+   var tire_force: Vector2 = wheel.forces(dt, velocity.dot(tire_forward), velocity.dot(right), surface.mu, config.tire_relaxation_s, drive if i == 1 else 0, brake_request, effective)
    var rolling: float = -tanh(velocity.dot(tire_forward) * 2.0) * wheel.load * surface.rolling
    var applied: Vector3 = normal * wheel.load + tire_forward * (tire_force.x + rolling) + right * tire_force.y
    state.apply_force(applied, offset)
@@ -162,5 +177,27 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
   crashed = true
   last_crash = "outside test terrain; press R"
 
+func sample_patch(space: PhysicsDirectSpaceState3D, origin: Vector3, up: Vector3, forward: Vector3, wheel: RefCounted) -> Dictionary:
+ var total: float = 0
+ var point_sum := Vector3.ZERO
+ var normal_sum := Vector3.ZERO
+ var distance_sum: float = 0
+ wheel.contact_samples = 0
+ for n in [-1, 0, 1]:
+  var along: float = n * config.contact_half_patch_m
+  var curvature: float = wheel.radius - sqrt(wheel.radius * wheel.radius - along * along)
+  var start: Vector3 = origin + forward * along
+  var query := PhysicsRayQueryParameters3D.create(start, start - up * (config.suspension_rest_m + wheel.radius - curvature), 1, [get_rid()])
+  var hit: Dictionary = space.intersect_ray(query)
+  if hit.is_empty(): continue
+  var weight: float = 2.0 if n == 0 else 1.0
+  total += weight
+  wheel.contact_samples += 1
+  point_sum += hit.position * weight
+  normal_sum += hit.normal * weight
+  distance_sum += (start.distance_to(hit.position) + curvature) * weight
+ if total == 0: return {}
+ return {"position": point_sum / total, "normal": normal_sum.normalized(), "distance": distance_sum / total}
+
 func telemetry() -> Dictionary:
- return {"controller": "MotorcycleSimulation/v1", "ticks": simulation_ticks, "speed_m_s": linear_velocity.length(), "rpm": engine.rpm, "gear": engine.gear, "lean_deg": rad_to_deg(lean_angle), "steer_deg": rad_to_deg(steer_angle), "front_load_n": wheels[0].load, "rear_load_n": wheels[1].load, "front_slip": wheels[0].slip, "rear_slip": wheels[1].slip, "front_compression_m": wheels[0].compression, "rear_compression_m": wheels[1].compression, "crashed": crashed, "last_crash": last_crash}
+ return {"controller": SIMULATION_VERSION, "target_lean_deg": rad_to_deg(virtual_rider.lean_request), "front_contact_samples": wheels[0].contact_samples, "rear_contact_samples": wheels[1].contact_samples, "ticks": simulation_ticks, "speed_m_s": linear_velocity.length(), "rpm": engine.rpm, "gear": engine.gear, "lean_deg": rad_to_deg(lean_angle), "steer_deg": rad_to_deg(steer_angle), "front_load_n": wheels[0].load, "rear_load_n": wheels[1].load, "front_slip": wheels[0].slip, "rear_slip": wheels[1].slip, "front_compression_m": wheels[0].compression, "rear_compression_m": wheels[1].compression, "crashed": crashed, "last_crash": last_crash}

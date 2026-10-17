@@ -1,69 +1,65 @@
-# Validation — 2026-10-17
+# Phase 2 validation — 2026-10-17
 
-Status: **runnable Phase A candidate with initial Phase B systems; human riding acceptance pending**. This is not a claim of calibrated realism or completion of the full initial milestone.
+**Result:** 74 assertions passed, zero failed, plus an exported Linux functional self-test. The game renders with the original skinned rider and the control editor. This establishes bounded engineering improvements and a runnable build; subjective handling still requires your riding feedback. Windows runtime, physical gamepads, vibration and target-PC performance remain unverified here.
 
-## Executed checks
+## Before/after handling evidence
 
-Godot 4.6.3 standard on Linux, 240 Hz live rigidbody simulation. **34 assertions passed, zero failed**: 22 core physics, 3 track scenarios and 9 input/UI checks. The core suite was rerun after its final brake-lock regression was added; the complete track/control suites passed with the same final gameplay code. See [validation.log](validation.log) and [physics-results.json](physics-results.json) for recorded evidence.
+Baseline: published first-build source commit `8ea3b308cfcc901f1eb8966b79c95e2036eb4f32`. Both runs use the same shipped track and command probe at 240 Hz; the controls node is disabled so the identical command sequence reaches the authoritative chassis directly. Initial moving cases use 10 m/s, second gear, engine 6000 RPM, throttle 0.4, and four simulated seconds. Low speed begins at 4 m/s. Raw records are [handling-before.json](handling-before.json) and [handling-after.json](handling-after.json).
 
-| Check | Observed result |
-| --- | --- |
-| Static equilibrium | Combined tire load ~1775.6 N, matching 181 kg × 9.81; idle speed ~0.0014 m/s |
-| Full-throttle straight | ~20.37 m/s (73.3 km/h) after 8 simulated seconds; no crash |
-| Engine/gearbox | RPM rises, automatic gearbox reaches gear 5; manual shift input reaches transmission |
-| Brake response | Speed ~20.37 → 12.70 m/s in 1.5 s; front peak ~1346 N, rear minimum ~425 N |
-| Deliberate rear brake lock | Rear slip -1.0 at ~6.18 m/s; no automatic crash |
-| Both turn directions | Opposite headings, lean about ±10.08°, upright and uncrashed in the specified moderate-input scenario |
-| Airborne motion | Both tires detach; gravity accelerates the chassis downward |
-| Airborne rear brake | Pitch angular rate changes approximately -0.005 → -0.559 rad/s |
-| Modest level drop | Suspension absorbs landing and both contacts recover; no crash |
-| Small tabletop | Physical takeoff, ~0.396 s continuous flight, landing and continued travel; peak combined tire load ~5906 N |
-| Braking bumps | Traversal to z≈-59.4 m without crash; front compression reaches ~0.172 m |
-| Small initial lateral slide | Slip angles recover below 0.08 rad without crash |
-| Severe fallen chassis | Persistent chassis impact produces crash state; reset clears it |
-| Tire law | Combined force respects μFz; unloading immediately reduces force limit |
-| Surface coefficients | Sand has lower grip and higher rolling resistance than hardpack |
-| Input/UI | Actual injected key press/release, steering smoothing, pause/freeze, Resume signal, manual shift, camera and reset work; signed gamepad deadzone transform passes |
-| Gear boundaries | Invalid shifts beyond first/top do not open clutch or start shift interruption |
+| Scenario and metric | First build | Phase 2 |
+| --- | ---: | ---: |
+| Held corner: peak front slip | 7.98° | 1.81° |
+| Held corner: integrated absolute body-lateral velocity | 1.53 m | 0.31 m |
+| Left/right reversal: peak front slip | 16.33° | 2.08° |
+| Left/right reversal: peak lean | 33.85° | 18.04° |
+| Left/right reversal: peak roll rate | 2.03 rad/s | 0.76 rad/s |
+| Low-speed corner: peak front slip | 4.64° | 2.71° |
+| Braking corner: peak front slip | 5.16° | 1.83° |
+| Straight: lateral travel / peak lean | 0 / 0 | 0 / 0 |
 
-These tests establish bounded scenarios, not handling quality over arbitrary terrain or player input. The tabletop scenario spawns already moving at 14 m/s, matches wheel speed, selects third gear, uses throttle 0.35 and forward body 0.5. It does not demonstrate that every jump speed or landing attitude is safe. Steering scenarios begin at 9 m/s with modest ±0.24 steering command. The lateral-slide test begins with 0.8 m/s lateral velocity. Physical gamepad devices and aggressive tight corners have not been tested.
+These are defined scenarios, not claims that all riding feels fixed. The lower lateral travel comes with actual turning: the held-corner heading changes and final speed remains ~10.26 m/s, versus ~9.86 before. Not every metric improves: the defined lateral-disturbance case initially reaches a slightly higher peak roll rate (~1.25 versus ~1.16 rad/s), though integrated lateral travel falls (~0.29 versus ~0.58 m) and it recovers without a crash. All raw outcomes are retained rather than reporting only favorable cases.
 
-## Build and presentation evidence
+The initial new low-speed controller still failed an expanded true-idle first-gear start-and-turn test. A diagnostic trace showed raw steering leaning the chassis the wrong way before feedback became effective. After the earlier blend and speed-scaled feedback correction, the same start remains upright: ~3.34 m/s after four seconds, ~4.51° peak lean and ~2.12° peak front slip. No new chassis stabilizing force was added. Faster cases beginning at 18 m/s also pass: front slip stays under 2°, with ~22° peak lean in the held corner and ~19.4° in the reversal.
 
-- Project import completed successfully after assigning writable XDG directories.
-- Actual graphical game launched using Xorg's dummy display and Mesa llvmpipe OpenGL 4.5. Screenshots [prototype.png](prototype.png) and [settings.png](settings.png) were captured from the running viewport and inspected. A driver warning says VSync mode changes are unsupported by this software display; no application script errors were observed.
-- Matching official export templates were SHA-512 verified before extraction.
-- Windows x86-64 release export succeeded. The resulting embedded-pack executable is a PE32+ x86-64 GUI executable. **It has not been executed on Windows.**
-- Linux x86-64 release export succeeded and its actual exported executable started headlessly, printed the expected active controller/track/240 Hz identity, and exited with status 0. Full functional scenarios ran from source using the same scene/controller; packaged startup is a separate smoke check.
-- No human riding evaluation, physical gamepad test, Windows runtime test, GPU performance benchmark, or cross-platform determinism claim is made. Source startup steps are saved in the cloud draft; publication is separate.
+## Executed suite
 
-## Important fixes validated during development
+`./tests/run_all.sh` runs the real game scene/controller, not a substitute physics mock. The final camera-specific rider assertion was rerun in the rider suite after that integration fix. [validation.log](validation.log) contains the latest outcome for each suite, and [physics-results.json](physics-results.json) retains the core records.
 
-- Terrain triangles initially faced away from the wheel rays. Reordered both visible/physical triangles to Godot's winding convention; static support and contact tests now pass on the same geometry.
-- Initial steering servo stiffness was insufficient against the model's aligning moment. Increased steering servo stiffness/damping; moderate turn scenarios now settle rather than falling over. This is a bounded automatic test result, not subjective riding feedback.
-- Adding drivetrain reaction in addition to a ground-contact moment double-counted part of wheel torque and caused unrealistic backflips. The chassis now receives the negative change of the separately stored wheel angular momentum. Acceleration and airborne brake-pitch checks pass on this path.
-- Automatic shifts at a gear boundary used to trigger clutch interruption even without a gear change. Gear changes now require a different valid target; both boundary regressions pass.
+| Suite | Passed | Coverage |
+| --- | ---: | --- |
+| Core physics | 22 | 240 Hz, static support, no idle propulsion, acceleration, gears, independent brakes/load transfer, deliberate rear lock, both turns, gravity/air contact, airborne brake pitch, level landing, crash/reset, gear boundaries, combined grip/unloading and surfaces |
+| Physical track | 3 | Small tabletop flight/landing/continuation, braking bumps, minor slide recovery |
+| Existing input/UI | 9 | Actual key press/release, steering response, pause/freeze/resume, manual shift, camera, reset and deadzone |
+| Binding editor | 16 | Live key rebind, old-key removal, neutral gating, conflict warning/swap/replace, axis noise rejection, signed axis capture, progressive analog polling, button/D-pad capture, cancel/disconnect and disk save |
+| Separate process | 1 | Keyboard/controller mappings, cleared conflicts, sensitivity/deadzone/inversion/vibration settings reload from disk in a fresh Godot process |
+| Skinned rider/camera | 10 | Active 17-bone skin, sit/stand separation, smooth movement, fixed segment lengths, actual wrist/ankle targets, directional body shifts, no physics mutation, rider/chase visibility masks |
+| Expanded handling | 13 | Straight, correction, held/reversed turns, low-speed turn, braking turn, disturbance recovery, large input, real standing start, two angled landings, faster corner and reversal |
+| **Total** | **74** | **Zero failures in final recorded outcomes** |
 
-## Manual acceptance checklist
+The original acceleration/braking/airborne regression tests still pass. The tabletop remains a physical takeoff/flight/landing scenario, not an animation. Rear-wheel lock still produces slip -1 without a slip-triggered crash. Contact force stays constrained by the combined current μFz budget; dirt/sand μ values were not raised.
 
-Use README's first-ride instructions. Record lane, assist settings, speed, gear, and inputs for failures. Do not mark a row accepted from code presence alone.
+## Rider and graphical inspection
 
-| Brief requirement | Current evidence / next riding test |
-| --- | --- |
-| Spawn on test track | Rendered and automated; confirm on your PC |
-| Smooth standstill acceleration | Automatic straight scenario passes; evaluate controller modulation and launch feel |
-| Believable braking weight transfer | Measured loads respond; evaluate braking distance and pitch |
-| Working manual gears | Keyboard input and auto shifts tested; evaluate manual clutch/shift timing |
-| Turns both ways | Moderate scenarios pass; assess response, countersteer and reversal |
-| Flat corner without random washout | Bounded turn/slide cases pass; ride sustained sweepers |
-| Tight turn with rider control | **Unverified**; test decreasing-radius turns and low-speed assist transition |
-| Bumps without excessive instability | Defined braking-bump scenario passes; test whoops and rough loam at varied speeds |
-| Small tabletop | Defined takeoff/landing scenario passes; reproduce under player control |
-| Air pitch adjustment | Rear-brake angular momentum response tested; evaluate throttle/brake modulation |
-| Land and continue | Level drop and tabletop pass; angled and large landings remain unverified |
-| Deliberately exceed grip | Rear lock tested; combined cornering/throttle breakaway needs riding review |
-| Recover minor slides | Defined lateral disturbance recovers; test steering/throttle recovery |
-| Crash on unrecoverable event | Fallen chassis case tested; classifier is provisional, not impact-severity calibrated |
-| Observe active systems | Live tick, controller identity, forces, tire states, load, slip, RPM and steering displayed |
+The original Blender-authored glTF imports as one skinned mesh with 17 bones and gear material groups. Approximate human segment lengths are ~0.333/0.274 m upper/lower arm and ~0.440/0.420 m upper/lower leg. The rig test exercises standing, sitting, forward/backward and lateral body inputs with steering. In those poses, endpoint/bone-length errors are below 0.002 m, and pelvis motion stays below 0.035 m per 60 Hz animation update.
 
-Next development should follow this feedback: calibrate the tire/load and suspension/geometry model, improve low-speed/control transitions and rider momentum, and expand scenario coverage for tight turns and angled landings. Professional assets, advanced whips/scrubs and content systems remain later work.
+Actual software-OpenGL views were captured and inspected: [standing](phase2-standing.png), [front/helmet details](phase2-front.png), [seated](phase2-seated.png), [binding editor](phase2-controls.png), [response settings](phase2-response.png), and [rider-camera view](phase2-helmet.png). Inspection led to seated pelvis/seat clearance, neck coverage and camera self-occlusion corrections. This is a recognizable original stylized motocross rider, not a production photorealistic character or a complete cloth/ragdoll system. Bone endpoint tests do not prove that mesh clipping is impossible under every pose.
+
+No physical gamepad was attached. Binding/capture/analog tests inject actual Godot keyboard/joypad events and use the production mapping functions; they do not establish hardware driver compatibility or vibration feel. A disconnect callback path is tested, but a real unplug/replug still needs the short manual procedure below.
+
+## Exported application evidence
+
+- Godot 4.6.3 standard project import and both Windows/Linux release exports succeeded.
+- The runtime pack includes the imported glTF scene and new input/IK/diagnostic scripts. Export templates were verified against the official SHA-512 manifest before their original installation.
+- The actual Linux release executable ran `--headless --fixed-fps 240 -- --self-test`, loaded the 17-bone rider and v2 chassis, settled on both tires, accelerated to ~4.16 m/s, braked to ~1.87 m/s, and exited 0 after 1260 ticks. This tests exported resource inclusion and active physics, beyond process startup.
+- Windows is exported as an x86-64 executable but has not been run on Windows here. [PHASE2_BUILD.json](PHASE2_BUILD.json) records source/executable fingerprints and unverified capabilities.
+- Rendering used Xorg dummy display and Mesa llvmpipe OpenGL. Its unsupported VSync-mode warning is expected for that display. No application script errors were observed in the final test/capture/export logs. No 60 FPS or target-GPU performance claim is made.
+
+## Your next hands-on pass
+
+1. Start on the straight with default assists. Accelerate, make small corrections, then progressive corners/reversals at 25–40 km/h. Try a slow turn while accelerating from rest. Compare with the retained first-build ZIP.
+2. Brake straight and lightly in a corner; deliberately lock/release the rear. Apply aggressive throttle on dirt and sand. Grip should remain finite and slides should be recoverable where physical loading allows.
+3. Repeat the small tabletop, brief airborne rear-brake pitch correction, and a modest landing. Report unexplained yaw/roll with the approach speed and inputs.
+4. Sit/stand, shift body position and steer through both directions. Check hands at grips, boots on pegs, seat/neck clearance, elbow/knee bends and transitions during braking and landings.
+5. In Controls, bind a trigger, stick direction, D-pad and key; resolve a conflict; change Response settings; quit/relaunch. Unplug/replug the controller and release inputs to resume. Test vibration if your device supports it.
+
+Include lane, speed, gear, controller model, assist/response settings and exact inputs with feedback. This update is ready for that round of testing; calibration and acceptance of riding feel remain open.

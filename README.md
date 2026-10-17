@@ -1,86 +1,87 @@
-# Terra MX — motorcycle dynamics prototype
+# Terra MX — Phase 2 / 0.2.0
 
-A native Godot 4.6.3 PC development build: one original 250F engineering proxy, a physical dirt test environment, and a single force-based motorcycle simulation at 240 Hz. This begins Phase A and selected Phase B systems from [the project brief](docs/PROJECT_BRIEF.md). It is an early riding prototype, not a validated commercial motorcycle simulator.
+Native Godot 4.6.3 motocross development build. The original chassis, powertrain, track, braking and flight foundation is retained. This update concentrates on tire response, virtual-rider steering, an original skinned motocross rider, and persistent in-game control customization.
 
-![Running prototype](docs/prototype.png)
+**[Download Phase 2 for Windows x64](https://github.com/Ceeb68/Mx-game/raw/refs/heads/prototype-download/build/TerraMX-phase2-windows.zip)**
 
-## Launch
+Extract the ZIP and run `TerraMX.exe`. No Godot installation is required for this export. OpenGL 3.3-capable graphics are needed. Windows execution and physical gamepad/vibration feel remain unverified on the Linux development machine. [The original build remains available](https://github.com/Ceeb68/Mx-game/raw/refs/heads/prototype-download/build/TerraMX-windows.zip) for comparison.
 
-**Windows x64:** extract `build/TerraMX-windows.zip`, then double-click `TerraMX.exe`. No Godot installation is needed for the exported build. OpenGL 3.3-capable graphics are required. Windows execution has not been tested on this Linux machine.
+![Original rigged motocross rider](docs/phase2-standing.png)
 
-**From source:** install Godot **4.6.3 standard** (GDScript, no .NET). Import `project.godot` in Godot and press **F6 on `scenes/main.tscn` or F5**. Or run:
+## What changed
 
-```sh
-godot --path /path/to/Mx-game
-```
+- Tire force builds at smaller slip angles, with stable implicit wheel/contact coupling, speed-dependent contact-patch relaxation, and progressive sliding saturation. Existing dirt/sand friction coefficients are unchanged; force remains limited by the combined μFz budget.
+- Three terrain rays sample each curved tire footprint. Rendered and physical ground still share one heightfield. No hidden lateral drag, chassis rotation assignment, extra roll stabilizer, or speed multiplication was added.
+- A rate-limited virtual rider blends low-speed steering into lean control smoothly. It requests steering torque through the existing front assembly and limits requested lean to attainable steering/grip conditions. Optional grounded foot support remains explicit and switchable; flight is not auto-leveled.
+- An original 17-bone skinned glTF rider replaces the old box/rod rider: helmet, goggles, jersey, pants, gloves and buckled boots. Analytic arm/leg IK constrains hands to the rotating handlebar and boots to visible footpegs; filtered stance, body input, acceleration and spring loading drive animation.
+- Settings now has **Riding**, **Controls**, and **Response** tabs. Every gameplay action has keyboard and controller bindings, with axis/button/D-pad support, conflict handling, persistent settings, and disconnect/reconnect behavior.
 
-On this cloud machine:
-
-```sh
-cd /workspace/Mx-game
-./launch.sh                       # requires a graphical display
-./launch.sh --editor              # editor
-./tests/run_all.sh                # headless live-runtime tests
-```
-
-`launch.sh` gives Godot writable XDG directories under `.godot/runtime/` when those variables are absent. No package installation, assets, accounts, or service credentials are needed. The Linux export is `build/linux/TerraMX.x86_64`.
+The rider is an original stylized asset, not a licensed photorealistic character. Soil deformation, independent unsprung wheel bodies, full fork/linkage geometry, articulated rider physics, audio, advanced whips/scrubs and racing/career/multiplayer remain future work. Tire/control parameters are estimates requiring rider calibration. See [physics architecture](docs/ARCHITECTURE.md), [Phase 2 evidence](docs/VALIDATION.md), and [the Phase 2 request](docs/PHASE2_BRIEF.md).
 
 ## Default controls
 
-| Action | Keyboard | Standard gamepad |
+| Action | Keyboard | Standard controller |
 | --- | --- | --- |
 | Throttle / front brake | W / S | RT / LT |
-| Rear brake | Space | A |
+| Rear brake | Space | A / Cross |
 | Steering | A / D | Left stick X |
 | Body forward / backward | Up / Down | Right stick Y |
-| Body lateral position | Q / E | Right stick X |
-| Clutch disengage | Shift | LB |
+| Rider lateral lean | Q / E | Right stick X |
+| Clutch disengage | Shift | LB / L1 |
 | Shift up / down | Page Up / Page Down | RB / X |
-| Stand / sit | Tab | Y |
-| Chase / rider camera | C | B |
+| Stand / sit | Tab | Y / Triangle |
+| Chase / rider camera | C | B / Circle |
 | Reset | R | Back / View |
 | Settings / pause | Escape | Start / Menu |
-| Next test lane | F6 | Keyboard only |
-| Diagnostics | F1 | Keyboard only |
+| Next lane / diagnostics | F6 / F1 | Assign in Controls if desired |
 
-Escape opens a menu that freezes the bike, exposes assists, FOV, follow distance, sensitivity, and deadzone, and provides Resume and Exit buttons. Menus use Godot's mouse, keyboard, and standard gamepad focus navigation. Keyboard labels in the HUD show defaults.
+The chase and rider viewpoints are retained. The rider camera remains a basic development viewpoint, not a fully polished helmet camera.
 
-Both keyboard and gamepad mappings are loaded from `user://controls.cfg`: `[keys]` uses Godot physical key integers; `[gamepad]` uses Godot axis/button indices. First launch writes defaults. With `launch.sh`, the file is under `.godot/runtime/data/godot/app_userdata/Terra MX · Dynamics Lab/`; with Windows defaults it is under `%APPDATA%/Godot/app_userdata/Terra MX · Dynamics Lab/`. Quit before editing and restart afterward. Input settings in that file persist; menu slider/assist changes are session-only. Physical gamepad hardware has not been available for testing.
+## Customize and save controls
 
-## First ride
+1. Open **Escape → Controls** (or Start/Menu, then the Controls tab).
+2. Select the keyboard or controller cell for an action. Press a key/button or move the intended analog axis firmly from neutral. Steering and rider directions are bound separately to signed axis halves or digital buttons.
+3. Drift below 0.25 and motion below 0.65 do not capture an axis. Return an already-deflected axis to neutral first. Escape or **Cancel rebind** cancels; an unanswered capture times out after 15 seconds.
+4. Conflicts are shown before applying. **Swap** exchanges two bindings, **Replace** clears the previous assignment, and **Cancel** preserves the layout. **Reset all bindings** restores the standard layout.
+5. Under **Response**, adjust steering/lean sensitivity and deadzones, throttle/brake deadzones, steering curve/smoothing, inversion, independent/combined rider lean, and vibration. **Riding** contains persistent assists and camera settings.
 
-1. Stay on the spawn straight. Apply throttle gently; brake using S, then try the rear brake separately. Watch front/rear load and suspension values in F1 diagnostics.
-2. Reach 20–30 km/h, then make brief, modest A/D inputs. Keyboard full lock is a full lean request with steering assistance enabled. Try both directions in the open flat area; use R after a fall.
-3. Press F6 once for the flat loam lane. Practice smooth corners before the jumps. Further presses cycle bumps, whoops, sand, berm, then the tabletop lane.
-4. For the small tabletop, approach at roughly 40–50 km/h, reduce throttle near takeoff, and shift weight forward. In air, a brief rear-brake tap pitches the nose downward; throttle with an engaged clutch can pitch it upward. Avoid holding either throughout the jump.
-5. In Escape settings, disable Automatic shifts to test Page Up/Down. Keep clutch assist on initially. Disable foot support or steering assistance separately to examine their effect; these are development controls and raw handling is not validated.
-6. Report speed, gear, lane, assist settings, and what happened. Include whether the symptom was entry, midcorner, takeoff, flight, or landing. We need actual riding feedback before calling the handling correct.
+Changes save automatically to `user://controls_v2.cfg` (atomic file replacement). Existing first-build keyboard/controller mappings are migrated from `controls.cfg` when no v2 profile exists; the old file is preserved. On Windows, the normal location is `%APPDATA%/Godot/app_userdata/Terra MX · Dynamics Lab/`. With `launch.sh`, data is under `.godot/runtime/data/godot/app_userdata/Terra MX · Dynamics Lab/` unless XDG variables are already supplied.
 
-## What exists
+Controller mappings are device-independent and apply to the first connected gamepad. Disconnecting clears transient input and cancels capture; reconnecting retains mappings. Resume/reconnect waits for riding controls to return to neutral before accepting throttle or steering. **Escape remains an emergency menu shortcut after remapping Pause**, and is reserved for cancelling a capture. Menus use Godot's normal mouse/keyboard/D-pad focus navigation. A physical gamepad and vibration still need hands-on verification.
 
-- One authoritative `RigidBody3D` chassis; per-wheel ground rays, spring/damper loads, combined tire-force limit, wheel inertia, explicit wheel momentum reactions and approximate gyroscopic coupling.
-- Data-driven engine torque curve, crank inertia, slipping clutch, five gears, independent brakes, engine drag, optional auto shifting/clutch assistance.
-- Steering assembly inertia and torque servo. Optional lean-to-steering controller initiates countersteering; it never assigns chassis orientation. Optional bounded grounded foot-support torque below 3 m/s is displayed in telemetry.
-- Combined rider/bike COM shift, original procedural bike/rider proxies, suspension-linked wheel/fork/swingarm visuals, chase and rider viewpoints.
-- Collision heightfield with a straight, open flat corner area, berm, two tabletops, bumps, whoops, rough loam, and sand. Surface grip and rolling resistance affect forces.
-- Live diagnostics, manual reset, persistent-impact crash state, pause/exit menu, headless simulation and input tests, Windows/Linux export presets.
+## Short hands-on test
 
-## Limits and next milestone
+1. Ride the straight with assists at defaults. Make small left/right corrections, then a progressive sweeper and a left/right reversal at 25–40 km/h. Compare with the retained original build.
+2. Try a standing start and a slow turn. Brake straight, then apply light front brake midcorner. Deliberately lock the rear brake in a safe area and release it to recover.
+3. Approach the small tabletop around 40–50 km/h. Brief rear brake in flight should still pitch the nose down; land and continue. Use R if needed.
+4. Toggle sitting/standing, body position and camera. Look for seat clipping, floating boots, hand separation or abrupt joint transitions; the rider is presentation-only and must not add physical stabilization.
+5. Rebind throttle to a trigger and a keyboard key, swap two conflicts, change response settings, quit/relaunch and confirm they persist. Unplug/reconnect the controller, release its controls, and confirm the saved layout still works.
 
-The tire coefficients, inertias, torque curve, suspension and control gains are engineering estimates. They are **not calibrated against a measured real motorcycle**. The contact patch is a ray, wheels have no independent unsprung translation, suspension uses chassis-up rays rather than full fork/linkage kinematics, and soil is static. Balance assists and gearbox behavior need rider validation. Crash detection is a provisional sustained-contact/lean heuristic; no rider separation or ragdoll exists.
+Report lane, speed, gear, assist/response settings, controller model, and the exact input sequence for problems. Bounded automated improvements do not establish that the riding feel is fixed.
 
-The bike and rider are visibly simple procedural proxies, with approximate joint positioning rather than a complete IK solver. Audio, sophisticated airborne rider momentum/whips/scrubs, terrain deformation, saved setups, racing, AI, replay, career, multiplayer, polished content, and licensing-ready manufacturer assets are not implemented. No 60 FPS performance claim is made from software-rendered cloud testing.
+## Develop and test
 
-Next: ride and review the acceptance checklist in [VALIDATION.md](docs/VALIDATION.md), then refine tire calibration, low-speed transitions, suspension geometry and rider control. Keep content expansion behind the handling gate. Architecture and force ownership are described in [ARCHITECTURE.md](docs/ARCHITECTURE.md).
+Install **Godot 4.6.3 standard** (no .NET). Import `project.godot`, then F5, or:
+
+```sh
+cd /workspace/Mx-game
+./launch.sh --editor
+./launch.sh
+./tests/run_all.sh
+```
+
+`launch.sh` supplies writable XDG directories when absent. The full suite runs the shipped scene/controller, input/UI tests, a separate-process profile reload, skeletal IK checks, and expanded handling scenarios. Graphical capture: `godot --path . --script res://tests/capture_phase2.gd` with a display. Headless tests cannot establish subjective riding or physical controller behavior.
+
+The rider asset is retained at `assets/rider/terra_rider.glb`. Its reproducible original Blender source is `tools/build_rider.py`; rebuild with `blender -b --python tools/build_rider.py`, then reimport in Godot. Blender is needed only to edit/regenerate the character, not to run or export the game. No external character assets or textures are used.
 
 ## Export
 
-Install Godot's matching **4.6.3 export templates** through the editor. Both presets include the JSON bike definition explicitly.
+Use matching 4.6.3 standard templates. The prepared cloud machine retains checksum-verified templates under `/workspace/.mx-runtime/data/godot/export_templates/4.6.3.stable`.
 
 ```sh
 mkdir -p build/windows build/linux
-godot --headless --path . --export-release 'Windows Desktop'
-godot --headless --path . --export-release Linux
+XDG_DATA_HOME=/workspace/.mx-runtime/data godot --headless --path . --export-release 'Windows Desktop'
+XDG_DATA_HOME=/workspace/.mx-runtime/data godot --headless --path . --export-release Linux
 ```
 
-On the cloud machine, templates have been installed in `/workspace/.mx-runtime/data/godot/export_templates/4.6.3.stable`. Set `XDG_DATA_HOME=/workspace/.mx-runtime/data` when rebuilding there. The official full template archive was verified against the release SHA-512 manifest before use. Exported runtime notices are in `docs/licenses/` and included in the downloadable packages.
+Presets explicitly include bike JSON and the referenced glTF rider; tests/docs/authoring tools are excluded from the runtime pack. `build/TerraMX-phase2-windows.zip`, `build/TerraMX-phase2-linux.zip`, and `build/TerraMX-phase2-source.zip` contain this update. Engine notices are in `docs/licenses/` and included in packages. No publication or Windows execution is implied by a successful local export.
