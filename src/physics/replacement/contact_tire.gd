@@ -3,11 +3,19 @@ extends "res://src/physics/tire.gd"
 ## Static adhesion transitions to sliding; both directions share one friction budget.
 var tread := Vector2.ZERO
 var sliding: bool = false
+var longitudinal_velocity: float = 0
+var lateral_velocity: float = 0
+var applied_force := Vector3.ZERO
 func reset() -> void:
  super.reset()
+ longitudinal_velocity = 0
+ lateral_velocity = 0
+ applied_force = Vector3.ZERO
  tread = Vector2.ZERO
  sliding = false
 func forces(dt: float, longitudinal: float, lateral: float, mu: float, _legacy: float, drive: float = 0, brake: float = 0, inverse_effective_mass: Vector2 = Vector2(0.01,0.01)) -> Vector2:
+ longitudinal_velocity = longitudinal
+ lateral_velocity = lateral
  var free: float = move_toward(omega + (drive - omega * 0.015) * dt / inertia, 0, brake * dt / inertia)
  var relative := Vector2(free * radius - longitudinal, -lateral)
  slip = (omega * radius - longitudinal) / maxf(absf(longitudinal), 1)
@@ -36,6 +44,9 @@ func detach() -> void:
  force = Vector2.ZERO
  load = 0
  grounded = false
+ longitudinal_velocity = 0
+ lateral_velocity = 0
+ applied_force = Vector3.ZERO
  slip = 0
  slip_angle = 0
  utilization = 0

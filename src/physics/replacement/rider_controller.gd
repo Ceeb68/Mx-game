@@ -4,13 +4,17 @@ extends RefCounted
 var lean_request: float = 0
 var steering_request: float = 0
 var roll_integral: float = 0
+var previous_roll_error: float = 0
 var grounded: bool = true
 var passive_roll_moment: float = 0
 var front_roll_arm: float = -0.7
 var front_slip_angle: float = 0
 var front_grip: float = 0
 var actual_steer: float = 0
+var front_heading_gain: float = cos(deg_to_rad(27))
 var desired_front_force: float = 0
+var unconstrained_front_force: float = 0
+var force_limited: bool = false
 var controlled_force: float = 0
 var front_tire: RefCounted
 var front_longitudinal: float = 0
@@ -19,7 +23,12 @@ func reset() -> void:
  lean_request = 0
  steering_request = 0
  roll_integral = 0
+ previous_roll_error = 0
+ unconstrained_front_force = 0
+ force_limited = false
 func step(dt: float, input: float, body_lean: float, speed: float, roll: float, roll_rate: float, mu: float, config: Dictionary) -> float:
+ force_limited = false
+ unconstrained_front_force = 0
  var v2: float = maxf(speed * speed, 1)
  var limit: float = minf(atan(mu * 0.55), atan(v2 * tan(0.48) / (9.81 * config.wheelbase_m)))
  var target: float = input * minf(limit, deg_to_rad(40)) + body_lean * deg_to_rad(5)
@@ -28,9 +37,14 @@ func step(dt: float, input: float, body_lean: float, speed: float, roll: float, 
  if not grounded:
   steering_request = input * 0.30
   roll_integral = 0
+  previous_roll_error = 0
   desired_front_force = 0
   return steering_request
  var error: float = roll - lean_request
+ # A crossed lean target invalidates the accumulated one-sided trim.
+ # Keep PD balance and bounded integral gain; discard the stale correction.
+ if error * previous_roll_error < 0: roll_integral = 0
+ previous_roll_error = error
  if grounded and absf(speed)>2.2:
   roll_integral = clampf(roll_integral + error * dt * 6, -3, 3)
  else:
@@ -41,10 +55,12 @@ func step(dt: float, input: float, body_lean: float, speed: float, roll: float, 
  # Invert the active tread model against actual ground roll moments.
  # Unlike curvature feedforward, this remains meaningful during turn initiation.
  if grounded and front_grip > 20 and absf(front_roll_arm) > 0.2:
-  desired_front_force = clampf((-config.inertia_kg_m2[2] * desired_acceleration - passive_roll_moment) / front_roll_arm, -front_grip, front_grip)
+  unconstrained_front_force = (-config.inertia_kg_m2[2] * desired_acceleration - passive_roll_moment) / front_roll_arm
+  desired_front_force = clampf(unconstrained_front_force, -front_grip, front_grip)
+  force_limited = absf(unconstrained_front_force) > front_grip
   var desired_slip_angle: float = front_tire.lateral_angle_for_force(dt,desired_front_force,front_longitudinal,front_inverse_mass)
   var tire_heading_change: float = front_slip_angle - desired_slip_angle
-  controlled_force = actual_steer + tire_heading_change * maxf(0.3,cos(roll)) / cos(deg_to_rad(config.rake_deg))
+  controlled_force = actual_steer + tire_heading_change / maxf(0.2, front_heading_gain)
  else:
   controlled_force = equilibrium + dynamic
  var blend: float = smoothstep(0.4, 2.2, absf(speed))

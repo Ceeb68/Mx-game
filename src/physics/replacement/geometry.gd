@@ -24,3 +24,12 @@ static func hub(index: int, extension: float, angle: float) -> Vector3:
  return REAR_PIVOT + Vector3(0,sin(theta),cos(theta))*length
 static func grip(side: float, angle: float) -> Vector3:
  return HEAD + steering_basis(angle) * (Vector3(side * 0.35, 0.48, -0.55) - HEAD)
+
+static func heading_per_steer(chassis: Basis, normal: Vector3, angle: float) -> float:
+ # Ground-heading derivative of the existing raked steering mechanism.
+ # On level ground at zero steer: cos(rake)*cos(lean), not cos(rake)/cos(lean).
+ var forward: Vector3 = chassis * (steering_basis(angle) * Vector3.FORWARD)
+ var derivative: Vector3 = -(chassis * axis(0, angle)).cross(forward)
+ var projected: Vector3 = forward.slide(normal)
+ if projected.length_squared() < 0.01: return 0
+ return -normal.dot(projected.cross(derivative.slide(normal))) / projected.length_squared()

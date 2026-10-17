@@ -1,0 +1,41 @@
+--- a/src/physics/replacement/contact_tire.gd
++++ b/src/physics/replacement/contact_tire.gd
+@@ -5,0 +6,3 @@
++var longitudinal_velocity: float = 0
++var lateral_velocity: float = 0
++var applied_force := Vector3.ZERO
+@@ -7,0 +11,3 @@
++ longitudinal_velocity = 0
++ lateral_velocity = 0
++ applied_force = Vector3.ZERO
+@@ -10,0 +17,2 @@
++ longitudinal_velocity = longitudinal
++ lateral_velocity = lateral
+@@ -38,0 +47,3 @@
++ longitudinal_velocity = 0
++ lateral_velocity = 0
++ applied_force = Vector3.ZERO
+--- a/src/physics/replacement/rider_controller.gd
++++ b/src/physics/replacement/rider_controller.gd
+@@ -13,0 +14,2 @@
++var unconstrained_front_force: float = 0
++var force_limited: bool = false
+@@ -21,0 +24,2 @@
++ unconstrained_front_force = 0
++ force_limited = false
+@@ -44 +48,3 @@
+-  desired_front_force = clampf((-config.inertia_kg_m2[2] * desired_acceleration - passive_roll_moment) / front_roll_arm, -front_grip, front_grip)
++  unconstrained_front_force = (-config.inertia_kg_m2[2] * desired_acceleration - passive_roll_moment) / front_roll_arm
++  desired_front_force = clampf(unconstrained_front_force, -front_grip, front_grip)
++  force_limited = absf(unconstrained_front_force) > front_grip
+--- a/src/physics/replacement/motorcycle.gd
++++ b/src/physics/replacement/motorcycle.gd
+@@ -20,0 +21 @@
++var steering_target: float = 0
+@@ -123,0 +125 @@
++ steering_target = desired_steer
+@@ -214,0 +217 @@
++   wheel.applied_force = tangential
+@@ -272 +275 @@
+- return {"engine": "Godot Physics", "sprung_mass_kg": mass, "total_mass_kg": mass + 16, "architecture": "unsprung DOFs + compliant bristle contact", "controller": SIMULATION_VERSION, "target_lean_deg": rad_to_deg(virtual_rider.lean_request), "front_contact_samples": wheels[0].contact_samples, "rear_contact_samples": wheels[1].contact_samples, "ticks": simulation_ticks, "speed_m_s": linear_velocity.length(), "rpm": engine.rpm, "gear": engine.gear, "lean_deg": rad_to_deg(lean_angle), "steer_deg": rad_to_deg(steer_angle), "front_load_n": wheels[0].load, "rear_load_n": wheels[1].load, "front_slip": wheels[0].slip, "rear_slip": wheels[1].slip, "front_compression_m": wheels[0].compression, "rear_compression_m": wheels[1].compression, "crashed": crashed, "last_crash": last_crash}
++ return {"engine": "Godot Physics", "sprung_mass_kg": mass, "total_mass_kg": mass + 16, "architecture": "unsprung DOFs + compliant bristle contact", "controller": SIMULATION_VERSION, "steer_input":command.steer, "steer_target_deg":rad_to_deg(steering_target), "front_lateral_m_s":wheels[0].lateral_velocity, "rear_lateral_m_s":wheels[1].lateral_velocity, "front_grip_use":wheels[0].utilization, "rear_grip_use":wheels[1].utilization, "front_fx_n":wheels[0].force.x, "front_fy_n":wheels[0].force.y, "rear_fx_n":wheels[1].force.x, "rear_fy_n":wheels[1].force.y, "front_world_force": [wheels[0].applied_force.x,wheels[0].applied_force.y,wheels[0].applied_force.z], "rear_world_force":[wheels[1].applied_force.x,wheels[1].applied_force.y,wheels[1].applied_force.z], "requested_front_fy_n":virtual_rider.desired_front_force, "front_force_limited":virtual_rider.force_limited, "roll_integral":virtual_rider.roll_integral, "target_lean_deg": rad_to_deg(virtual_rider.lean_request), "front_contact_samples": wheels[0].contact_samples, "rear_contact_samples": wheels[1].contact_samples, "ticks": simulation_ticks, "speed_m_s": linear_velocity.length(), "rpm": engine.rpm, "gear": engine.gear, "lean_deg": rad_to_deg(lean_angle), "steer_deg": rad_to_deg(steer_angle), "front_load_n": wheels[0].load, "rear_load_n": wheels[1].load, "front_slip": wheels[0].slip, "rear_slip": wheels[1].slip, "front_compression_m": wheels[0].compression, "rear_compression_m": wheels[1].compression, "crashed": crashed, "last_crash": last_crash}

@@ -1,23 +1,14 @@
-# Terra MX — Physics replacement prototype / 0.3.0
+# Terra MX — targeted steering repair / 0.3.1
 
-Native Godot 4.6.3 motocross prototype. This build keeps **Godot Physics** and replaces the motorcycle architecture with **ReducedCoordinateMotorcycle/v3**: independent unsprung suspension states, compliant tread contact, contact-moment rider control, shared raked steering/suspension geometry, and rider angular-momentum transfer. It is an experimental reduced-coordinate simulation, not a calibrated production race simulator.
+**[Download the Windows test build](https://github.com/Ceeb68/Mx-game/raw/refs/heads/repair/traction-steering-v3/build/TerraMX-targeted-v3.1-windows.zip)**
 
-**[Download the Windows rebuild prototype](https://github.com/Ceeb68/Mx-game/raw/refs/heads/prototype-download/build/TerraMX-rebuild-v3-windows.zip)**
+Extract everything and run `TerraMX.exe`. Diagnostics identify **ReducedCoordinateMotorcycle/v3.1-targeted**; F1 toggles the display. Use the same saved response/assist settings when comparing builds, with steering assistance on to test the virtual rider. Existing mappings and profiles remain intact.
 
-Extract the ZIP and run `TerraMX.exe`. No Godot installation is required. OpenGL 3.3-capable graphics are needed. The debug display must identify **Godot Physics • ReducedCoordinateMotorcycle/v3**. Use `Compare-legacy.bat` to launch the preserved v2 controller and visual hierarchy. [The original Phase 2 build remains available](https://github.com/Ceeb68/Mx-game/raw/refs/heads/prototype-download/build/TerraMX-rebuild-v3-windows.zip).
+This is a focused repair of the existing Godot Physics motorcycle: correct the ground-heading steering conversion, add target-velocity feedforward to the existing bounded steering actuator, and clear stale integral correction when the lean error changes sign. Tire friction/force calculations, suspension, mass/inertia, lean-request envelope, rider assets, track and control bindings are retained. New diagnostics show input/target/actual steering, target/actual lean, lateral velocities, loads, grip utilization and forces.
 
-Windows execution and physical gamepad feel remain unverified on this Linux development machine. Automated tests and rendered inspection cannot prove that subjective riding feel is fixed.
+Read the [investigation, exact changes and numerical comparison](docs/targeted/REPORT.md). Automated tests do not prove realistic riding feel. Windows execution and physical controller feel remain unverified here. This build is for your evaluation before further development.
 
-## What changed
-
-- Separate front/rear unsprung translation and compliant tire carcass loads; chassis springs no longer directly define tire contact load.
-- Stateful elastic tread adhesion, combined grip limits and progressive sliding, with unchanged terrain friction coefficients.
-- Grounded virtual rider requests front lateral force from actual roll moments and inverts the discrete tire model into steering. Bounded hand torque drives a physical steering DOF.
-- Front fender, clamps, bars and axle share a raked steering pivot; fixed-length fork tubes telescope. Rear axle follows a swingarm arc and the shock follows its endpoints.
-- Acceleration-limited rider movement transfers angular momentum; wheel throttle/brake pitch control remains. No airborne attitude snapping.
-- Existing track, skinned rider, cameras, binding editor, saved profiles and settings remain connected. Optional foot-down support remains a grounded low-speed development aid.
-
-Read the [engine investigation, implementation details and limitations](docs/PHYSICS_REBUILD.md), [validation results](docs/VALIDATION.md), and [architecture](docs/ARCHITECTURE.md). The v2 source and previous packages are preserved.
+**[Preserved v3 Windows build](https://github.com/Ceeb68/Mx-game/raw/266751cc59e5d30f3f8c6dbb34a63d0783350d87/build/TerraMX-rebuild-v3-windows.zip)** — extract it into a separate folder for comparison. Its complete original source remains at commit `266751c`; [the earlier architecture report](docs/PHYSICS_REBUILD.md) describes v3, not this targeted change.
 
 ## Default controls
 
@@ -88,4 +79,4 @@ godot --headless --path . --export-release 'Windows Desktop'
 godot --headless --path . --export-release Linux
 ```
 
-Presets explicitly include bike JSON and the referenced glTF rider; tests/docs/authoring tools are excluded from the runtime pack. `build/TerraMX-rebuild-v3-windows.zip`, `build/TerraMX-rebuild-v3-linux.zip`, and `build/TerraMX-rebuild-v3-source.zip` contain this update. Engine notices are in `docs/licenses/` and included in packages. No publication or Windows execution is implied by a successful local export.
+Presets explicitly include bike JSON and the referenced glTF rider; tests/docs/authoring tools are excluded from the runtime pack. `build/TerraMX-targeted-v3.1-windows.zip` and `build/TerraMX-targeted-v3.1-source.zip` contain this test build. `tools/package_targeted.py` packages the exports after the current build manifest and validation evidence are recorded. Engine notices are in `docs/licenses/` and included in packages. No publication or Windows execution is implied by a successful local export.

@@ -1,0 +1,213 @@
+{
+  "checks": 24,
+  "failures": 0,
+  "results": [
+    {
+      "check": "shipped scene selects replacement implementation",
+      "evidence": {
+        "architecture": "unsprung DOFs + compliant bristle contact",
+        "controller": "ReducedCoordinateMotorcycle/v3.1-targeted",
+        "crashed": false,
+        "engine": "Godot Physics",
+        "front_compression_m": 0.0,
+        "front_contact_samples": 0,
+        "front_force_limited": false,
+        "front_fx_n": 0.0,
+        "front_fy_n": 0.0,
+        "front_grip_use": 0.0,
+        "front_lateral_m_s": 0.0,
+        "front_load_n": 0.0,
+        "front_slip": 0.0,
+        "front_world_force": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "gear": 1,
+        "hand_torque_nm": 0.0,
+        "heading_per_steer": 0.891006524188368,
+        "last_crash": "none",
+        "lean_deg": 0.0,
+        "rear_compression_m": 0.0,
+        "rear_contact_samples": 0,
+        "rear_fx_n": 0.0,
+        "rear_fy_n": 0.0,
+        "rear_grip_use": 0.0,
+        "rear_lateral_m_s": 0.0,
+        "rear_load_n": 0.0,
+        "rear_slip": 0.0,
+        "rear_world_force": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "requested_front_fy_n": 0.0,
+        "roll_integral": 0.0,
+        "rpm": 1900.0,
+        "speed_m_s": 0.0,
+        "sprung_mass_kg": 165.0,
+        "steer_actual_rate": 0.0,
+        "steer_deg": 0.0,
+        "steer_input": 0.0,
+        "steer_target_deg": 0.0,
+        "steer_target_rate": 0.0,
+        "target_lean_deg": 0.0,
+        "ticks": 0,
+        "total_mass_kg": 181.0
+      },
+      "passed": true
+    },
+    {
+      "check": "collision backend explicitly selected: Godot Physics",
+      "evidence": null,
+      "passed": true
+    },
+    {
+      "check": "sprung and unsprung masses sum to 181 kg",
+      "evidence": [
+        165.0,
+        7,
+        9
+      ],
+      "passed": true
+    },
+    {
+      "check": "independent tire loads support total mass",
+      "evidence": [
+        891.450603470958,
+        884.150763894808
+      ],
+      "passed": true
+    },
+    {
+      "check": "no idle creep from raked suspension guide",
+      "evidence": 0.00406325655058026,
+      "passed": true
+    },
+    {
+      "check": "contact load is distinct from suspension force (unsprung mass)",
+      "evidence": [
+        891.450603470958,
+        728.238294398706
+      ],
+      "passed": true
+    },
+    {
+      "check": "road step excites wheel inertia instead of directly assigning compression",
+      "evidence": {
+        "legacy_instant_load": 1680.0,
+        "new_compression": 0.00151624735122985,
+        "new_contact_load": 12087.0744441973
+      },
+      "passed": true
+    },
+    {
+      "check": "wheel transient settles through spring and carcass compliance",
+      "evidence": [
+        0.105725142857143,
+        -0.00000000000000383071076254994
+      ],
+      "passed": true
+    },
+    {
+      "check": "rider inverse requests the intended transient force from the production tire law",
+      "evidence": "(-0.186014, 300.0)",
+      "passed": true
+    },
+    {
+      "check": "new tread contact opposes lateral slip without velocity locking",
+      "evidence": "(-0.186014, -179.1045)",
+      "passed": true
+    },
+    {
+      "check": "tread stores and progressively releases elastic shear",
+      "evidence": [
+        -179.104476928711,
+        -139.978530883789
+      ],
+      "passed": true
+    },
+    {
+      "check": "combined high-slip demand enters finite sliding friction",
+      "evidence": [
+        "(605.1724, -294.9532)",
+        2.35,
+        0.880031770195057
+      ],
+      "passed": true
+    },
+    {
+      "check": "unloading immediately reduces combined force",
+      "evidence": "(34.40664, -14.66096)",
+      "passed": true
+    },
+    {
+      "check": "airborne tire clears stored ground shear",
+      "evidence": null,
+      "passed": true
+    },
+    {
+      "check": "front fender and axle share steering assembly",
+      "evidence": null,
+      "passed": true
+    },
+    {
+      "check": "fork compression moves axle relative to fixed high fender",
+      "evidence": 0.18000054359436,
+      "passed": true
+    },
+    {
+      "check": "rendered axle exactly matches simulated raked fork geometry",
+      "evidence": null,
+      "passed": true
+    },
+    {
+      "check": "rear axle follows constant-length swingarm arc",
+      "evidence": [
+        0.653069674968719,
+        0.653069674968719
+      ],
+      "passed": true
+    },
+    {
+      "check": "telescopic fork tube lengths remain fixed",
+      "evidence": null,
+      "passed": true
+    },
+    {
+      "check": "freefall guide reactions do not generate unexplained chassis rotation",
+      "evidence": "(0.00707, 0.0, 0.0)",
+      "passed": true
+    },
+    {
+      "check": "airborne rider movement transfers angular momentum through torque",
+      "evidence": {
+        "pitch_change": 0.166122328024358,
+        "reaction": "(63.80321, 0.0, 0.0)"
+      },
+      "passed": true
+    },
+    {
+      "check": "ground support never adds airborne stabilization",
+      "evidence": null,
+      "passed": true
+    },
+    {
+      "check": "right turn begins with countersteering then develops right lean",
+      "evidence": [
+        -0.900017329049984,
+        10.5423924251341
+      ],
+      "passed": true
+    },
+    {
+      "check": "six-second corner remains supported and rideable",
+      "evidence": {
+        "peak_front_slip": 0.766967042750944,
+        "peak_lean": 12.0863708632148,
+        "speed": 14.2835397720337
+      },
+      "passed": true
+    }
+  ]
+}

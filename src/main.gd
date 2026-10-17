@@ -79,7 +79,7 @@ func make_ui() -> void:
  root.add_child(header)
  var subtitle := Label.new()
  subtitle.position = Vector2(31, 55)
- subtitle.text = "250F   /   REBUILD PROTOTYPE   /   240 Hz"
+ subtitle.text = "250F   /   TARGETED REPAIR 3.1   /   240 Hz"
  subtitle.modulate = Color(1, 0.65, 0.3)
  root.add_child(subtitle)
  hud = Label.new()
@@ -96,7 +96,7 @@ func make_ui() -> void:
  var help := Label.new()
  help.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
  help.position = Vector2(-560, -100)
- help.text = "250F  /  REBUILD PROTOTYPE
+ help.text = "250F  /  TARGETED REPAIR 3.1
 Controls: open Settings → Controls
 Escape: menu recovery   •   All bindings save automatically"
  root.add_child(help)
@@ -184,5 +184,7 @@ Last crash: %s" % [bike.SIMULATION_VERSION, bike.simulation_ticks, bike.last_dt,
 
   diagnostics.text += "\nTarget lean %+.1f°   patch samples %d / %d\nGrip use %.0f / %.0f%%   saved input profile v2" % [rad_to_deg(bike.virtual_rider.lean_request), f.contact_samples, r.contact_samples, f.utilization * 100, r.utilization * 100]
 
-  if bike.SIMULATION_VERSION == "ReducedCoordinateMotorcycle/v3":
+  if bike.SIMULATION_VERSION.begins_with("ReducedCoordinateMotorcycle/"):
    diagnostics.text += "\nSprung 165 + unsprung 7 / 9 kg   wheel steps 960 Hz\nAxle velocity %+.2f / %+.2f m/s   requested front Fy %+.0f N" % [bike.stations[0].velocity,bike.stations[1].velocity,bike.virtual_rider.desired_front_force]
+
+   diagnostics.text += "\nInput raw %+.2f / command %+.2f   steer target %+.1f°\nLateral velocity F/R %+.2f / %+.2f m/s\nTire Fx / Fy  F %+.0f / %+.0f N   R %+.0f / %+.0f N\nApplied world F %.0f / %.0f / %.0f N\nApplied world R %.0f / %.0f / %.0f N" % [controls.strength("right")-controls.strength("left"),bike.command.steer,rad_to_deg(bike.steering_target),f.lateral_velocity,r.lateral_velocity,f.force.x,f.force.y,r.force.x,r.force.y,f.applied_force.x,f.applied_force.y,f.applied_force.z,r.applied_force.x,r.applied_force.y,r.applied_force.z]

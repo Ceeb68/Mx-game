@@ -1,5 +1,5 @@
 extends RigidBody3D
-const SIMULATION_VERSION := "ReducedCoordinateMotorcycle/v3"
+const SIMULATION_VERSION := "ReducedCoordinateMotorcycle/v3.1-targeted"
 const Rider = preload("res://src/physics/replacement/rider_controller.gd")
 const Geometry = preload("res://src/physics/replacement/geometry.gd")
 const Station = preload("res://src/physics/replacement/wheel_station.gd")
@@ -18,6 +18,9 @@ var steering_assist: bool = true
 var foot_support: bool = true
 var steer_angle: float = 0.0
 var steer_rate: float = 0.0
+var steering_target: float = 0
+var previous_steering_target: float = 0
+var steering_target_rate: float = 0
 var lean_angle: float = 0.0
 var last_crash: String = "none"
 var crashed: bool = false
@@ -86,6 +89,9 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
   longitudinal_acceleration = 0
   steer_angle = 0.0
   steer_rate = 0.0
+  steering_target = 0
+  previous_steering_target = 0
+  steering_target_rate = 0
   rider_offset = Vector3.ZERO
   rider_velocity = Vector3.ZERO
   rider_momentum = Vector3.ZERO
@@ -115,18 +121,25 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
  var front_mu: float = track.surface_at(wheels[0].point).mu if track else 0.95
  virtual_rider.front_grip = sqrt(maxf(0,pow(front_mu*wheels[0].load,2)-pow(wheels[0].force.x,2)))
  virtual_rider.actual_steer = steer_angle
+ virtual_rider.front_heading_gain = Geometry.heading_per_steer(basis, wheels[0].normal, steer_angle)
  if steering_assist:
   var surface_mu: float = track.surface_at(state.transform.origin).mu if track else 0.95
   desired_steer = virtual_rider.step(dt, command.steer, command.lean, speed, lean_angle, roll_rate, surface_mu, config)
  longitudinal_acceleration = lerpf(longitudinal_acceleration, (state.linear_velocity - previous_velocity).dot(forward) / dt, 1 - exp(-dt * 6))
  previous_velocity = state.linear_velocity
  desired_steer = clampf(desired_steer, -0.56, 0.56)
+ steering_target = desired_steer
  # Finite steering DOF: passive trail plus bounded rider torque, implicit damping.
  var trail_torque: float = -wheels[0].force.y * config.trail_m * 0.20
+ # Velocity feedforward makes the existing damped actuator track moving targets.
+ # Bound/filter the derivative estimate; hand torque remains limited to 30 Nm.
+ var target_rate: float = clampf((desired_steer - previous_steering_target) / dt, -6, 6)
+ steering_target_rate = lerpf(steering_target_rate, target_rate, 1-exp(-40*dt))
+ previous_steering_target = desired_steer
  var old_steer_rate: float = steer_rate
  var stiffness: float = 65.0
  var damping: float = 2.0 * sqrt(stiffness * config.steer_inertia_kg_m2)
- steering_torque = clampf((desired_steer - steer_angle) * stiffness - trail_torque, -30, 30)
+ steering_torque = clampf((desired_steer - steer_angle) * stiffness + damping * steering_target_rate - trail_torque, -30, 30)
  steer_rate = (steer_rate + dt * (steering_torque + trail_torque) / config.steer_inertia_kg_m2) / (1 + dt * damping / config.steer_inertia_kg_m2)
  var old_steer: float = steer_angle
  steer_angle = clampf(steer_angle + steer_rate * dt, -0.58, 0.58)
@@ -212,6 +225,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
    var tire_force: Vector2 = wheel.forces(dt, velocity.dot(tire_forward), velocity.dot(right), surface.mu, 0, drive if i == 1 else 0, brake, effective)
    var rolling: float = -tanh(velocity.dot(tire_forward) * 2) * wheel.load * surface.rolling
    var tangential: Vector3 = tire_forward * (tire_force.x + rolling) + right * tire_force.y
+   wheel.applied_force = tangential
    state.apply_force(tangential, offset)
    force_total += tangential
    if i == 0:
@@ -269,4 +283,4 @@ func sample_patch(space: PhysicsDirectSpaceState3D, origin: Vector3, up: Vector3
  return {"position": point_sum / total, "normal": normal_sum.normalized(), "distance": distance_sum / total}
 
 func telemetry() -> Dictionary:
- return {"engine": "Godot Physics", "sprung_mass_kg": mass, "total_mass_kg": mass + 16, "architecture": "unsprung DOFs + compliant bristle contact", "controller": SIMULATION_VERSION, "target_lean_deg": rad_to_deg(virtual_rider.lean_request), "front_contact_samples": wheels[0].contact_samples, "rear_contact_samples": wheels[1].contact_samples, "ticks": simulation_ticks, "speed_m_s": linear_velocity.length(), "rpm": engine.rpm, "gear": engine.gear, "lean_deg": rad_to_deg(lean_angle), "steer_deg": rad_to_deg(steer_angle), "front_load_n": wheels[0].load, "rear_load_n": wheels[1].load, "front_slip": wheels[0].slip, "rear_slip": wheels[1].slip, "front_compression_m": wheels[0].compression, "rear_compression_m": wheels[1].compression, "crashed": crashed, "last_crash": last_crash}
+ return {"engine": "Godot Physics", "sprung_mass_kg": mass, "total_mass_kg": mass + 16, "architecture": "unsprung DOFs + compliant bristle contact", "controller": SIMULATION_VERSION, "steer_input":command.steer, "steer_target_deg":rad_to_deg(steering_target), "heading_per_steer":virtual_rider.front_heading_gain, "steer_target_rate":steering_target_rate, "steer_actual_rate":steer_rate, "hand_torque_nm":steering_torque, "front_lateral_m_s":wheels[0].lateral_velocity, "rear_lateral_m_s":wheels[1].lateral_velocity, "front_grip_use":wheels[0].utilization, "rear_grip_use":wheels[1].utilization, "front_fx_n":wheels[0].force.x, "front_fy_n":wheels[0].force.y, "rear_fx_n":wheels[1].force.x, "rear_fy_n":wheels[1].force.y, "front_world_force": [wheels[0].applied_force.x,wheels[0].applied_force.y,wheels[0].applied_force.z], "rear_world_force":[wheels[1].applied_force.x,wheels[1].applied_force.y,wheels[1].applied_force.z], "requested_front_fy_n":virtual_rider.desired_front_force, "front_force_limited":virtual_rider.force_limited, "roll_integral":virtual_rider.roll_integral, "target_lean_deg": rad_to_deg(virtual_rider.lean_request), "front_contact_samples": wheels[0].contact_samples, "rear_contact_samples": wheels[1].contact_samples, "ticks": simulation_ticks, "speed_m_s": linear_velocity.length(), "rpm": engine.rpm, "gear": engine.gear, "lean_deg": rad_to_deg(lean_angle), "steer_deg": rad_to_deg(steer_angle), "front_load_n": wheels[0].load, "rear_load_n": wheels[1].load, "front_slip": wheels[0].slip, "rear_slip": wheels[1].slip, "front_compression_m": wheels[0].compression, "rear_compression_m": wheels[1].compression, "crashed": crashed, "last_crash": last_crash}
