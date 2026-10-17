@@ -1,0 +1,3 @@
+Official release: https://github.com/godotengine/godot-builds/releases/tag/4.6.3-stable
+Verified SHA-512 before extraction:
+da606b61c10157844f8300172df374472665f95015495cb1a7cd132c40ede404faa96cc1016a4b9662db9909ddea69632c4948b2cd11163438dad4808881fb68  Godot_v4.6.3-stable_export_templates.tpz

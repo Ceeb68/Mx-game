@@ -1,0 +1,90 @@
+{
+  "name": "TMX 250F / development specification",
+  "mass_kg": 181.0,
+  "rider_mass_kg": 78.0,
+  "inertia_kg_m2": [
+    38.0,
+    50.0,
+    16.0
+  ],
+  "wheelbase_m": 1.48,
+  "rake_deg": 27.0,
+  "trail_m": 0.115,
+  "front_radius_m": 0.355,
+  "rear_radius_m": 0.335,
+  "wheel_inertia_kg_m2": [
+    0.65,
+    0.85
+  ],
+  "suspension_rest_m": 0.43,
+  "suspension_travel_m": 0.3,
+  "spring_n_m": [
+    12500.0,
+    13500.0
+  ],
+  "compression_ns_m": [
+    1000.0,
+    1100.0
+  ],
+  "rebound_ns_m": [
+    1400.0,
+    1500.0
+  ],
+  "preload_n": [
+    180.0,
+    180.0
+  ],
+  "brake_nm": [
+    330.0,
+    220.0
+  ],
+  "idle_rpm": 1900.0,
+  "limiter_rpm": 13500.0,
+  "engine_inertia_kg_m2": 0.028,
+  "engine_braking_nm": 3.0,
+  "primary_ratio": 3.05,
+  "final_ratio": 3.77,
+  "gears": [
+    2.14,
+    1.75,
+    1.45,
+    1.23,
+    1.05
+  ],
+  "torque_curve": [
+    [
+      1900,
+      9
+    ],
+    [
+      4000,
+      15
+    ],
+    [
+      6500,
+      21
+    ],
+    [
+      9000,
+      25
+    ],
+    [
+      11000,
+      26
+    ],
+    [
+      12500,
+      23
+    ],
+    [
+      13500,
+      17
+    ]
+  ],
+  "clutch_capacity_nm": 32.0,
+  "steer_inertia_kg_m2": 0.18,
+  "steer_servo_nm_rad": 180.0,
+  "steer_damping_nm_s": 10.0,
+  "foot_support_max_nm": 85.0,
+  "tire_relaxation_s": 0.025
+}

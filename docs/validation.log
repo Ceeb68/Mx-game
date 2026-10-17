@@ -1,0 +1,47 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+TERRA_MX_RUNTIME controller=MotorcycleSimulation/v1 physics_hz=240 terrain=physical_heightfield bike=250F
+PASS fixed physics is 240 Hz null
+PASS settles upright on two suspension contacts {"controller":"MotorcycleSimulation/v1","crashed":false,"front_compression_m":0.0557470655441284,"front_load_n":876.850970949299,"front_slip":-0.00000321695437700213,"gear":1,"last_crash":"none","lean_deg":0.0,"rear_compression_m":0.0532415056228638,"rear_load_n":898.757007800634,"rear_slip":-0.00000387602816461939,"rpm":1839.02616815062,"speed_m_s":0.00136221409775317,"steer_deg":0.0,"ticks":723}
+PASS static tire loads support total mass 1775.60797874993
+PASS idle does not propel motorcycle 0.00136221409775317
+PASS engine torque accelerates the live chassis {"speed":20.3664569854736,"telemetry":{"controller":"MotorcycleSimulation/v1","crashed":false,"front_compression_m":0.0238502359390259,"front_load_n":477.134900609708,"front_slip":-0.00235139782754735,"gear":5,"last_crash":"none","lean_deg":0.0,"rear_compression_m":0.0828005814552307,"rear_load_n":1298.51565208348,"rear_slip":0.106354209306947,"rpm":9121.59847736197,"speed_m_s":20.3664569854736,"steer_deg":0.0,"ticks":2643}}
+PASS engine revs and automatic gearbox shifts {"gear":5,"rpm":13252.5347255964}
+PASS independent brakes slow chassis {"after":12.703857421875,"before":20.3664569854736}
+PASS braking transfers load to front {"front_peak":1346.28693024893,"rear_min":425.187192174529}
+PASS deliberate rear-brake traction loss remains recoverable {"crashed":false,"slip":-1.0,"speed":6.18452787399292}
+PASS controlled turn direction -1 {"heading_x":-0.380474179983139,"lean":-10.0767107038965,"telemetry":{"controller":"MotorcycleSimulation/v1","crashed":false,"front_compression_m":0.0587579941749573,"front_load_n":914.607701097714,"front_slip":0.00074904945081551,"gear":1,"last_crash":"none","lean_deg":-10.0767107038965,"rear_compression_m":0.0504640483856201,"rear_load_n":860.969377248861,"rear_slip":0.00121774319727872,"rpm":1889.34581482878,"speed_m_s":6.33121347427368,"steer_deg":-3.57847621838086,"ticks":3729}}
+PASS controlled turn direction +1 {"heading_x":0.380474179983139,"lean":10.0767107038965,"telemetry":{"controller":"MotorcycleSimulation/v1","crashed":false,"front_compression_m":0.0587579941749573,"front_load_n":914.607701097714,"front_slip":0.00074904945081551,"gear":1,"last_crash":"none","lean_deg":10.0767107038965,"rear_compression_m":0.0504640483856201,"rear_load_n":860.969377248861,"rear_slip":0.00121774319727872,"rpm":1889.34581482878,"speed_m_s":6.33121347427368,"steer_deg":3.57847621838086,"ticks":4272}}
+PASS wheel contact disengages in air null
+PASS airborne motion follows gravity without upright snapping "(0.0, -2.496395, -9.698684)"
+PASS airborne rear brake transfers wheel angular momentum to pitch {"after":-0.558806896209717,"before":-0.00478197913616896}
+PASS modest level landing is absorbed and rideable {"controller":"MotorcycleSimulation/v1","crashed":false,"front_compression_m":0.0584459638595581,"front_load_n":910.507790333716,"front_slip":0.000437373493755711,"gear":1,"last_crash":"none","lean_deg":0.0,"rear_compression_m":0.050750150680542,"rear_load_n":865.034998909303,"rear_slip":0.000694898552768081,"rpm":1839.02616815062,"speed_m_s":2.68288540840149,"steer_deg":0.0,"ticks":4848}
+PASS persistent severe chassis collision produces crash "persistent chassis impact"
+PASS reset clears crash, steering, engine and wheel state {"controller":"MotorcycleSimulation/v1","crashed":false,"front_compression_m":0.0557276940345764,"front_load_n":876.774484268027,"front_slip":-0.00000577843654560751,"gear":1,"last_crash":"none","lean_deg":0.0,"rear_compression_m":0.0532530093193054,"rear_load_n":899.056682030978,"rear_slip":-0.00000688937660955078,"rpm":1839.02616815066,"speed_m_s":0.00413646455854177,"steer_deg":0.0,"ticks":5694}
+PASS top-gear shift request does not disengage clutch null
+PASS first-gear downshift does not interrupt torque null
+PASS combined tire demand stays within friction circle "(624.6281, -139.4259)"
+PASS unloading immediately reduces traction limit "(78.07852, -17.42824)"
+PASS sand changes physical grip and rolling resistance null
+PHYSICS_RESULT checks=22 failures=0 output=/workspace/.mx-runtime/data/godot/app_userdata/Terra MX · Dynamics Lab/physics-results.json
+
+PASS small tabletop takeoff, landing, continued ride {"max_air_s":0.39583335397765,"peak_load_n":5870.71502177296,"position":"(0.0, 3.937531, -110.335)","telemetry":{"controller":"MotorcycleSimulation/v1","crashed":false,"front_compression_m":0.054375205039978,"front_load_n":868.365932143771,"front_slip":-0.00015100781343873,"gear":3,"last_crash":"none","lean_deg":0.0,"rear_compression_m":0.0603367829322815,"rear_load_n":976.714246633308,"rear_slip":0.028345289630072,"rpm":4579.1502424005,"speed_m_s":8.80614757537842,"steer_deg":0.0,"ticks":1683}}
+PASS braking bumps exercise suspension without a crash {"peak_compression":0.172359619140625,"position":"(22.0, 0.895526, -59.37886)","telemetry":{"controller":"MotorcycleSimulation/v1","crashed":false,"front_compression_m":0.0355897879600525,"front_load_n":507.275094123876,"front_slip":-0.0825389001804427,"gear":2,"last_crash":"none","lean_deg":0.0,"rear_compression_m":0.105004026889801,"rear_load_n":1221.94458768981,"rear_slip":0.0533641672590878,"rpm":3801.17151574047,"speed_m_s":5.88239765167236,"steer_deg":0.0,"ticks":2886}}
+PASS small lateral slide recovers without slip-triggered crash {"controller":"MotorcycleSimulation/v1","crashed":false,"front_compression_m":0.0480371451377868,"front_load_n":780.65129668338,"front_slip":-0.0000266486405134286,"gear":3,"last_crash":"none","lean_deg":-0.02116236807121,"rear_compression_m":0.0603863143920899,"rear_load_n":994.89955994499,"rear_slip":0.0351044443882936,"rpm":5002.695420256,"speed_m_s":9.5704345703125,"steer_deg":-0.179057250754582,"ticks":3369}
+TRACK_RESULT checks=3 failures=0
+
+PASS keyboard W reaches authoritative throttle input
+PASS keyboard release clears throttle
+PASS keyboard steering is smoothed into analog command
+PASS Escape opens settings and freezes riding
+PASS Resume button restores physics and controls
+PASS manual gear key shifts live transmission
+PASS camera key changes viewpoint
+PASS reset key clears drivetrain and restores spawn
+PASS gamepad axis deadzone preserves analog magnitude and sign
+CONTROLS_RESULT checks=9 failures=0
+
+PACKAGED LINUX STARTUP (exit 0):
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+TERRA_MX_RUNTIME controller=MotorcycleSimulation/v1 physics_hz=240 terrain=physical_heightfield bike=250F

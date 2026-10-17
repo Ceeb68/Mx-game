@@ -1,0 +1,239 @@
+{
+  "checks": 22,
+  "failures": 0,
+  "results": [
+    {
+      "check": "fixed physics is 240 Hz",
+      "evidence": null,
+      "passed": true
+    },
+    {
+      "check": "settles upright on two suspension contacts",
+      "evidence": {
+        "controller": "MotorcycleSimulation/v1",
+        "crashed": false,
+        "front_compression_m": 0.0557470655441284,
+        "front_load_n": 876.850970949299,
+        "front_slip": -0.00000321695437700213,
+        "gear": 1,
+        "last_crash": "none",
+        "lean_deg": 0.0,
+        "rear_compression_m": 0.0532415056228638,
+        "rear_load_n": 898.757007800634,
+        "rear_slip": -0.00000387602816461939,
+        "rpm": 1839.02616815062,
+        "speed_m_s": 0.00136221409775317,
+        "steer_deg": 0.0,
+        "ticks": 723
+      },
+      "passed": true
+    },
+    {
+      "check": "static tire loads support total mass",
+      "evidence": 1775.60797874993,
+      "passed": true
+    },
+    {
+      "check": "idle does not propel motorcycle",
+      "evidence": 0.00136221409775317,
+      "passed": true
+    },
+    {
+      "check": "engine torque accelerates the live chassis",
+      "evidence": {
+        "speed": 20.3664569854736,
+        "telemetry": {
+          "controller": "MotorcycleSimulation/v1",
+          "crashed": false,
+          "front_compression_m": 0.0238502359390259,
+          "front_load_n": 477.134900609708,
+          "front_slip": -0.00235139782754735,
+          "gear": 5,
+          "last_crash": "none",
+          "lean_deg": 0.0,
+          "rear_compression_m": 0.0828005814552307,
+          "rear_load_n": 1298.51565208348,
+          "rear_slip": 0.106354209306947,
+          "rpm": 9121.59847736197,
+          "speed_m_s": 20.3664569854736,
+          "steer_deg": 0.0,
+          "ticks": 2643
+        }
+      },
+      "passed": true
+    },
+    {
+      "check": "engine revs and automatic gearbox shifts",
+      "evidence": {
+        "gear": 5,
+        "rpm": 13252.5347255964
+      },
+      "passed": true
+    },
+    {
+      "check": "independent brakes slow chassis",
+      "evidence": {
+        "after": 12.703857421875,
+        "before": 20.3664569854736
+      },
+      "passed": true
+    },
+    {
+      "check": "braking transfers load to front",
+      "evidence": {
+        "front_peak": 1346.28693024893,
+        "rear_min": 425.187192174529
+      },
+      "passed": true
+    },
+    {
+      "check": "deliberate rear-brake traction loss remains recoverable",
+      "evidence": {
+        "crashed": false,
+        "slip": -1.0,
+        "speed": 6.18452787399292
+      },
+      "passed": true
+    },
+    {
+      "check": "controlled turn direction -1",
+      "evidence": {
+        "heading_x": -0.380474179983139,
+        "lean": -10.0767107038965,
+        "telemetry": {
+          "controller": "MotorcycleSimulation/v1",
+          "crashed": false,
+          "front_compression_m": 0.0587579941749573,
+          "front_load_n": 914.607701097714,
+          "front_slip": 0.00074904945081551,
+          "gear": 1,
+          "last_crash": "none",
+          "lean_deg": -10.0767107038965,
+          "rear_compression_m": 0.0504640483856201,
+          "rear_load_n": 860.969377248861,
+          "rear_slip": 0.00121774319727872,
+          "rpm": 1889.34581482878,
+          "speed_m_s": 6.33121347427368,
+          "steer_deg": -3.57847621838086,
+          "ticks": 3729
+        }
+      },
+      "passed": true
+    },
+    {
+      "check": "controlled turn direction +1",
+      "evidence": {
+        "heading_x": 0.380474179983139,
+        "lean": 10.0767107038965,
+        "telemetry": {
+          "controller": "MotorcycleSimulation/v1",
+          "crashed": false,
+          "front_compression_m": 0.0587579941749573,
+          "front_load_n": 914.607701097714,
+          "front_slip": 0.00074904945081551,
+          "gear": 1,
+          "last_crash": "none",
+          "lean_deg": 10.0767107038965,
+          "rear_compression_m": 0.0504640483856201,
+          "rear_load_n": 860.969377248861,
+          "rear_slip": 0.00121774319727872,
+          "rpm": 1889.34581482878,
+          "speed_m_s": 6.33121347427368,
+          "steer_deg": 3.57847621838086,
+          "ticks": 4272
+        }
+      },
+      "passed": true
+    },
+    {
+      "check": "wheel contact disengages in air",
+      "evidence": null,
+      "passed": true
+    },
+    {
+      "check": "airborne motion follows gravity without upright snapping",
+      "evidence": "(0.0, -2.496395, -9.698684)",
+      "passed": true
+    },
+    {
+      "check": "airborne rear brake transfers wheel angular momentum to pitch",
+      "evidence": {
+        "after": -0.558806896209717,
+        "before": -0.00478197913616896
+      },
+      "passed": true
+    },
+    {
+      "check": "modest level landing is absorbed and rideable",
+      "evidence": {
+        "controller": "MotorcycleSimulation/v1",
+        "crashed": false,
+        "front_compression_m": 0.0584459638595581,
+        "front_load_n": 910.507790333716,
+        "front_slip": 0.000437373493755711,
+        "gear": 1,
+        "last_crash": "none",
+        "lean_deg": 0.0,
+        "rear_compression_m": 0.050750150680542,
+        "rear_load_n": 865.034998909303,
+        "rear_slip": 0.000694898552768081,
+        "rpm": 1839.02616815062,
+        "speed_m_s": 2.68288540840149,
+        "steer_deg": 0.0,
+        "ticks": 4848
+      },
+      "passed": true
+    },
+    {
+      "check": "persistent severe chassis collision produces crash",
+      "evidence": "persistent chassis impact",
+      "passed": true
+    },
+    {
+      "check": "reset clears crash, steering, engine and wheel state",
+      "evidence": {
+        "controller": "MotorcycleSimulation/v1",
+        "crashed": false,
+        "front_compression_m": 0.0557276940345764,
+        "front_load_n": 876.774484268027,
+        "front_slip": -0.00000577843654560751,
+        "gear": 1,
+        "last_crash": "none",
+        "lean_deg": 0.0,
+        "rear_compression_m": 0.0532530093193054,
+        "rear_load_n": 899.056682030978,
+        "rear_slip": -0.00000688937660955078,
+        "rpm": 1839.02616815066,
+        "speed_m_s": 0.00413646455854177,
+        "steer_deg": 0.0,
+        "ticks": 5694
+      },
+      "passed": true
+    },
+    {
+      "check": "top-gear shift request does not disengage clutch",
+      "evidence": null,
+      "passed": true
+    },
+    {
+      "check": "first-gear downshift does not interrupt torque",
+      "evidence": null,
+      "passed": true
+    },
+    {
+      "check": "combined tire demand stays within friction circle",
+      "evidence": "(624.6281, -139.4259)",
+      "passed": true
+    },
+    {
+      "check": "unloading immediately reduces traction limit",
+      "evidence": "(78.07852, -17.42824)",
+      "passed": true
+    },
+    {
+      "check": "sand changes physical grip and rolling resistance",
+      "evidence": null,
+      "passed": true
+    }
+  ]
+}
