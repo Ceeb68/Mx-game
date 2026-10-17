@@ -15,6 +15,8 @@ var debug_visible: bool = true
 var camera_mode: int = 0
 var follow_distance: float = 5.0
 var camera_smoothing: float = 6.0
+var recovery = preload("res://src/physics/local_recovery.gd").new()
+var recovery_clock: float = 0
 var lane: int = 0
 var spawn_points := [Vector3(0, 1.1, 15), Vector3(-24, 1.1, 15), Vector3(22, 1.1, -18), Vector3(42, 1.1, -18), Vector3(-53, 1.1, 15), Vector3(78, 1.1, -35)]
 var elapsed: float = 0.0
@@ -79,7 +81,7 @@ func make_ui() -> void:
  root.add_child(header)
  var subtitle := Label.new()
  subtitle.position = Vector2(31, 55)
- subtitle.text = "250F   /   STEERING REFINEMENT 3.2   /   240 Hz"
+ subtitle.text = "250F   /   LANDING / RECOVERY 3.3   /   240 Hz"
  subtitle.modulate = Color(1, 0.65, 0.3)
  root.add_child(subtitle)
  hud = Label.new()
@@ -96,7 +98,7 @@ func make_ui() -> void:
  var help := Label.new()
  help.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
  help.position = Vector2(-560, -100)
- help.text = "250F  /  STEERING REFINEMENT 3.2
+ help.text = "250F  /  LANDING / RECOVERY 3.3
 Controls: open Settings → Controls
 Escape: menu recovery   •   All bindings save automatically"
  root.add_child(help)
@@ -129,15 +131,27 @@ func handle_action(action: String) -> void:
   "diagnostics": debug_visible = not debug_visible
   "next_lane":
    lane = (lane + 1) % spawn_points.size()
-   reset_bike()
+   reset_bike(true)
 
 func _unhandled_input(event: InputEvent) -> void:
  # Recovery shortcut cannot be lost through a conflicting/custom menu mapping.
  if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_ESCAPE and controls.bindings.settings != KEY_ESCAPE and controls.capture_action.is_empty(): toggle_menu()
 
-func reset_bike() -> void:
- bike.reset_at(Transform3D(Basis.IDENTITY, spawn_points[lane]))
- controls.steer = 0.0
+func reset_bike(to_lane: bool = false) -> void:
+ var pose: Transform3D
+ if to_lane:
+  recovery.select_lane(spawn_points[lane])
+  pose=Transform3D(Basis.IDENTITY,spawn_points[lane])
+ else:
+  pose=recovery.resolve(bike,spawn_points[lane])
+ bike.reset_at(pose)
+ controls.clear_commands()
+
+func _physics_process(dt: float) -> void:
+ recovery_clock+=dt
+ if recovery_clock>=0.25 and not bike.reset_requested:
+  recovery.record(bike)
+  recovery_clock=0
 
 func _process(dt: float) -> void:
  elapsed += dt
@@ -188,3 +202,8 @@ Last crash: %s" % [bike.SIMULATION_VERSION, bike.simulation_ticks, bike.last_dt,
    diagnostics.text += "\nSprung 165 + unsprung 7 / 9 kg   wheel steps 960 Hz\nAxle velocity %+.2f / %+.2f m/s   requested front Fy %+.0f N" % [bike.stations[0].velocity,bike.stations[1].velocity,bike.virtual_rider.desired_front_force]
 
    diagnostics.text += "\nInput raw %+.2f / command %+.2f   steer target %+.1f°\nLateral velocity F/R %+.2f / %+.2f m/s\nTire Fx / Fy  F %+.0f / %+.0f N   R %+.0f / %+.0f N\nApplied world F %.0f / %.0f / %.0f N\nApplied world R %.0f / %.0f / %.0f N" % [controls.strength("right")-controls.strength("left"),bike.command.steer,rad_to_deg(bike.steering_target),f.lateral_velocity,r.lateral_velocity,f.force.x,f.force.y,r.force.x,r.force.y,f.applied_force.x,f.applied_force.y,f.applied_force.z,r.applied_force.x,r.applied_force.y,r.applied_force.z]
+
+   diagnostics.text += "\nCrash condition: %s (%.2f s)   reset: %s" % [bike.severe_reason,bike.crash_time,recovery.last_source]
+   if not bike.landing_events.is_empty():
+    var touchdown: Dictionary=bike.landing_events[-1]
+    diagnostics.text += "\nTouchdown %s | closing %.1f m/s | peak %.0f N" % [touchdown.first_contact,touchdown.closing_m_s,touchdown.peak_load_n]

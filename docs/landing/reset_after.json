@@ -1,0 +1,98 @@
+[
+  {
+    "after": [
+      -23.9963531494141,
+      0.948978126049042,
+      -59.9882354736328
+    ],
+    "before": [
+      -23.9963531494141,
+      0.740705132484436,
+      -59.9882354736328
+    ],
+    "crashed_after": false,
+    "horizontal_reset_distance_m": 0.0,
+    "scenario": "upright",
+    "speed_after_m_s": 0.122624933719635
+  },
+  {
+    "after": [
+      -23.9963531494141,
+      0.948978126049042,
+      -59.9882354736328
+    ],
+    "before": [
+      -23.9963531494141,
+      0.740705132484436,
+      -59.9882354736328
+    ],
+    "crashed_after": false,
+    "horizontal_reset_distance_m": 0.0,
+    "scenario": "crashed",
+    "speed_after_m_s": 0.122624933719635
+  },
+  {
+    "after": [
+      -23.9963531494141,
+      0.948978126049042,
+      -59.9882354736328
+    ],
+    "before": [
+      -23.9963531494141,
+      0.740705132484436,
+      -59.9882354736328
+    ],
+    "crashed_after": false,
+    "horizontal_reset_distance_m": 0.0,
+    "scenario": "half_track",
+    "speed_after_m_s": 0.122624933719635
+  },
+  {
+    "after": [
+      0.00349371880292892,
+      2.44897818565369,
+      -51.988712310791
+    ],
+    "before": [
+      0.00349371880292892,
+      2.24070692062378,
+      -51.988712310791
+    ],
+    "crashed_after": false,
+    "horizontal_reset_distance_m": 0.0,
+    "scenario": "near_jump",
+    "speed_after_m_s": 0.122624933719635
+  },
+  {
+    "after": [
+      -23.9970092773438,
+      0.948978126049042,
+      -59.9903373718262
+    ],
+    "before": [
+      1000.0,
+      0.998978137969971,
+      1000.0
+    ],
+    "crashed_after": false,
+    "horizontal_reset_distance_m": 1473.82141113281,
+    "scenario": "invalid_terrain",
+    "speed_after_m_s": 0.122624933719635
+  },
+  {
+    "after": [
+      -24.0,
+      1.09897816181183,
+      15.0
+    ],
+    "before": [
+      -23.9963531494141,
+      0.740705132484436,
+      -59.9882354736328
+    ],
+    "crashed_after": false,
+    "horizontal_reset_distance_m": 74.9882354736328,
+    "scenario": "lane_switch",
+    "speed_after_m_s": 0.122624933719635
+  }
+]

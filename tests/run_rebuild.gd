@@ -19,7 +19,7 @@ func run() -> void:
  await process_frame
  var bike = game.bike
  game.controls.set_physics_process(false)
- check(bike.get_script().resource_path == "res://src/physics/replacement/motorcycle.gd" and bike.SIMULATION_VERSION == "ReducedCoordinateMotorcycle/v3.2-steering","shipped scene selects replacement implementation",bike.telemetry())
+ check(bike.get_script().resource_path == "res://src/physics/replacement/motorcycle.gd" and bike.SIMULATION_VERSION == "ReducedCoordinateMotorcycle/v3.3-landing","shipped scene selects replacement implementation",bike.telemetry())
  check(ProjectSettings.get_setting("physics/3d/physics_engine") == "GodotPhysics3D","collision backend explicitly selected: Godot Physics")
  check(absf(bike.mass + 16 - bike.config.mass_kg)<0.001,"sprung and unsprung masses sum to 181 kg",[bike.mass,7,9])
  bike.reset_at(Transform3D(Basis.IDENTITY,Vector3(-24,1,25)))

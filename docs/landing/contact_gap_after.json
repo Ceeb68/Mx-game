@@ -1,0 +1,14 @@
+[
+  {
+    "compression_m": 0.0997307785903659,
+    "load_n": 0.0,
+    "ray_hit": false,
+    "velocity_m_s": -0.258452553248716
+  },
+  {
+    "compression_m": 0.0997307785903659,
+    "load_n": 0.0,
+    "ray_hit": true,
+    "velocity_m_s": -0.258452553248716
+  }
+]

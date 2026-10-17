@@ -1,6 +1,8 @@
 extends RefCounted
 ## Independent unsprung translation, implicit tire carcass + spring/damper solve.
 ## Chassis receives suspension reaction; tire load is NOT the chassis spring force.
+var penetration_m: float = 0
+var carcass_active: bool = false
 var compression: float = 0
 var velocity: float = 0
 var spring_force: float = 0
@@ -13,6 +15,8 @@ func _init(i: int) -> void:
  unsprung_mass = 7.0 if i == 0 else 9.0
 func reset() -> void:
  compression = 0
+ penetration_m = 0
+ carcass_active = false
  velocity = 0
  spring_force = 0
  load = 0
@@ -20,10 +24,15 @@ func step(dt: float, road_compression: float, closing_speed: float, projection: 
  var k: float = config.spring_n_m[index]
  var preload_force: float = config.preload_n[index]
  var c: float = config.compression_ns_m[index] if velocity > 0 else config.rebound_ns_m[index]
- var kt: float = 110000 if contact else 0
- var ct: float = 650 if contact else 0
  var a: float = maxf(0.25, projection)
  var penetration: float = (road_compression - compression) * a
+ # A ray within reach is not yet a tire contact. Engage the unilateral carcass
+ # only at overlap or an impending crossing within this unsprung substep.
+ var active: bool=contact and (penetration>0 or penetration+dt*(closing_speed-velocity*a)>0)
+ penetration_m=penetration
+ carcass_active=active
+ var kt: float = config.contact_compliance.carcass_stiffness_n_m[index] if active else 0
+ var ct: float = config.contact_compliance.carcass_damping_ns_m[index] if active else 0
  # Implicit solve of m*q'' = N*a - spring - gravity - mount acceleration.
  var drive: float = kt * penetration * a + ct * closing_speed * a - preload_force - k * compression - unsprung_mass * (9.81 * gravity_projection + mount_acceleration)
  velocity = (velocity + dt * drive / unsprung_mass) / (1 + dt * (c + ct * a * a) / unsprung_mass + dt * dt * (k + kt * a * a) / unsprung_mass)

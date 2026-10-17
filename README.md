@@ -1,3 +1,16 @@
+# Terra MX 3.3 landing / local recovery test stage
+
+[Changes, measurements, known rough-terrain failures and manual tests](docs/landing/REPORT.md).
+This is the first staged v3.3 update. Full bump handling and improved airborne
+whips remain pending separate updates. Ground steering gains and tire friction
+are preserved from v3.2. R now recovers locally; F6 still selects a lane start.
+
+**Godot:** extract `TerraMX-v3.3-landing-source.zip`, import `project.godot` in
+**Godot 4.6.3 standard**, press F5. **Windows:** extract the Windows ZIP and run
+`TerraMX.exe`. Existing bindings, settings and controller response are preserved.
+
+Earlier release documentation is retained below as history.
+
 # Terra MX 3.2 steering test update
 
 This is the steering/stability stage of the v3.2 request. Read

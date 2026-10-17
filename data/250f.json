@@ -139,6 +139,36 @@
   "_configuration_notes": {
     "active_ground_handling": "handling.rider and handling.steering; handling.input seeds saved response defaults. See docs/refinement/CONFIGURATION.md.",
     "legacy_only": "Top-level steer_servo_nm_rad, steer_damping_nm_s, rider_* (except rider_mass_kg) and tire_* response coefficients do not tune the active replacement force/controller laws. Retained for v2 compatibility.",
-    "staged_work": "Suspension compliance, rider carriage and airborne configuration migration deferred to separate updates."
+    "staged_work": "Carcass compliance is configured in contact_compliance; springs/dampers remain at the existing top level. Full bump handling, rider carriage and whip control updates are pending separate builds."
+  },
+  "contact_compliance": {
+    "carcass_stiffness_n_m": [
+      110000.0,
+      110000.0
+    ],
+    "carcass_damping_ns_m": [
+      1100.0,
+      1200.0
+    ]
+  },
+  "landing_control": {
+    "enabled": true,
+    "preview_s": 0.65,
+    "lean_gain": 1.2,
+    "max_steer_rad": 0.48,
+    "min_air_time_s": 0.15,
+    "max_lean_deg": 45.0,
+    "min_speed_m_s": 3.0,
+    "min_closing_m_s": 0.5,
+    "ray_length_m": 3.0,
+    "arm_lean_deg": 3.0
+  },
+  "crash_detection": {
+    "grounded_up_dot": 0.24,
+    "chassis_up_dot": 0.45,
+    "tumbling_up_dot": 0.75,
+    "tumbling_rate_rad_s": 6.0,
+    "persistence_s": 0.22,
+    "recovery_rate": 2.0
   }
 }

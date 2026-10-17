@@ -44,9 +44,10 @@ func run() -> void:
  for i in range(4): await physics_frame
  check(scene.camera_mode == 1, "camera key changes viewpoint")
  press(KEY_C, false)
+ var reset_location: Vector3=scene.bike.position
  press(KEY_R)
  for i in range(4): await physics_frame
- check(scene.bike.engine.gear == 1 and scene.bike.position.distance_to(scene.spawn_points[0]) < 0.1, "reset key clears drivetrain and restores spawn")
+ check(scene.bike.engine.gear == 1 and Vector2(scene.bike.position.x-reset_location.x,scene.bike.position.z-reset_location.z).length() < 0.2, "reset key clears drivetrain and recovers at current location")
  press(KEY_R, false)
  # Validate signed analog deadzone transform independently of absent physical hardware.
  check(scene.controls.axis(0.05) == 0 and scene.controls.axis(0.9) > 0.8 and scene.controls.axis(-0.9) < -0.8, "gamepad axis deadzone preserves analog magnitude and sign")

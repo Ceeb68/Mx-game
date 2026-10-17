@@ -1,0 +1,98 @@
+[
+  {
+    "after": [
+      0.0,
+      1.09897816181183,
+      15.0
+    ],
+    "before": [
+      -23.9962005615234,
+      0.741009414196014,
+      -59.9877853393555
+    ],
+    "crashed_after": false,
+    "horizontal_reset_distance_m": 78.7336349487305,
+    "scenario": "upright",
+    "speed_after_m_s": 0.122624933719635
+  },
+  {
+    "after": [
+      0.0,
+      1.09897816181183,
+      15.0
+    ],
+    "before": [
+      -23.9962005615234,
+      0.741009414196014,
+      -59.9877853393555
+    ],
+    "crashed_after": false,
+    "horizontal_reset_distance_m": 78.7336349487305,
+    "scenario": "crashed",
+    "speed_after_m_s": 0.122624933719635
+  },
+  {
+    "after": [
+      0.0,
+      1.09897816181183,
+      15.0
+    ],
+    "before": [
+      -23.9962005615234,
+      0.741009414196014,
+      -59.9877853393555
+    ],
+    "crashed_after": false,
+    "horizontal_reset_distance_m": 78.7336349487305,
+    "scenario": "half_track",
+    "speed_after_m_s": 0.122624933719635
+  },
+  {
+    "after": [
+      0.0,
+      1.09897816181183,
+      15.0
+    ],
+    "before": [
+      0.00362121779471636,
+      2.24101090431213,
+      -51.9882736206055
+    ],
+    "crashed_after": false,
+    "horizontal_reset_distance_m": 66.9882736206055,
+    "scenario": "near_jump",
+    "speed_after_m_s": 0.122624933719635
+  },
+  {
+    "after": [
+      0.0,
+      1.09897816181183,
+      15.0
+    ],
+    "before": [
+      1000.0,
+      0.998978137969971,
+      1000.0
+    ],
+    "crashed_after": false,
+    "horizontal_reset_distance_m": 1403.64709472656,
+    "scenario": "invalid_terrain",
+    "speed_after_m_s": 0.122624933719635
+  },
+  {
+    "after": [
+      -24.0,
+      1.09897816181183,
+      15.0
+    ],
+    "before": [
+      -23.9962005615234,
+      0.741009414196014,
+      -59.9877853393555
+    ],
+    "crashed_after": false,
+    "horizontal_reset_distance_m": 74.9877853393555,
+    "scenario": "lane_switch",
+    "speed_after_m_s": 0.122624933719635
+  }
+]
