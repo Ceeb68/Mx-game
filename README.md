@@ -1,3 +1,19 @@
+# Terra MX 3.5 tire / crash-contact test
+
+[Root causes, A/B measurements, rejected experiments and remaining failures](docs/contact/REPORT.md).
+This update adds native handlebar/footpeg contacts, releases the virtual rider
+after crashes, and uses a consistent passive tire frame after a fall.
+Normal riding steering and friction retain v3.4 behavior. Known slow-bank,
+bump and whoops failures remain; this is not a complete handling repair.
+
+**Godot:** extract `TerraMX-v3.5-contact-test-GODOT-SOURCE.zip`, import its root
+**project.godot** in **Godot 4.6.3 standard**, wait for import, press **F5**.
+**Windows:** extract `TerraMX-v3.5-contact-test-windows.zip`, run TerraMX.exe.
+F1 identifies `ReducedCoordinateMotorcycle/v3.5-contact`.
+Bindings, rider visuals, track and local respawning are preserved.
+
+Earlier release documentation follows as history.
+
 # Terra MX 3.4 ground experiment — repair incomplete
 
 Read [the measured comparison and remaining failures](docs/ground/REPORT.md).

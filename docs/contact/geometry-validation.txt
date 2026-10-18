@@ -1,0 +1,23 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS cambered/pitched pure rolling has zero patch velocity [-0.45, -0.3]
+PURE_ROLLING_FORCE old_lateral_n=145.752655029297 repaired_lateral_n=0.0
+PASS pure rolling creates no fictitious lateral force [-0.45, -0.3]
+PASS cambered/pitched pure rolling has zero patch velocity [-0.45, 0.3]
+PURE_ROLLING_FORCE old_lateral_n=-69.5884552001953 repaired_lateral_n=0.0
+PASS pure rolling creates no fictitious lateral force [-0.45, 0.3]
+PASS cambered/pitched pure rolling has zero patch velocity [0.0, -0.3]
+PURE_ROLLING_FORCE old_lateral_n=-274.282836914062 repaired_lateral_n=0.00004451379209
+PASS pure rolling creates no fictitious lateral force [0.0, -0.3]
+PASS cambered/pitched pure rolling has zero patch velocity [0.0, 0.3]
+PURE_ROLLING_FORCE old_lateral_n=254.671508789062 repaired_lateral_n=0.0
+PASS pure rolling creates no fictitious lateral force [0.0, 0.3]
+PASS cambered/pitched pure rolling has zero patch velocity [0.45, -0.3]
+PURE_ROLLING_FORCE old_lateral_n=-860.441589355469 repaired_lateral_n=-0.00000556422401
+PASS pure rolling creates no fictitious lateral force [0.45, -0.3]
+PASS cambered/pitched pure rolling has zero patch velocity [0.45, 0.3]
+PURE_ROLLING_FORCE old_lateral_n=479.498657226562 repaired_lateral_n=0.00008902758418
+PASS pure rolling creates no fictitious lateral force [0.45, 0.3]
+PASS passive contact-frame transport cannot add elastic energy
+PASS reattachment cannot resurrect the previous patch deformation
+CONTACT_GEOMETRY_RESULT checks=14 failures=0

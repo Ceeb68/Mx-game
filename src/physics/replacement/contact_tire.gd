@@ -2,12 +2,16 @@ extends "res://src/physics/tire.gd"
 ## Stateful elastic tread (bristle) contact, backward-Euler relative velocity solve.
 ## Static adhesion transitions to sliding; both directions share one friction budget.
 var tread := Vector2.ZERO
+var contact_forward:=Vector3.FORWARD
+var contact_right:=Vector3.RIGHT
+var has_contact_frame: bool=false
 var sliding: bool = false
 var longitudinal_velocity: float = 0
 var lateral_velocity: float = 0
 var applied_force := Vector3.ZERO
 func reset() -> void:
  super.reset()
+ has_contact_frame=false
  longitudinal_velocity = 0
  lateral_velocity = 0
  applied_force = Vector3.ZERO
@@ -40,6 +44,7 @@ func forces(dt: float, longitudinal: float, lateral: float, mu: float, _legacy: 
  utilization = force.length() / maxf(limit,0.001)
  return force
 func detach() -> void:
+ has_contact_frame=false
  tread = Vector2.ZERO
  force = Vector2.ZERO
  load = 0
@@ -95,3 +100,17 @@ func heading_for_force(dt: float, desired: float, longitudinal: float, lateral: 
   previous=candidate
   previous_error=error
  return best
+
+func update_contact_frame(forward: Vector3, right: Vector3, passive: bool) -> void:
+ if passive and has_contact_frame:
+  # Re-express existing patch deformation, rather than treating its old
+  # components as if the tire frame had not rotated during the fall.
+  var deformation: Vector3=contact_forward*tread.x+contact_right*tread.y
+  var old_energy: float=90000*tread.x*tread.x+110000*tread.y*tread.y
+  tread=Vector2(deformation.dot(forward),deformation.dot(right))
+  var new_energy: float=90000*tread.x*tread.x+110000*tread.y*tread.y
+  # Coordinate transport must not create unaccounted elastic energy.
+  if new_energy>old_energy and new_energy>0:tread*=sqrt(old_energy/new_energy)
+ contact_forward=forward
+ contact_right=right
+ has_contact_frame=true

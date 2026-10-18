@@ -1,5 +1,5 @@
 extends RigidBody3D
-const SIMULATION_VERSION := "ReducedCoordinateMotorcycle/v3.4-ground-experimental"
+const SIMULATION_VERSION := "ReducedCoordinateMotorcycle/v3.5-contact"
 const Rider = preload("res://src/physics/replacement/rider_controller.gd")
 const Geometry = preload("res://src/physics/replacement/geometry.gd")
 const Station = preload("res://src/physics/replacement/wheel_station.gd")
@@ -12,6 +12,7 @@ var landing_window_s: float = 0
 var contact_mask: int = 0
 var chassis_impulse_ns: float = 0
 var severe_reason: String = "none"
+var collision_trace: Array=[]
 var contact_trace: Array = [{},{}]
 var controller_moment_sample: float = 0
 var stations: Array = [Station.new(0), Station.new(1)]
@@ -74,6 +75,7 @@ func _ready() -> void:
  shape.size = Vector3(0.28, 0.36, 1.20)
  collider.shape = shape
  add_child(collider)
+ _install_crash_contacts.call_deferred()
  wheels = [Tire.new(config.front_radius_m, config.wheel_inertia_kg_m2[0]), Tire.new(config.rear_radius_m, config.wheel_inertia_kg_m2[1])]
  for i in range(2): wheels[i].configure(config, i)
  engine = Powertrain.new(config)
@@ -142,7 +144,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
  virtual_rider.front_grip = sqrt(maxf(0,pow(front_mu*wheels[0].load,2)-pow(wheels[0].force.x,2)))
  virtual_rider.actual_steer = steer_angle
  virtual_rider.front_heading_gain = Geometry.heading_per_steer(basis, wheels[0].normal, steer_angle)
- if steering_assist:
+ if steering_assist and not crashed:
   var surface_mu: float = track.surface_at(state.transform.origin).mu if track else 0.95
   desired_steer = virtual_rider.step(dt, command.steer, command.lean, speed, lean_angle, roll_rate, surface_mu, config)
  # Prepare the finite front steering assembly for the direction of travel before
@@ -152,7 +154,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
  var landing: Dictionary=config.landing_control
  if airborne_time==0:landing_preparation_armed=false
  elif airborne_time>landing.min_air_time_s and absf(lean_angle)>deg_to_rad(landing.arm_lean_deg):landing_preparation_armed=true
- if steering_assist and landing.enabled and landing_preparation_armed and airborne_time>landing.min_air_time_s and absf(lean_angle)<deg_to_rad(landing.max_lean_deg) and speed>landing.min_speed_m_s:
+ if steering_assist and not crashed and landing.enabled and landing_preparation_armed and airborne_time>landing.min_air_time_s and absf(lean_angle)<deg_to_rad(landing.max_lean_deg) and speed>landing.min_speed_m_s:
   var hub: Vector3=state.transform*Geometry.hub(0,wheels[0].extension,steer_angle)
   var query=PhysicsRayQueryParameters3D.create(hub+Vector3.UP*0.1,hub+Vector3.DOWN*landing.ray_length_m,1,[get_rid()])
   var hit=state.get_space_state().intersect_ray(query)
@@ -168,6 +170,12 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
     landing_preparation_blend=blend
     landing_preparation_target=aligned
     desired_steer=lerpf(desired_steer,aligned,blend)
+ if crashed:
+  # The virtual rider releases the bars after a crash. Trail, bearing damping,
+  # tire forces and internal wheel/steering momentum continue to act.
+  desired_steer=steer_angle
+  virtual_rider.reset()
+  virtual_rider.desired_front_force=0
  longitudinal_acceleration = lerpf(longitudinal_acceleration, (state.linear_velocity - previous_velocity).dot(forward) / dt, 1 - exp(-dt * 6))
  previous_velocity = state.linear_velocity
  desired_steer = clampf(desired_steer, -config.handling.rider.max_steer_rad, config.handling.rider.max_steer_rad)
@@ -184,6 +192,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
  var stiffness: float = actuator.stiffness_nm_rad
  var damping: float = 2.0 * actuator.damping_ratio * sqrt(stiffness * config.steer_inertia_kg_m2)
  steering_torque = clampf((desired_steer - steer_angle) * stiffness + damping * steering_target_rate - trail_torque, -actuator.max_torque_nm, actuator.max_torque_nm)
+ if crashed:steering_torque=0
  steer_rate = (steer_rate + dt * (steering_torque + trail_torque) / config.steer_inertia_kg_m2) / (1 + dt * damping / config.steer_inertia_kg_m2)
  var old_steer: float = steer_angle
  steer_angle = clampf(steer_angle + steer_rate * dt, -actuator.stop_rad, actuator.stop_rad)
@@ -260,8 +269,11 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
    new_mask |= 1 << i
    closing_peak = maxf(closing_peak, -velocity.dot(normal))
    wheel.normal = normal
-   tire_forward = tire_forward.slide(normal).normalized()
+   # Preserve the established riding controller/frame. Once the rider has
+   # released the bars, use the actual disk tangent for passive fallen contact.
+   tire_forward = Geometry.rolling_direction(normal,axle) if crashed else tire_forward.slide(normal).normalized()
    var right: Vector3 = tire_forward.cross(normal).normalized()
+   wheel.update_contact_frame(tire_forward,right,crashed)
    var surface: Dictionary = track.surface_at(wheel.point) if track else {"name":"hardpack", "mu":0.95, "rolling":0.018}
    wheel.surface = surface.name
    var arm: Vector3 = offset - basis * center_of_mass
@@ -275,6 +287,12 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
    var rolling: float = -tanh(velocity.dot(tire_forward) * 2) * wheel.load * surface.rolling
    var tangential: Vector3 = tire_forward * (tire_force.x + rolling) + right * tire_force.y
    wheel.applied_force = tangential
+   var physical_forward: Vector3=normal.cross(axle).normalized()
+   var patch_velocity: Vector3=velocity-physical_forward*wheel.omega*wheel.radius
+   contact_trace[i].rolling_direction=[physical_forward.x,physical_forward.y,physical_forward.z]
+   contact_trace[i].tire_forward=[tire_forward.x,tire_forward.y,tire_forward.z]
+   contact_trace[i].patch_velocity=[patch_velocity.x,patch_velocity.y,patch_velocity.z]
+   contact_trace[i].tire_contact_power_w=tangential.dot(patch_velocity)
    contact_trace[i].tangent_roll_nm=arm.cross(tangential).dot(forward)
    state.apply_force(tangential, offset)
    force_total += tangential
@@ -302,7 +320,14 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
   landing_window_s -= dt
  contact_mask = new_mask
  chassis_impulse_ns=0
- for ci in range(state.get_contact_count()):chassis_impulse_ns+=state.get_contact_impulse(ci).length()
+ collision_trace.clear()
+ for ci in range(state.get_contact_count()):
+  var impulse: Vector3=state.get_contact_impulse(ci)
+  chassis_impulse_ns+=impulse.length()
+  var point: Vector3=state.get_contact_local_position(ci)
+  var normal: Vector3=state.get_contact_local_normal(ci)
+  var velocity_at_contact: Vector3=state.get_contact_local_velocity_at_position(ci)
+  collision_trace.append({"shape":str(shape_owner_get_owner(shape_find_owner(state.get_contact_local_shape(ci))).name),"reported_point":[point.x,point.y,point.z],"reported_normal":[normal.x,normal.y,normal.z],"impulse":[impulse.x,impulse.y,impulse.z],"velocity":[velocity_at_contact.x,velocity_at_contact.y,velocity_at_contact.z]})
  airborne_time = airborne_time + dt if contacts == 0 else 0.0
  # Visible optional foot-down support, grounded and low speed only. No airborne stabilizer.
  support_torque = 0.0
@@ -355,4 +380,9 @@ func sample_patch(space: PhysicsDirectSpaceState3D, origin: Vector3, up: Vector3
  return {"position": point_sum / total, "normal": normal_sum.normalized(), "distance": distance_sum / total}
 
 func telemetry() -> Dictionary:
- return {"angular_velocity_world":[angular_velocity.x,angular_velocity.y,angular_velocity.z],"basis_columns":[[global_basis.x.x,global_basis.x.y,global_basis.x.z],[global_basis.y.x,global_basis.y.y,global_basis.y.z],[global_basis.z.x,global_basis.z.y,global_basis.z.z]],"contact_trace":contact_trace.duplicate(true),"front_roll_arm_m":front_roll_arm,"controller_roll_moment_nm":controller_moment_sample,"current_passive_roll_moment_nm":passive_roll_moment,"front_force_unconstrained_n":virtual_rider.unconstrained_front_force,"support_torque_nm":support_torque,"front_carcass_active":stations[0].carcass_active,"rear_carcass_active":stations[1].carcass_active,"front_penetration_m":stations[0].penetration_m,"rear_penetration_m":stations[1].penetration_m,"landing_preparation_armed":landing_preparation_armed,"landing_preparation_blend":landing_preparation_blend,"landing_preparation_target_deg":rad_to_deg(landing_preparation_target),"steering_assist":steering_assist,"contact_mask":contact_mask,"chassis_impulse_ns":chassis_impulse_ns,"crash_condition":severe_reason,"crash_timer_s":crash_time,"crash_evidence":crash_evidence,"landing_events":landing_events.duplicate(true),"engine": "Godot Physics", "sprung_mass_kg": mass, "total_mass_kg": mass + 16, "architecture": "unsprung DOFs + compliant bristle contact", "controller": SIMULATION_VERSION, "steer_input":command.steer, "steer_target_deg":rad_to_deg(steering_target), "roll_rate_rad_s": angular_velocity.dot(-global_basis.z), "yaw_rate_rad_s": angular_velocity.y, "lean_request_rate_rad_s": virtual_rider.lean_request_rate, "front_slip_angle_deg": rad_to_deg(wheels[0].slip_angle), "rear_slip_angle_deg": rad_to_deg(wheels[1].slip_angle), "front_suspension_velocity_m_s": stations[0].velocity, "rear_suspension_velocity_m_s": stations[1].velocity, "heading_per_steer":virtual_rider.front_heading_gain, "steer_target_rate":steering_target_rate, "steer_actual_rate":steer_rate, "hand_torque_nm":steering_torque, "front_lateral_m_s":wheels[0].lateral_velocity, "rear_lateral_m_s":wheels[1].lateral_velocity, "front_grip_use":wheels[0].utilization, "rear_grip_use":wheels[1].utilization, "front_fx_n":wheels[0].force.x, "front_fy_n":wheels[0].force.y, "rear_fx_n":wheels[1].force.x, "rear_fy_n":wheels[1].force.y, "front_world_force": [wheels[0].applied_force.x,wheels[0].applied_force.y,wheels[0].applied_force.z], "rear_world_force":[wheels[1].applied_force.x,wheels[1].applied_force.y,wheels[1].applied_force.z], "requested_front_fy_n":virtual_rider.desired_front_force, "front_force_limited":virtual_rider.force_limited, "roll_integral":virtual_rider.roll_integral, "target_lean_deg": rad_to_deg(virtual_rider.lean_request), "front_contact_samples": wheels[0].contact_samples, "rear_contact_samples": wheels[1].contact_samples, "ticks": simulation_ticks, "speed_m_s": linear_velocity.length(), "rpm": engine.rpm, "gear": engine.gear, "lean_deg": rad_to_deg(lean_angle), "steer_deg": rad_to_deg(steer_angle), "front_load_n": wheels[0].load, "rear_load_n": wheels[1].load, "front_slip": wheels[0].slip, "rear_slip": wheels[1].slip, "front_compression_m": wheels[0].compression, "rear_compression_m": wheels[1].compression, "crashed": crashed, "last_crash": last_crash}
+ return {"collision_trace":collision_trace.duplicate(true),"front_longitudinal_m_s":wheels[0].longitudinal_velocity,"rear_longitudinal_m_s":wheels[1].longitudinal_velocity,"front_omega_rad_s":wheels[0].omega,"rear_omega_rad_s":wheels[1].omega,"angular_velocity_world":[angular_velocity.x,angular_velocity.y,angular_velocity.z],"basis_columns":[[global_basis.x.x,global_basis.x.y,global_basis.x.z],[global_basis.y.x,global_basis.y.y,global_basis.y.z],[global_basis.z.x,global_basis.z.y,global_basis.z.z]],"contact_trace":contact_trace.duplicate(true),"front_roll_arm_m":front_roll_arm,"controller_roll_moment_nm":controller_moment_sample,"current_passive_roll_moment_nm":passive_roll_moment,"front_force_unconstrained_n":virtual_rider.unconstrained_front_force,"support_torque_nm":support_torque,"front_carcass_active":stations[0].carcass_active,"rear_carcass_active":stations[1].carcass_active,"front_penetration_m":stations[0].penetration_m,"rear_penetration_m":stations[1].penetration_m,"landing_preparation_armed":landing_preparation_armed,"landing_preparation_blend":landing_preparation_blend,"landing_preparation_target_deg":rad_to_deg(landing_preparation_target),"steering_assist":steering_assist,"contact_mask":contact_mask,"chassis_impulse_ns":chassis_impulse_ns,"crash_condition":severe_reason,"crash_timer_s":crash_time,"crash_evidence":crash_evidence,"landing_events":landing_events.duplicate(true),"engine": "Godot Physics", "sprung_mass_kg": mass, "total_mass_kg": mass + 16, "architecture": "unsprung DOFs + compliant bristle contact", "controller": SIMULATION_VERSION, "steer_input":command.steer, "steer_target_deg":rad_to_deg(steering_target), "roll_rate_rad_s": angular_velocity.dot(-global_basis.z), "yaw_rate_rad_s": angular_velocity.y, "lean_request_rate_rad_s": virtual_rider.lean_request_rate, "front_slip_angle_deg": rad_to_deg(wheels[0].slip_angle), "rear_slip_angle_deg": rad_to_deg(wheels[1].slip_angle), "front_suspension_velocity_m_s": stations[0].velocity, "rear_suspension_velocity_m_s": stations[1].velocity, "heading_per_steer":virtual_rider.front_heading_gain, "steer_target_rate":steering_target_rate, "steer_actual_rate":steer_rate, "hand_torque_nm":steering_torque, "front_lateral_m_s":wheels[0].lateral_velocity, "rear_lateral_m_s":wheels[1].lateral_velocity, "front_grip_use":wheels[0].utilization, "rear_grip_use":wheels[1].utilization, "front_fx_n":wheels[0].force.x, "front_fy_n":wheels[0].force.y, "rear_fx_n":wheels[1].force.x, "rear_fy_n":wheels[1].force.y, "front_world_force": [wheels[0].applied_force.x,wheels[0].applied_force.y,wheels[0].applied_force.z], "rear_world_force":[wheels[1].applied_force.x,wheels[1].applied_force.y,wheels[1].applied_force.z], "requested_front_fy_n":virtual_rider.desired_front_force, "front_force_limited":virtual_rider.force_limited, "roll_integral":virtual_rider.roll_integral, "target_lean_deg": rad_to_deg(virtual_rider.lean_request), "front_contact_samples": wheels[0].contact_samples, "rear_contact_samples": wheels[1].contact_samples, "ticks": simulation_ticks, "speed_m_s": linear_velocity.length(), "rpm": engine.rpm, "gear": engine.gear, "lean_deg": rad_to_deg(lean_angle), "steer_deg": rad_to_deg(steer_angle), "front_load_n": wheels[0].load, "rear_load_n": wheels[1].load, "front_slip": wheels[0].slip, "rear_slip": wheels[1].slip, "front_compression_m": wheels[0].compression, "rear_compression_m": wheels[1].compression, "crashed": crashed, "last_crash": last_crash}
+
+func _install_crash_contacts() -> void:
+ # Main adds the existing presentation as child 1 after this body's _ready().
+ # Keep that established ordering while installing all contacts before physics.
+ preload("res://src/physics/replacement/crash_contacts.gd").install(self)

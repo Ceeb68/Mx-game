@@ -33,3 +33,7 @@ static func heading_per_steer(chassis: Basis, normal: Vector3, angle: float) -> 
  var projected: Vector3 = forward.slide(normal)
  if projected.length_squared() < 0.01: return 0
  return -normal.dot(projected.cross(derivative.slide(normal))) / projected.length_squared()
+
+static func rolling_direction(normal: Vector3, axle: Vector3) -> Vector3:
+ # A freely rolling disk has its tangent at the wheel/road plane intersection.
+ return normal.cross(axle).normalized()

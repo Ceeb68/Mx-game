@@ -1,0 +1,2 @@
+5a28a5bfee398bdd807f5382bb7e2fdf61f069787440c5cf02dfd8c5de9b3701  TerraMX-v3.5-contact-test-GODOT-SOURCE.zip
+47887c48e64382b47983a1d03870807ee21a371a6c60282500afc2ce875c92dc  TerraMX-v3.5-contact-test-windows.zip

@@ -1,0 +1,58 @@
+[
+  {
+    "collision_impulse_ns": 0.0,
+    "contact_ticks": [
+      0,
+      11,
+      0,
+      1429
+    ],
+    "crashed": false,
+    "distance_m": 46.3551782257855,
+    "final_body_energy_j": 4451.82144474238,
+    "final_energy_j": 4796.52366107045,
+    "final_lean_deg": 2.83580336733623,
+    "final_rear_slip": 0.0024051588336017,
+    "final_speed_m_s": 7.34575748443604,
+    "first_impact_distance_m": -1.0,
+    "initial_energy_j": 5705.51286884347,
+    "mean_rear_slip_after_1s": 0.00284769149986159,
+    "peak_collision_friction_force_n": 0.0,
+    "peak_energy_j": 5870.16170579379,
+    "peak_load_n": 1299.02481686348,
+    "peak_rear_lateral_m_s": 0.562739551067352,
+    "peak_rear_slip": 0.0509405575332213,
+    "reported_friction_work_j": 0.0,
+    "scenario": "rear_slide",
+    "stop_distance_m": -1.0,
+    "stop_time_s": -1.0
+  },
+  {
+    "collision_impulse_ns": 1464.82301971503,
+    "contact_ticks": [
+      187,
+      16,
+      7,
+      1230
+    ],
+    "crashed": true,
+    "distance_m": 24.1428668696899,
+    "final_body_energy_j": 91.1816058605909,
+    "final_energy_j": 91.1872872158011,
+    "final_lean_deg": 170.68742165042,
+    "final_rear_slip": 0.0,
+    "final_speed_m_s": 0.58077085018158,
+    "first_impact_distance_m": 23.8215000454802,
+    "initial_energy_j": 5697.4981550828,
+    "mean_rear_slip_after_1s": 0.0394627721418052,
+    "peak_collision_friction_force_n": 21584.9322509766,
+    "peak_energy_j": 5872.96351678557,
+    "peak_load_n": 2148.94684905768,
+    "peak_rear_lateral_m_s": 0.303544282913208,
+    "peak_rear_slip": 0.234777927398682,
+    "reported_friction_work_j": -7.916879731275,
+    "scenario": "rear_slide_hard",
+    "stop_distance_m": -1.0,
+    "stop_time_s": -1.0
+  }
+]

@@ -1,0 +1,27 @@
+--- a/src/physics/replacement/motorcycle.gd
++++ b/src/physics/replacement/motorcycle.gd
+@@ -274 +274 @@
+-   tire_forward = Geometry.rolling_direction(normal,axle) if crashed else tire_forward.slide(normal).normalized()
++   tire_forward = Geometry.rolling_direction(normal,axle)
+--- a/src/physics/replacement/geometry.gd
++++ b/src/physics/replacement/geometry.gd
+@@ -29,7 +29,5 @@
+- # Ground-heading derivative of the existing raked steering mechanism.
+- # On level ground at zero steer: cos(rake)*cos(lean), not cos(rake)/cos(lean).
+- var forward: Vector3 = chassis * (steering_basis(angle) * Vector3.FORWARD)
+- var derivative: Vector3 = -(chassis * axis(0, angle)).cross(forward)
+- var projected: Vector3 = forward.slide(normal)
+- if projected.length_squared() < 0.01: return 0
+- return -normal.dot(projected.cross(derivative.slide(normal))) / projected.length_squared()
++ var axle: Vector3=chassis*(steering_basis(angle)*Vector3.RIGHT)
++ var derivative: Vector3=-(chassis*axis(0,angle)).cross(axle)
++ var forward: Vector3=normal.cross(axle)
++ if forward.length_squared()<0.01:return 0
++ return -normal.dot(forward.cross(normal.cross(derivative)))/forward.length_squared()
+--- a/tests/run_steering_geometry.gd
++++ b/tests/run_steering_geometry.gd
+@@ -10,2 +10,2 @@
+-  var a: Vector3=(basis*(G.steering_basis(c[1]-h)*Vector3.FORWARD)).slide(normal).normalized()
+-  var b: Vector3=(basis*(G.steering_basis(c[1]+h)*Vector3.FORWARD)).slide(normal).normalized()
++  var a: Vector3=normal.cross(basis*(G.steering_basis(c[1]-h)*Vector3.RIGHT)).normalized()
++  var b: Vector3=normal.cross(basis*(G.steering_basis(c[1]+h)*Vector3.RIGHT)).normalized()
