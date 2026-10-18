@@ -1,0 +1,2 @@
+bbb022e57f1045272192e11a1eb3165d74850284369c7f2643be25ade0098964  TerraMX-v3.6-traction-stage-A-windows.zip
+656357a24b1c10d2d0ca6d7b052f54df2d39fffd3d75cc5711887b9a3037771c  TerraMX-v3.6-traction-stage-A-GODOT-SOURCE.zip

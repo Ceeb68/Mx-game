@@ -1,0 +1,13 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+FAIL wheel/chassis momentum balance 0/rebound_flight 851.102226648052
+PASS wheel/chassis momentum balance 0/top_out 0.0
+FAIL wheel/chassis momentum balance 0/lift_off -3619.05722054448
+PASS fixed road/mount cannot create suspension energy 0 0.00000000000001
+PASS finite suspension settles rather than locking 0 [0.06082718367347, 0.06082718367347, 0.08645833333333]
+FAIL wheel/chassis momentum balance 1/rebound_flight 946.485860031392
+PASS wheel/chassis momentum balance 1/top_out 0.0
+FAIL wheel/chassis momentum balance 1/lift_off -4044.28914159075
+PASS fixed road/mount cannot create suspension energy 1 0.00000000000001
+PASS finite suspension settles rather than locking 1 [0.06017578947368, 0.06017578947368, 0.090625]
+SUSPENSION_SOLVER_RESULT checks=10 failures=4

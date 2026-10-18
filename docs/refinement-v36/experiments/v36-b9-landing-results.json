@@ -1,0 +1,1209 @@
+[
+  {
+    "crash_evidence": {},
+    "crash_reason": "none",
+    "crashed": false,
+    "detached_ticks": 126,
+    "final_lean_deg": 0.0,
+    "final_position": [
+      -24.0,
+      0.743978321552277,
+      -40.3040008544922
+    ],
+    "final_speed_m_s": 14.5220746994019,
+    "front_only_ticks": 0,
+    "landings": [
+      {
+        "air_time_s": 0.533333361148834,
+        "angular_velocity": [
+          0.0121762314811349,
+          0.0,
+          0.0
+        ],
+        "closing_m_s": 5.24868106842041,
+        "first_contact": "both",
+        "impulse_ns": 1518.1993058666,
+        "peak_load_n": 6620.43085243094,
+        "roll_deg": 0.0,
+        "tick": 130
+      }
+    ],
+    "peak_angular_rad_s": 0.336878478527069,
+    "peak_lean_deg": 0.0,
+    "peak_load_n": 6620.43085243094,
+    "rear_only_ticks": 21,
+    "scenario": "two_wheel"
+  },
+  {
+    "crash_evidence": {},
+    "crash_reason": "none",
+    "crashed": false,
+    "detached_ticks": 123,
+    "final_lean_deg": 0.0,
+    "final_position": [
+      -24.0,
+      0.743985772132874,
+      -44.663745880127
+    ],
+    "final_speed_m_s": 15.5592126846313,
+    "front_only_ticks": 5,
+    "landings": [
+      {
+        "air_time_s": 0.520833360496908,
+        "angular_velocity": [
+          0.254551351070404,
+          0.0,
+          0.0
+        ],
+        "closing_m_s": 4.93276977539062,
+        "first_contact": "front",
+        "impulse_ns": 1508.2577308892,
+        "peak_load_n": 7196.6435842052,
+        "roll_deg": 0.0,
+        "tick": 1330
+      }
+    ],
+    "peak_angular_rad_s": 1.81191301345825,
+    "peak_lean_deg": 0.0,
+    "peak_load_n": 7196.6435842052,
+    "rear_only_ticks": 37,
+    "scenario": "front_first"
+  },
+  {
+    "crash_evidence": {},
+    "crash_reason": "none",
+    "crashed": false,
+    "detached_ticks": 118,
+    "final_lean_deg": 0.0,
+    "final_position": [
+      -24.0,
+      0.743985891342163,
+      -44.8033142089844
+    ],
+    "final_speed_m_s": 15.5648527145386,
+    "front_only_ticks": 0,
+    "landings": [
+      {
+        "air_time_s": 0.500000026077032,
+        "angular_velocity": [
+          0.248772040009499,
+          0.0,
+          0.0
+        ],
+        "closing_m_s": 5.06171798706055,
+        "first_contact": "rear",
+        "impulse_ns": 1488.15073452626,
+        "peak_load_n": 7003.87728615275,
+        "roll_deg": 0.0,
+        "tick": 2528
+      }
+    ],
+    "peak_angular_rad_s": 3.64407539367676,
+    "peak_lean_deg": 0.0,
+    "peak_load_n": 7003.87728615275,
+    "rear_only_ticks": 15,
+    "scenario": "rear_first"
+  },
+  {
+    "crash_evidence": {},
+    "crash_reason": "none",
+    "crashed": false,
+    "detached_ticks": 123,
+    "final_lean_deg": -0.0014377182008263,
+    "final_position": [
+      -15.9052219390869,
+      0.743985831737518,
+      -44.1936836242676
+    ],
+    "final_speed_m_s": 15.5638113021851,
+    "front_only_ticks": 0,
+    "landings": [
+      {
+        "air_time_s": 0.520833360496908,
+        "angular_velocity": [
+          0.253730982542038,
+          0.00164344161748886,
+          -0.0205259565263987
+        ],
+        "closing_m_s": 5.2894868850708,
+        "first_contact": "rear",
+        "impulse_ns": 1492.34262257325,
+        "peak_load_n": 6675.37105301485,
+        "roll_deg": -0.0816595915388797,
+        "tick": 3736
+      }
+    ],
+    "peak_angular_rad_s": 1.80756545066833,
+    "peak_lean_deg": 12.5016838876441,
+    "peak_load_n": 6675.37105301485,
+    "rear_only_ticks": 6,
+    "scenario": "sideways_small"
+  },
+  {
+    "crash_evidence": {},
+    "crash_reason": "none",
+    "crashed": false,
+    "detached_ticks": 124,
+    "final_lean_deg": -0.00216241651638197,
+    "final_position": [
+      -11.1593561172485,
+      0.743959248065948,
+      -43.0251655578613
+    ],
+    "final_speed_m_s": 15.5200490951538,
+    "front_only_ticks": 0,
+    "landings": [
+      {
+        "air_time_s": 0.525000027380884,
+        "angular_velocity": [
+          0.129202008247375,
+          -0.0184596627950668,
+          0.291376292705536
+        ],
+        "closing_m_s": 5.22116804122925,
+        "first_contact": "rear",
+        "impulse_ns": 1477.35955017558,
+        "peak_load_n": 6914.47987639698,
+        "roll_deg": 6.38505043178846,
+        "tick": 4940
+      }
+    ],
+    "peak_angular_rad_s": 1.69080138206482,
+    "peak_lean_deg": 16.87492878693,
+    "peak_load_n": 6914.47987639698,
+    "rear_only_ticks": 36,
+    "scenario": "moderate_roll_yaw"
+  },
+  {
+    "crash_evidence": {},
+    "crash_reason": "none",
+    "crashed": false,
+    "detached_ticks": 124,
+    "final_lean_deg": 0.0021534651877657,
+    "final_position": [
+      -36.8396835327148,
+      0.743985116481781,
+      -43.0208625793457
+    ],
+    "final_speed_m_s": 15.4861640930176,
+    "front_only_ticks": 0,
+    "landings": [
+      {
+        "air_time_s": 0.525000027380884,
+        "angular_velocity": [
+          0.129202008247375,
+          0.0184596627950668,
+          -0.291376292705536
+        ],
+        "closing_m_s": 5.22116804122925,
+        "first_contact": "rear",
+        "impulse_ns": 1477.35955017558,
+        "peak_load_n": 6914.47987639698,
+        "roll_deg": -6.38505043178846,
+        "tick": 6143
+      }
+    ],
+    "peak_angular_rad_s": 1.69080138206482,
+    "peak_lean_deg": 16.87492878693,
+    "peak_load_n": 6914.47987639698,
+    "rear_only_ticks": 36,
+    "scenario": "moderate_mirror"
+  },
+  {
+    "crash_evidence": {},
+    "crash_reason": "none",
+    "crashed": false,
+    "detached_ticks": 123,
+    "final_lean_deg": -0.000388566624800658,
+    "final_position": [
+      -17.4254379272461,
+      0.743985652923584,
+      -44.2603378295898
+    ],
+    "final_speed_m_s": 15.5338373184204,
+    "front_only_ticks": 0,
+    "landings": [
+      {
+        "air_time_s": 0.520833360496908,
+        "angular_velocity": [
+          0.26753643155098,
+          -0.023154204711318,
+          0.216013237833977
+        ],
+        "closing_m_s": 5.29759645462036,
+        "first_contact": "rear",
+        "impulse_ns": 1512.31273501917,
+        "peak_load_n": 6758.21453810212,
+        "roll_deg": 3.81989363699505,
+        "tick": 7345
+      }
+    ],
+    "peak_angular_rad_s": 1.68689239025116,
+    "peak_lean_deg": 8.24065708845736,
+    "peak_load_n": 6758.21453810212,
+    "rear_only_ticks": 30,
+    "scenario": "moderate_smaller"
+  },
+  {
+    "crash_evidence": {
+      "angular_speed_rad_s": 4.85126209259033,
+      "chassis_impulse_ns": 0.768071174621582,
+      "contacts": 4,
+      "duration_s": 0.220833344850689,
+      "front_load_n": 0.0,
+      "rear_load_n": 0.0,
+      "reason": "persistent tilted chassis contact",
+      "speed_m_s": 8.27160263061523,
+      "tick": 8848,
+      "up_dot": 0.148425191640854,
+      "wheel_mask": 0
+    },
+    "crash_reason": "persistent tilted chassis contact",
+    "crashed": true,
+    "detached_ticks": 1078,
+    "final_lean_deg": 179.788611178608,
+    "final_position": [
+      -19.2487697601318,
+      0.33329114317894,
+      -1.32883632183075
+    ],
+    "final_speed_m_s": 4.07384140999056e-05,
+    "front_only_ticks": 32,
+    "landings": [
+      {
+        "air_time_s": 0.525000027380884,
+        "angular_velocity": [
+          0.265738636255264,
+          -0.0458294935524464,
+          0.342952817678452
+        ],
+        "closing_m_s": 5.36500787734985,
+        "first_contact": "rear",
+        "impulse_ns": 1413.7492963756,
+        "peak_load_n": 7208.9631400833,
+        "roll_deg": 9.01989260222269,
+        "tick": 8549
+      },
+      {
+        "air_time_s": 0.162500008475035,
+        "angular_velocity": [
+          0.147323310375214,
+          -0.630688786506653,
+          -1.26994693279266
+        ],
+        "closing_m_s": 0.134239435195923,
+        "first_contact": "rear",
+        "impulse_ns": 235.311278987044,
+        "peak_load_n": 1542.29394825901,
+        "roll_deg": 37.7514178571595,
+        "tick": 8639
+      },
+      {
+        "air_time_s": 0.0875000045634806,
+        "angular_velocity": [
+          -1.67491734027863,
+          -1.91485393047333,
+          0.331319004297256
+        ],
+        "closing_m_s": 1.92096292972565,
+        "first_contact": "front",
+        "impulse_ns": 137.557727849484,
+        "peak_load_n": 2750.5783333991,
+        "roll_deg": 74.468076996374,
+        "tick": 8715
+      },
+      {
+        "air_time_s": 0.062500003259629,
+        "angular_velocity": [
+          -0.38458988070488,
+          -6.15347623825073,
+          2.35913705825806
+        ],
+        "closing_m_s": 2.25543880462646,
+        "first_contact": "rear",
+        "impulse_ns": 118.10038718258,
+        "peak_load_n": 3427.95106909245,
+        "roll_deg": 64.8775209542124,
+        "tick": 8756
+      }
+    ],
+    "peak_angular_rad_s": 7.49377298355103,
+    "peak_lean_deg": 179.979404302543,
+    "peak_load_n": 7208.9631400833,
+    "rear_only_ticks": 34,
+    "scenario": "moderate_larger"
+  },
+  {
+    "crash_evidence": {
+      "angular_speed_rad_s": 2.06609058380127,
+      "chassis_impulse_ns": 20.1271114349365,
+      "contacts": 2,
+      "duration_s": 0.220833344850689,
+      "front_load_n": 0.0,
+      "rear_load_n": 0.0,
+      "reason": "persistent tilted chassis contact",
+      "speed_m_s": 6.99782276153564,
+      "tick": 9827,
+      "up_dot": 0.107647679746151,
+      "wheel_mask": 0
+    },
+    "crash_reason": "persistent tilted chassis contact",
+    "crashed": true,
+    "detached_ticks": 1151,
+    "final_lean_deg": 93.306637400584,
+    "final_position": [
+      -23.3201217651367,
+      0.285912752151489,
+      9.69705200195312
+    ],
+    "final_speed_m_s": 3.24912398355082e-05,
+    "front_only_ticks": 40,
+    "landings": [
+      {
+        "air_time_s": 1.47916674381122,
+        "angular_velocity": [
+          -1.46444618701935,
+          -1.68431556224823,
+          1.20776414871216
+        ],
+        "closing_m_s": 1.62781524658203,
+        "first_contact": "front",
+        "impulse_ns": 77.1862695566352,
+        "peak_load_n": 1953.86071005119,
+        "roll_deg": 62.1992928615472,
+        "tick": 9981
+      },
+      {
+        "air_time_s": 0.137500007171184,
+        "angular_velocity": [
+          -0.374282836914062,
+          -1.89725422859192,
+          -0.767662942409515
+        ],
+        "closing_m_s": 0.622327744960785,
+        "first_contact": "front",
+        "impulse_ns": 73.4846345599573,
+        "peak_load_n": 1413.29400796208,
+        "roll_deg": 66.0519687405447,
+        "tick": 10027
+      },
+      {
+        "air_time_s": 0.120833339635283,
+        "angular_velocity": [
+          -0.638027429580688,
+          -2.61043977737427,
+          -0.52363395690918
+        ],
+        "closing_m_s": 0.784960150718689,
+        "first_contact": "front",
+        "impulse_ns": 45.8871986032183,
+        "peak_load_n": 2109.53749169785,
+        "roll_deg": 75.1466434376689,
+        "tick": 10072
+      },
+      {
+        "air_time_s": 0.137500007171184,
+        "angular_velocity": [
+          -0.0694103688001633,
+          -2.16578793525696,
+          -0.341385304927826
+        ],
+        "closing_m_s": 0.338708102703094,
+        "first_contact": "front",
+        "impulse_ns": 27.1636361858182,
+        "peak_load_n": 970.9525520281,
+        "roll_deg": 74.960813050327,
+        "tick": 10112
+      },
+      {
+        "air_time_s": 0.112500005867332,
+        "angular_velocity": [
+          -0.0380573198199272,
+          -1.99627888202667,
+          -0.228990852832794
+        ],
+        "closing_m_s": 0.221750393509865,
+        "first_contact": "front",
+        "impulse_ns": 12.6308583519628,
+        "peak_load_n": 1589.96171040539,
+        "roll_deg": 75.0345907192756,
+        "tick": 10146
+      },
+      {
+        "air_time_s": 0.0666666701436043,
+        "angular_velocity": [
+          -0.00254408991895616,
+          -1.80799579620361,
+          -0.122359700500965
+        ],
+        "closing_m_s": 0.117148257791996,
+        "first_contact": "front",
+        "impulse_ns": 11.6076372982684,
+        "peak_load_n": 1451.02880427092,
+        "roll_deg": 75.0357496336854,
+        "tick": 10164
+      },
+      {
+        "air_time_s": 0.0916666714474559,
+        "angular_velocity": [
+          0.0186283402144909,
+          -1.51199162006378,
+          -0.0956113636493683
+        ],
+        "closing_m_s": 0.0935784950852394,
+        "first_contact": "front",
+        "impulse_ns": 5.30715464634772,
+        "peak_load_n": 1273.71704869393,
+        "roll_deg": 75.0364637281692,
+        "tick": 10195
+      },
+      {
+        "air_time_s": 0.0833333376795053,
+        "angular_velocity": [
+          0.0155564080923796,
+          -1.3338041305542,
+          -0.0474805943667889
+        ],
+        "closing_m_s": 0.0481687970459461,
+        "first_contact": "front",
+        "impulse_ns": 4.74383742485175,
+        "peak_load_n": 1138.52092258593,
+        "roll_deg": 75.0221917066186,
+        "tick": 10216
+      }
+    ],
+    "peak_angular_rad_s": 3.73788261413574,
+    "peak_lean_deg": 93.8941721340592,
+    "peak_load_n": 2109.53749169785,
+    "rear_only_ticks": 0,
+    "recovered_after_reset": true,
+    "reset_horizontal_m": 0.0,
+    "scenario": "excessive_sideways"
+  },
+  {
+    "crash_evidence": {},
+    "crash_reason": "none",
+    "crashed": false,
+    "detached_ticks": 505,
+    "final_lean_deg": 0.0,
+    "final_position": [
+      0.0,
+      0.743999183177948,
+      -153.903686523438
+    ],
+    "final_speed_m_s": 18.8201713562012,
+    "front_only_ticks": 58,
+    "landings": [
+      {
+        "air_time_s": 0.100000005215406,
+        "angular_velocity": [
+          0.0546971410512924,
+          0.0,
+          0.0
+        ],
+        "closing_m_s": 0.978649079799652,
+        "first_contact": "front",
+        "impulse_ns": 641.099461771065,
+        "peak_load_n": 2042.43090561446,
+        "roll_deg": 0.0,
+        "tick": 10857
+      },
+      {
+        "air_time_s": 0.554166695568711,
+        "angular_velocity": [
+          -0.174969270825386,
+          0.0,
+          0.0
+        ],
+        "closing_m_s": 2.23825216293335,
+        "first_contact": "rear",
+        "impulse_ns": 660.546957760471,
+        "peak_load_n": 3404.79621778313,
+        "roll_deg": 0.0,
+        "tick": 11250
+      },
+      {
+        "air_time_s": 0.241666679270566,
+        "angular_velocity": [
+          -0.646943807601929,
+          0.0,
+          0.0
+        ],
+        "closing_m_s": 1.03779220581055,
+        "first_contact": "front",
+        "impulse_ns": 722.459696161831,
+        "peak_load_n": 2568.4529609329,
+        "roll_deg": 0.0,
+        "tick": 11366
+      },
+      {
+        "air_time_s": 0.887500046286732,
+        "angular_velocity": [
+          0.011467857286334,
+          0.0,
+          0.0
+        ],
+        "closing_m_s": 3.46988463401794,
+        "first_contact": "rear",
+        "impulse_ns": 680.943997901071,
+        "peak_load_n": 5661.88730773706,
+        "roll_deg": 0.0,
+        "tick": 12234
+      },
+      {
+        "air_time_s": 0.329166683834046,
+        "angular_velocity": [
+          -0.613359689712524,
+          0.0,
+          0.0
+        ],
+        "closing_m_s": 1.2059440612793,
+        "first_contact": "front",
+        "impulse_ns": 755.074273435892,
+        "peak_load_n": 3321.39874929194,
+        "roll_deg": 0.0,
+        "tick": 12375
+      }
+    ],
+    "peak_angular_rad_s": 3.1620774269104,
+    "peak_lean_deg": 0.0,
+    "peak_load_n": 5661.88730773706,
+    "rear_only_ticks": 118,
+    "scenario": "tabletop"
+  },
+  {
+    "crash_evidence": {},
+    "crash_reason": "none",
+    "crashed": false,
+    "detached_ticks": 505,
+    "final_lean_deg": 0.0,
+    "final_position": [
+      0.0,
+      0.743999183177948,
+      -153.903686523438
+    ],
+    "final_speed_m_s": 18.8201713562012,
+    "front_only_ticks": 58,
+    "landings": [
+      {
+        "air_time_s": 0.100000005215406,
+        "angular_velocity": [
+          0.0546971410512924,
+          0.0,
+          0.0
+        ],
+        "closing_m_s": 0.978649079799652,
+        "first_contact": "front",
+        "impulse_ns": 641.099461771065,
+        "peak_load_n": 2042.43090561446,
+        "roll_deg": 0.0,
+        "tick": 12780
+      },
+      {
+        "air_time_s": 0.554166695568711,
+        "angular_velocity": [
+          -0.174969270825386,
+          0.0,
+          0.0
+        ],
+        "closing_m_s": 2.23825216293335,
+        "first_contact": "rear",
+        "impulse_ns": 660.546957760471,
+        "peak_load_n": 3404.79621778313,
+        "roll_deg": 0.0,
+        "tick": 13173
+      },
+      {
+        "air_time_s": 0.241666679270566,
+        "angular_velocity": [
+          -0.646943807601929,
+          0.0,
+          0.0
+        ],
+        "closing_m_s": 1.03779220581055,
+        "first_contact": "front",
+        "impulse_ns": 722.459696161831,
+        "peak_load_n": 2568.4529609329,
+        "roll_deg": 0.0,
+        "tick": 13289
+      },
+      {
+        "air_time_s": 0.887500046286732,
+        "angular_velocity": [
+          0.011467857286334,
+          0.0,
+          0.0
+        ],
+        "closing_m_s": 3.46988463401794,
+        "first_contact": "rear",
+        "impulse_ns": 680.943997901071,
+        "peak_load_n": 5661.88730773706,
+        "roll_deg": 0.0,
+        "tick": 14157
+      },
+      {
+        "air_time_s": 0.329166683834046,
+        "angular_velocity": [
+          -0.613359689712524,
+          0.0,
+          0.0
+        ],
+        "closing_m_s": 1.2059440612793,
+        "first_contact": "front",
+        "impulse_ns": 755.074273435892,
+        "peak_load_n": 3321.39874929194,
+        "roll_deg": 0.0,
+        "tick": 14298
+      }
+    ],
+    "peak_angular_rad_s": 3.1620774269104,
+    "peak_lean_deg": 0.0,
+    "peak_load_n": 5661.88730773706,
+    "rear_only_ticks": 118,
+    "scenario": "tabletop_repeat_2"
+  },
+  {
+    "crash_evidence": {},
+    "crash_reason": "none",
+    "crashed": false,
+    "detached_ticks": 505,
+    "final_lean_deg": 0.0,
+    "final_position": [
+      0.0,
+      0.743999183177948,
+      -153.903686523438
+    ],
+    "final_speed_m_s": 18.8201713562012,
+    "front_only_ticks": 58,
+    "landings": [
+      {
+        "air_time_s": 0.100000005215406,
+        "angular_velocity": [
+          0.0546971410512924,
+          0.0,
+          0.0
+        ],
+        "closing_m_s": 0.978649079799652,
+        "first_contact": "front",
+        "impulse_ns": 641.099461771065,
+        "peak_load_n": 2042.43090561446,
+        "roll_deg": 0.0,
+        "tick": 14703
+      },
+      {
+        "air_time_s": 0.554166695568711,
+        "angular_velocity": [
+          -0.174969270825386,
+          0.0,
+          0.0
+        ],
+        "closing_m_s": 2.23825216293335,
+        "first_contact": "rear",
+        "impulse_ns": 660.546957760471,
+        "peak_load_n": 3404.79621778313,
+        "roll_deg": 0.0,
+        "tick": 15096
+      },
+      {
+        "air_time_s": 0.241666679270566,
+        "angular_velocity": [
+          -0.646943807601929,
+          0.0,
+          0.0
+        ],
+        "closing_m_s": 1.03779220581055,
+        "first_contact": "front",
+        "impulse_ns": 722.459696161831,
+        "peak_load_n": 2568.4529609329,
+        "roll_deg": 0.0,
+        "tick": 15212
+      },
+      {
+        "air_time_s": 0.887500046286732,
+        "angular_velocity": [
+          0.011467857286334,
+          0.0,
+          0.0
+        ],
+        "closing_m_s": 3.46988463401794,
+        "first_contact": "rear",
+        "impulse_ns": 680.943997901071,
+        "peak_load_n": 5661.88730773706,
+        "roll_deg": 0.0,
+        "tick": 16080
+      },
+      {
+        "air_time_s": 0.329166683834046,
+        "angular_velocity": [
+          -0.613359689712524,
+          0.0,
+          0.0
+        ],
+        "closing_m_s": 1.2059440612793,
+        "first_contact": "front",
+        "impulse_ns": 755.074273435892,
+        "peak_load_n": 3321.39874929194,
+        "roll_deg": 0.0,
+        "tick": 16221
+      }
+    ],
+    "peak_angular_rad_s": 3.1620774269104,
+    "peak_lean_deg": 0.0,
+    "peak_load_n": 5661.88730773706,
+    "rear_only_ticks": 118,
+    "scenario": "tabletop_repeat_3"
+  },
+  {
+    "crash_evidence": {},
+    "crash_reason": "none",
+    "crashed": false,
+    "detached_ticks": 553,
+    "final_lean_deg": -79.08110813164,
+    "final_position": [
+      30.0010452270508,
+      0.525643885135651,
+      -71.3859100341797
+    ],
+    "final_speed_m_s": 6.00996160507202,
+    "front_only_ticks": 267,
+    "landings": [
+      {
+        "air_time_s": 0.23750001238659,
+        "angular_velocity": [
+          0.200966417789459,
+          0.0,
+          0.0
+        ],
+        "closing_m_s": 2.48522591590881,
+        "first_contact": "rear",
+        "impulse_ns": 968.245445229319,
+        "peak_load_n": 3591.98583447976,
+        "roll_deg": 0.0,
+        "tick": 16659
+      },
+      {
+        "air_time_s": 0.154166674707085,
+        "angular_velocity": [
+          -1.60789859294891,
+          0.00148868025280535,
+          0.0221619680523872
+        ],
+        "closing_m_s": 3.41810631752014,
+        "first_contact": "front",
+        "impulse_ns": 412.773432896908,
+        "peak_load_n": 3715.49440659598,
+        "roll_deg": -0.0633335907819536,
+        "tick": 16865
+      },
+      {
+        "air_time_s": 0.0458333357237279,
+        "angular_velocity": [
+          3.09340476989746,
+          0.0440422631800175,
+          0.15241277217865
+        ],
+        "closing_m_s": 4.18976402282715,
+        "first_contact": "rear",
+        "impulse_ns": 295.584688937795,
+        "peak_load_n": 4769.79009259487,
+        "roll_deg": -1.58421353467674,
+        "tick": 16909
+      },
+      {
+        "air_time_s": 0.200000010430813,
+        "angular_velocity": [
+          -1.00994324684143,
+          -0.0271558202803135,
+          0.119427084922791
+        ],
+        "closing_m_s": 2.47458481788635,
+        "first_contact": "front",
+        "impulse_ns": 521.099561695782,
+        "peak_load_n": 3840.90058680003,
+        "roll_deg": -4.21678926316704,
+        "tick": 16977
+      },
+      {
+        "air_time_s": 0.166666675359011,
+        "angular_velocity": [
+          -1.8362957239151,
+          0.0182677172124386,
+          -0.524960935115814
+        ],
+        "closing_m_s": 3.44212436676025,
+        "first_contact": "front",
+        "impulse_ns": 455.989351957919,
+        "peak_load_n": 4034.92572159202,
+        "roll_deg": 10.4933803401341,
+        "tick": 17139
+      },
+      {
+        "air_time_s": 0.0791666707955301,
+        "angular_velocity": [
+          2.56050562858582,
+          -1.07398855686188,
+          -0.418293714523315
+        ],
+        "closing_m_s": 3.83531427383423,
+        "first_contact": "rear",
+        "impulse_ns": 234.912449681133,
+        "peak_load_n": 4701.63653291673,
+        "roll_deg": 17.5796524525612,
+        "tick": 17191
+      },
+      {
+        "air_time_s": 0.200000010430813,
+        "angular_velocity": [
+          -0.479492872953415,
+          -0.0512948557734489,
+          -0.0407111905515194
+        ],
+        "closing_m_s": 2.59061455726624,
+        "first_contact": "front",
+        "impulse_ns": 693.119031648285,
+        "peak_load_n": 3898.95626929579,
+        "roll_deg": 19.5272961200195,
+        "tick": 17255
+      },
+      {
+        "air_time_s": 0.0541666694916785,
+        "angular_velocity": [
+          -1.20877134799957,
+          -0.327531903982162,
+          -0.087322860956192
+        ],
+        "closing_m_s": 2.97524213790894,
+        "first_contact": "front",
+        "impulse_ns": 638.218127895038,
+        "peak_load_n": 4569.1924592517,
+        "roll_deg": 17.9300912352744,
+        "tick": 17326
+      },
+      {
+        "air_time_s": 0.137500007171184,
+        "angular_velocity": [
+          -1.62554526329041,
+          0.382181316614151,
+          -0.193808197975159
+        ],
+        "closing_m_s": 1.20374226570129,
+        "first_contact": "front",
+        "impulse_ns": 690.04149750269,
+        "peak_load_n": 5258.12621258249,
+        "roll_deg": 14.3982601141993,
+        "tick": 17421
+      },
+      {
+        "air_time_s": 0.250000013038516,
+        "angular_velocity": [
+          -0.86165851354599,
+          0.206379070878029,
+          -1.60253763198853
+        ],
+        "closing_m_s": 2.61376571655273,
+        "first_contact": "front",
+        "impulse_ns": 158.850216583682,
+        "peak_load_n": 3173.75658738451,
+        "roll_deg": 48.4668573466044,
+        "tick": 17565
+      },
+      {
+        "air_time_s": 0.383333353325725,
+        "angular_velocity": [
+          -3.04048681259155,
+          -1.48801779747009,
+          1.1165406703949
+        ],
+        "closing_m_s": 1.95984721183777,
+        "first_contact": "front",
+        "impulse_ns": 486.471344516571,
+        "peak_load_n": 5026.20790751101,
+        "roll_deg": 40.2062073863189,
+        "tick": 17677
+      }
+    ],
+    "peak_angular_rad_s": 5.44314050674438,
+    "peak_lean_deg": 81.3327426077874,
+    "peak_load_n": 5258.12621258249,
+    "rear_only_ticks": 259,
+    "scenario": "small_bumps"
+  },
+  {
+    "crash_evidence": {
+      "angular_speed_rad_s": 3.31690001487732,
+      "chassis_impulse_ns": 0.0,
+      "contacts": 2,
+      "duration_s": 0.220833344850689,
+      "front_load_n": 0.0,
+      "rear_load_n": 0.0,
+      "reason": "persistent tilted chassis contact",
+      "speed_m_s": 2.44079780578613,
+      "tick": 18868,
+      "up_dot": 0.434037417173386,
+      "wheel_mask": 0
+    },
+    "crash_reason": "persistent tilted chassis contact",
+    "crashed": true,
+    "detached_ticks": 837,
+    "final_lean_deg": 77.8792185145923,
+    "final_position": [
+      39.9972877502441,
+      0.703956067562103,
+      -61.0162887573242
+    ],
+    "final_speed_m_s": 1.19525146484375,
+    "front_only_ticks": 100,
+    "landings": [
+      {
+        "air_time_s": 0.23750001238659,
+        "angular_velocity": [
+          0.200966417789459,
+          0.0,
+          0.0
+        ],
+        "closing_m_s": 2.48522591590881,
+        "first_contact": "rear",
+        "impulse_ns": 952.04895851249,
+        "peak_load_n": 3591.84407254181,
+        "roll_deg": 0.0,
+        "tick": 17862
+      },
+      {
+        "air_time_s": 0.462500024121255,
+        "angular_velocity": [
+          0.122089825570583,
+          -3.11715702991933e-05,
+          0.0131503967568278
+        ],
+        "closing_m_s": 5.63003349304199,
+        "first_contact": "rear",
+        "impulse_ns": 763.643471561052,
+        "peak_load_n": 6395.55799498197,
+        "roll_deg": -0.332999395166567,
+        "tick": 18146
+      },
+      {
+        "air_time_s": 0.245833346154541,
+        "angular_velocity": [
+          -1.7984254360199,
+          0.0243563149124384,
+          -0.0295007526874542
+        ],
+        "closing_m_s": 1.85032296180725,
+        "first_contact": "front",
+        "impulse_ns": 1128.20691274409,
+        "peak_load_n": 9546.96472149255,
+        "roll_deg": -0.0406819787126794,
+        "tick": 18234
+      },
+      {
+        "air_time_s": 0.0791666707955301,
+        "angular_velocity": [
+          5.02700710296631,
+          -0.0608588680624962,
+          -0.126602247357368
+        ],
+        "closing_m_s": 3.66768217086792,
+        "first_contact": "rear",
+        "impulse_ns": 502.454172808978,
+        "peak_load_n": 4969.03853814827,
+        "roll_deg": 1.19001889781554,
+        "tick": 18304
+      },
+      {
+        "air_time_s": 0.537500028032809,
+        "angular_velocity": [
+          0.737138628959656,
+          0.353790611028671,
+          -0.501911103725433
+        ],
+        "closing_m_s": 7.03368520736694,
+        "first_contact": "rear",
+        "impulse_ns": 902.681122885313,
+        "peak_load_n": 15231.0688325258,
+        "roll_deg": 14.5198422729791,
+        "tick": 18471
+      },
+      {
+        "air_time_s": 0.583333363756537,
+        "angular_velocity": [
+          0.598737895488739,
+          1.18702471256256,
+          2.89805150032043
+        ],
+        "closing_m_s": 3.66164112091064,
+        "first_contact": "front",
+        "impulse_ns": 132.930324929316,
+        "peak_load_n": 3788.76314192543,
+        "roll_deg": 12.4737184684564,
+        "tick": 18640
+      },
+      {
+        "air_time_s": 0.187500009778887,
+        "angular_velocity": [
+          -1.44775652885437,
+          0.674491107463837,
+          1.9515221118927
+        ],
+        "closing_m_s": 1.79773032665253,
+        "first_contact": "front",
+        "impulse_ns": 104.173648326985,
+        "peak_load_n": 2155.28225588673,
+        "roll_deg": 26.2477829582943,
+        "tick": 18709
+      },
+      {
+        "air_time_s": 0.529166694264859,
+        "angular_velocity": [
+          2.8511106967926,
+          0.417990654706955,
+          0.123287737369537
+        ],
+        "closing_m_s": 2.66733932495117,
+        "first_contact": "front",
+        "impulse_ns": 173.409200376,
+        "peak_load_n": 7140.27339396172,
+        "roll_deg": 61.0595359458457,
+        "tick": 18860
+      }
+    ],
+    "peak_angular_rad_s": 7.18615961074829,
+    "peak_lean_deg": 77.8792185145923,
+    "peak_load_n": 15231.0688325258,
+    "rear_only_ticks": 126,
+    "scenario": "whoops"
+  },
+  {
+    "crash_evidence": {},
+    "crash_reason": "none",
+    "crashed": false,
+    "detached_ticks": 183,
+    "final_lean_deg": -1.32176918359093,
+    "final_position": [
+      -24.8502635955811,
+      0.824624478816986,
+      -149.897521972656
+    ],
+    "final_speed_m_s": 12.3106336593628,
+    "front_only_ticks": 225,
+    "landings": [
+      {
+        "air_time_s": 0.233333345502615,
+        "angular_velocity": [
+          0.221336618065834,
+          0.0,
+          0.0
+        ],
+        "closing_m_s": 2.66263318061829,
+        "first_contact": "rear",
+        "impulse_ns": 898.836376048447,
+        "peak_load_n": 3744.39451800593,
+        "roll_deg": 0.0,
+        "tick": 19064
+      },
+      {
+        "air_time_s": 0.0541666694916785,
+        "angular_velocity": [
+          -0.550117492675781,
+          -0.00268864608369768,
+          -0.0731825456023216
+        ],
+        "closing_m_s": 1.49659085273743,
+        "first_contact": "front",
+        "impulse_ns": 638.974923535294,
+        "peak_load_n": 2866.05261727965,
+        "roll_deg": 0.70954627910876,
+        "tick": 19154
+      },
+      {
+        "air_time_s": 0.112500005867332,
+        "angular_velocity": [
+          -1.14502048492432,
+          0.0286357793956995,
+          0.105996280908585
+        ],
+        "closing_m_s": 1.43543112277985,
+        "first_contact": "front",
+        "impulse_ns": 493.533071986059,
+        "peak_load_n": 2974.19036282039,
+        "roll_deg": -0.730579026914478,
+        "tick": 19295
+      },
+      {
+        "air_time_s": 0.0750000039115548,
+        "angular_velocity": [
+          -1.00078952312469,
+          0.0088698398321867,
+          -0.0175371263176203
+        ],
+        "closing_m_s": 1.58577036857605,
+        "first_contact": "front",
+        "impulse_ns": 661.749377774378,
+        "peak_load_n": 2627.43692850744,
+        "roll_deg": -2.43508835627904,
+        "tick": 19479
+      },
+      {
+        "air_time_s": 0.0458333357237279,
+        "angular_velocity": [
+          -0.751886248588562,
+          -0.0923029482364655,
+          -0.227467194199562
+        ],
+        "closing_m_s": 0.528345465660095,
+        "first_contact": "front",
+        "impulse_ns": 358.828910273881,
+        "peak_load_n": 2096.84821422991,
+        "roll_deg": 3.27250842088614,
+        "tick": 19747
+      },
+      {
+        "air_time_s": 0.0875000045634806,
+        "angular_velocity": [
+          -1.00647282600403,
+          -0.0138379381969571,
+          -0.0696562305092812
+        ],
+        "closing_m_s": 2.43218874931335,
+        "first_contact": "front",
+        "impulse_ns": 620.030688610487,
+        "peak_load_n": 3392.61774872091,
+        "roll_deg": 2.57147001850832,
+        "tick": 19934
+      },
+      {
+        "air_time_s": 0.0416666688397527,
+        "angular_velocity": [
+          -1.14920055866241,
+          -0.013354355469346,
+          0.425364404916763
+        ],
+        "closing_m_s": 1.31156861782074,
+        "first_contact": "front",
+        "impulse_ns": 92.9141048731087,
+        "peak_load_n": 1506.85933509636,
+        "roll_deg": -2.42158816277297,
+        "tick": 20048
+      },
+      {
+        "air_time_s": 0.0583333363756537,
+        "angular_velocity": [
+          0.354764848947525,
+          0.153631180524826,
+          0.181801438331604
+        ],
+        "closing_m_s": 1.17406702041626,
+        "first_contact": "rear",
+        "impulse_ns": 593.127897558265,
+        "peak_load_n": 2731.33449258909,
+        "roll_deg": -4.3052746827934,
+        "tick": 20083
+      }
+    ],
+    "peak_angular_rad_s": 1.85176157951355,
+    "peak_lean_deg": 4.89132893984968,
+    "peak_load_n": 3744.39451800593,
+    "rear_only_ticks": 284,
+    "scenario": "rough_straight"
+  }
+]

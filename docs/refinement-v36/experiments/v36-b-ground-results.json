@@ -1,0 +1,1213 @@
+[
+  {
+    "berm_radius_error_m": 0.0,
+    "contact_ticks": [
+      39,
+      0,
+      1,
+      1400
+    ],
+    "crashed": false,
+    "final_lean_deg": 0.049649324131991,
+    "final_position": [
+      -19.8835563659668,
+      0.743923902511597,
+      3.53399968147278
+    ],
+    "final_speed_m_s": 1.90145599842072,
+    "first_upset": {},
+    "peak_load_n": 2794.92639821036,
+    "peak_roll_deg": 4.51415387213307,
+    "peak_roll_rate_rad_s": 0.0943363234400749,
+    "scenario": "slow_figure_eight"
+  },
+  {
+    "berm_radius_error_m": 0.0,
+    "contact_ticks": [
+      39,
+      0,
+      1,
+      1400
+    ],
+    "crashed": false,
+    "final_lean_deg": 0.837621107010494,
+    "final_position": [
+      100.222587585449,
+      0.933787763118744,
+      -81.6664962768555
+    ],
+    "final_speed_m_s": 1.9247932434082,
+    "first_upset": {},
+    "peak_load_n": 2821.18273469862,
+    "peak_roll_deg": 5.24364768780191,
+    "peak_roll_rate_rad_s": 0.193659007549286,
+    "scenario": "berm_entry"
+  },
+  {
+    "berm_radius_error_m": 0.0,
+    "contact_ticks": [
+      417,
+      1,
+      6,
+      1016
+    ],
+    "crashed": true,
+    "final_lean_deg": 78.6448137324312,
+    "final_position": [
+      109.682899475098,
+      1.63403499126434,
+      -70.5176162719727
+    ],
+    "final_speed_m_s": 4.22946905018762e-05,
+    "first_upset": {
+      "angular_velocity_world": [
+        0.0521856658160686,
+        0.100151039659977,
+        -1.50242459774017
+      ],
+      "architecture": "unsprung DOFs + compliant bristle contact",
+      "basis_columns": [
+        [
+          0.860861361026764,
+          -0.508812427520752,
+          -0.00525826774537563
+        ],
+        [
+          0.507372260093689,
+          0.857548773288727,
+          0.0847563445568085
+        ],
+        [
+          -0.0386158563196659,
+          -0.0756313502788544,
+          0.996387839317322
+        ]
+      ],
+      "chassis_impulse_ns": 0.0,
+      "collision_trace": [],
+      "contact_mask": 3,
+      "contact_trace": [
+        {
+          "axis": [
+            0.434540748596191,
+            0.729745626449585,
+            0.527869164943695
+          ],
+          "guide_roll_nm": -4.48160314559937,
+          "mount_acceleration_m_s2": -1.35609531402588,
+          "normal": [
+            -0.277372002601624,
+            0.958988666534424,
+            0.0583571046590805
+          ],
+          "normal_roll_nm": 280.915557861328,
+          "patch_velocity": [
+            -0.0935082659125328,
+            0.0468649119138718,
+            0.0210780315101147
+          ],
+          "point": [
+            108.936157226562,
+            1.1698671579361,
+            -71.3640899658203
+          ],
+          "road_compression_m": 0.0131097303619292,
+          "rolling_direction": [
+            -0.00854964181780815,
+            0.0582742653787136,
+            -0.998263955116272
+          ],
+          "spring_n": 245.345171474439,
+          "tangent_roll_nm": -206.523635864258,
+          "terrain_point": [
+            108.935623168945,
+            1.18339943885803,
+            -71.5608825683594
+          ],
+          "tire_contact_power_w": -27.858585357666,
+          "tire_forward": [
+            0.0180582813918591,
+            0.065933458507061,
+            -0.997660636901855
+          ]
+        },
+        {
+          "axis": [
+            0.447210133075714,
+            0.751625716686249,
+            0.484831869602203
+          ],
+          "guide_roll_nm": -7.13314056396484,
+          "mount_acceleration_m_s2": -0.830183982849121,
+          "normal": [
+            -0.281455159187317,
+            0.958425164222717,
+            0.0469490066170692
+          ],
+          "normal_roll_nm": 294.10546875,
+          "patch_velocity": [
+            -0.0869055390357971,
+            0.0500861927866936,
+            0.0160614885389805
+          ],
+          "point": [
+            108.883255004883,
+            1.07757425308228,
+            -69.8954162597656
+          ],
+          "road_compression_m": 0.01128790373507,
+          "rolling_direction": [
+            0.0275872927159071,
+            0.0569886937737465,
+            -0.997993588447571
+          ],
+          "spring_n": 250.025012287406,
+          "tangent_roll_nm": -205.15950012207,
+          "terrain_point": [
+            108.88892364502,
+            1.08879423141479,
+            -70.0526580810547
+          ],
+          "tire_contact_power_w": -25.7135696411133,
+          "tire_forward": [
+            0.0427970625460148,
+            0.0614161007106304,
+            -0.997194290161133
+          ]
+        }
+      ],
+      "controller": "ReducedCoordinateMotorcycle/v3.5-contact",
+      "controller_roll_moment_nm": 349.227469866164,
+      "crash_condition": "none",
+      "crash_evidence": {},
+      "crash_timer_s": 0.0,
+      "crashed": false,
+      "current_passive_roll_moment_nm": 358.302239790559,
+      "engine": "Godot Physics",
+      "front_carcass_active": true,
+      "front_compression_m": 0.0155846551420219,
+      "front_contact_samples": 3,
+      "front_force_limited": true,
+      "front_force_unconstrained_n": 1118.42549783058,
+      "front_fx_n": 6.14332389831543,
+      "front_fy_n": 364.391387939453,
+      "front_grip_use": 0.78267745520222,
+      "front_lateral_m_s": -0.0776669904589653,
+      "front_load_n": 475.139226893022,
+      "front_longitudinal_m_s": 0.0349996872246265,
+      "front_omega_rad_s": 0.139943226803816,
+      "front_penetration_m": 0.00145939320519076,
+      "front_roll_arm_m": -0.566924035549164,
+      "front_slip": 0.0196483131286228,
+      "front_slip_angle_deg": -8.82941878862466,
+      "front_suspension_velocity_m_s": -0.0531909572160505,
+      "front_world_force": [
+        350.131958007812,
+        100.81714630127,
+        7.44178342819214
+      ],
+      "gear": 1,
+      "hand_torque_nm": 8.11629353818826,
+      "heading_per_steer": 0.622834668730181,
+      "landing_preparation_armed": false,
+      "landing_preparation_blend": 0.0,
+      "landing_preparation_target_deg": 0.0,
+      "last_crash": "none",
+      "lean_deg": 30.6820763147005,
+      "lean_request_rate_rad_s": 0.0,
+      "measured_lean_rate_rad_s": 1.50761609913522,
+      "position": [
+        109.304183959961,
+        1.7968213558197,
+        -70.5803451538086
+      ],
+      "rear_carcass_active": true,
+      "rear_compression_m": 0.0138954646145759,
+      "rear_contact_samples": 3,
+      "rear_fx_n": 3.92820715904236,
+      "rear_fy_n": 375.027587890625,
+      "rear_grip_use": 0.760768870493555,
+      "rear_lateral_m_s": -0.0691956877708435,
+      "rear_load_n": 503.046609287611,
+      "rear_longitudinal_m_s": 0.0324875451624393,
+      "rear_omega_rad_s": 0.140264904863679,
+      "rear_penetration_m": 0.00135460280599911,
+      "rear_slip": 0.0166658076323132,
+      "rear_slip_angle_deg": -7.87919486075328,
+      "rear_suspension_velocity_m_s": -0.0455026998488942,
+      "rear_world_force": [
+        359.651733398438,
+        104.708938598633,
+        18.5341606140137
+      ],
+      "requested_front_fy_n": 455.980950354159,
+      "roll_acceleration_rad_s2": 3.93196105957031,
+      "roll_integral": 0.0,
+      "roll_rate_rad_s": 1.50658738613129,
+      "rpm": 1866.47324815689,
+      "scenario": "berm_crawl",
+      "speed_m_s": 1.11763525009155,
+      "sprung_mass_kg": 165.0,
+      "steer_actual_rate": 1.49207965194539e-06,
+      "steer_deg": -2.08556670831831,
+      "steer_input": -0.07,
+      "steer_target_deg": -2.0855663742762,
+      "steer_target_rate": -3.46876636652451e-13,
+      "steering_assist": true,
+      "support_torque_nm": -85.0,
+      "target_lean_deg": -0.143753070036253,
+      "ticks": 3918,
+      "time_s": 4.28333333333333,
+      "total_mass_kg": 181.0,
+      "yaw_rate_rad_s": 0.100151039659977
+    },
+    "peak_load_n": 3006.61323827371,
+    "peak_roll_deg": 79.0634379721218,
+    "peak_roll_rate_rad_s": 3.13284373283386,
+    "scenario": "berm_crawl"
+  },
+  {
+    "berm_radius_error_m": 0.0,
+    "contact_ticks": [
+      735,
+      22,
+      29,
+      654
+    ],
+    "crashed": true,
+    "final_lean_deg": 78.8479221410422,
+    "final_position": [
+      108.457427978516,
+      1.15109026432037,
+      -66.4737091064453
+    ],
+    "final_speed_m_s": 4.4410684495233e-05,
+    "first_upset": {
+      "angular_velocity_world": [
+        0.912551879882812,
+        0.158333167433739,
+        -1.23148703575134
+      ],
+      "architecture": "unsprung DOFs + compliant bristle contact",
+      "basis_columns": [
+        [
+          0.790969610214233,
+          -0.495172828435898,
+          0.359403699636459
+        ],
+        [
+          0.351504504680634,
+          0.84854120016098,
+          0.395502746105194
+        ],
+        [
+          -0.500811040401459,
+          -0.186498656868935,
+          0.845225811004639
+        ]
+      ],
+      "chassis_impulse_ns": 0.0,
+      "collision_trace": [],
+      "contact_mask": 3,
+      "contact_trace": [
+        {
+          "axis": [
+            0.0858292877674103,
+            0.671387076377869,
+            0.736120045185089
+          ],
+          "guide_roll_nm": -9.80645561218262,
+          "mount_acceleration_m_s2": 3.13749384880066,
+          "normal": [
+            -0.28359055519104,
+            0.958607494831085,
+            0.025456378236413
+          ],
+          "normal_roll_nm": 375.143646240234,
+          "patch_velocity": [
+            -0.209418416023254,
+            0.215207934379578,
+            -0.104744970798492
+          ],
+          "point": [
+            108.406066894531,
+            0.865876615047455,
+            -67.821159362793
+          ],
+          "road_compression_m": 0.0215084375415732,
+          "rolling_direction": [
+            0.31304132938385,
+            0.117635548114777,
+            -0.942426145076752
+          ],
+          "spring_n": 445.489134888541,
+          "tangent_roll_nm": -241.45149230957,
+          "terrain_point": [
+            108.47696685791,
+            0.891837596893311,
+            -68.0356674194336
+          ],
+          "tire_contact_power_w": -69.2657241821289,
+          "tire_forward": [
+            0.39948570728302,
+            0.142232000827789,
+            -0.905638575553894
+          ]
+        },
+        {
+          "axis": [
+            0.120247691869736,
+            0.701748490333557,
+            0.702203392982483
+          ],
+          "guide_roll_nm": -4.70128107070923,
+          "mount_acceleration_m_s2": -3.45840573310852,
+          "normal": [
+            -0.25405940413475,
+            0.967135667800903,
+            0.0101257162168622
+          ],
+          "normal_roll_nm": 265.461669921875,
+          "patch_velocity": [
+            -0.151162475347519,
+            0.0496043860912323,
+            -0.15090948343277
+          ],
+          "point": [
+            107.655899047852,
+            0.626391887664795,
+            -66.6073837280273
+          ],
+          "road_compression_m": 0.016462008027583,
+          "rolling_direction": [
+            0.478625267744064,
+            0.134815007448196,
+            -0.867607474327087
+          ],
+          "spring_n": 295.463773753138,
+          "tangent_roll_nm": -201.123321533203,
+          "terrain_point": [
+            107.738708496094,
+            0.652002811431885,
+            -66.7543487548828
+          ],
+          "tire_contact_power_w": -67.3006744384766,
+          "tire_forward": [
+            0.512645304203033,
+            0.143531024456024,
+            -0.846518516540527
+          ]
+        }
+      ],
+      "controller": "ReducedCoordinateMotorcycle/v3.5-contact",
+      "controller_roll_moment_nm": 463.635186672211,
+      "crash_condition": "none",
+      "crash_evidence": {},
+      "crash_timer_s": 0.0,
+      "crashed": false,
+      "current_passive_roll_moment_nm": 424.233123719692,
+      "engine": "Godot Physics",
+      "front_carcass_active": true,
+      "front_compression_m": 0.0205339620411314,
+      "front_contact_samples": 2,
+      "front_force_limited": true,
+      "front_force_unconstrained_n": 1233.32451215838,
+      "front_fx_n": -25.0835056304932,
+      "front_fy_n": 395.343872070312,
+      "front_grip_use": 0.571334047639463,
+      "front_lateral_m_s": -0.0844595432281494,
+      "front_load_n": 707.507791524685,
+      "front_longitudinal_m_s": -0.875088751316071,
+      "front_omega_rad_s": -2.53772223872861,
+      "front_penetration_m": 0.00255986811514148,
+      "front_roll_arm_m": -0.608471810817719,
+      "front_slip": -0.0461549999642505,
+      "front_slip_angle_deg": -5.51284973976084,
+      "front_suspension_velocity_m_s": 0.00286851378034824,
+      "front_world_force": [
+        339.418823242188,
+        95.6534652709961,
+        179.20246887207
+      ],
+      "gear": 1,
+      "hand_torque_nm": 6.93438452533337,
+      "heading_per_steer": 0.704148294703852,
+      "landing_preparation_armed": false,
+      "landing_preparation_blend": 0.0,
+      "landing_preparation_target_deg": 0.0,
+      "last_crash": "none",
+      "lean_deg": 30.2660316128418,
+      "lean_request_rate_rad_s": -0.00808469504131957,
+      "measured_lean_rate_rad_s": 1.55173235705168,
+      "position": [
+        108.31031036377,
+        1.4209098815918,
+        -66.9529266357422
+      ],
+      "rear_carcass_active": true,
+      "rear_compression_m": 0.0185210350409725,
+      "rear_contact_samples": 3,
+      "rear_fx_n": -19.6800174713135,
+      "rear_fy_n": 343.762329101562,
+      "rear_grip_use": 0.71234814990351,
+      "rear_lateral_m_s": -0.155435353517532,
+      "rear_load_n": 493.23106989523,
+      "rear_longitudinal_m_s": -0.880744695663452,
+      "rear_omega_rad_s": -2.7701840368631,
+      "rear_penetration_m": 0.0014603402846562,
+      "rear_slip": -0.0581624159176132,
+      "rear_slip_angle_deg": -10.0085992711944,
+      "rear_suspension_velocity_m_s": -0.0563657464440736,
+      "rear_world_force": [
+        276.138763427734,
+        70.5236892700195,
+        192.546783447266
+      ],
+      "requested_front_fy_n": 762.470096846943,
+      "roll_acceleration_rad_s2": 6.89472198486328,
+      "roll_integral": 0.0,
+      "roll_rate_rad_s": 1.52742958068848,
+      "rpm": 1866.4732481569,
+      "scenario": "berm_transition",
+      "speed_m_s": 1.47588789463043,
+      "sprung_mass_kg": 165.0,
+      "steer_actual_rate": -0.447895125775474,
+      "steer_deg": -10.6396095828627,
+      "steer_input": -0.07,
+      "steer_target_deg": -10.6726919536838,
+      "steer_target_rate": -0.440605058047281,
+      "steering_assist": true,
+      "support_torque_nm": -85.0,
+      "target_lean_deg": -0.154251010438746,
+      "ticks": 5016,
+      "time_s": 2.84583333333333,
+      "total_mass_kg": 181.0,
+      "yaw_rate_rad_s": 0.158333167433739
+    },
+    "peak_load_n": 3416.11278595417,
+    "peak_roll_deg": 80.1264424011674,
+    "peak_roll_rate_rad_s": 3.60369420051575,
+    "scenario": "berm_transition"
+  },
+  {
+    "berm_radius_error_m": 4.22900581359863,
+    "contact_ticks": [
+      36,
+      3,
+      1,
+      1400
+    ],
+    "crashed": false,
+    "final_lean_deg": -4.3559361876461,
+    "final_position": [
+      96.3206787109375,
+      0.796545207500458,
+      -84.5202178955078
+    ],
+    "final_speed_m_s": 3.90746879577637,
+    "first_upset": {},
+    "peak_load_n": 2667.5551583216,
+    "peak_roll_deg": 5.43865842453321,
+    "peak_roll_rate_rad_s": 0.345835387706757,
+    "scenario": "berm_hold"
+  },
+  {
+    "berm_radius_error_m": 0.0,
+    "contact_ticks": [
+      0,
+      38,
+      0,
+      682
+    ],
+    "crashed": false,
+    "final_lean_deg": 1.15630336073444,
+    "final_position": [
+      104.618049621582,
+      0.814685046672821,
+      -65.0046691894531
+    ],
+    "final_speed_m_s": 2.89976811408997,
+    "first_upset": {},
+    "peak_load_n": 3405.98323250479,
+    "peak_roll_deg": 1.15630336073444,
+    "peak_roll_rate_rad_s": 0.359684675931931,
+    "scenario": "berm_climb"
+  },
+  {
+    "berm_radius_error_m": 0.0,
+    "contact_ticks": [
+      19,
+      1,
+      65,
+      635
+    ],
+    "crashed": false,
+    "final_lean_deg": -6.11886383897204e-05,
+    "final_position": [
+      97.9821853637695,
+      0.743912637233734,
+      -64.9957656860352
+    ],
+    "final_speed_m_s": 3.75747418403625,
+    "first_upset": {},
+    "peak_load_n": 2644.25968568678,
+    "peak_roll_deg": 0.0176129220402329,
+    "peak_roll_rate_rad_s": 0.00290623633190989,
+    "scenario": "berm_descend"
+  },
+  {
+    "berm_radius_error_m": 0.0,
+    "contact_ticks": [
+      36,
+      3,
+      11,
+      1390
+    ],
+    "crashed": false,
+    "final_lean_deg": -5.3741746764996,
+    "final_position": [
+      90.7432632446289,
+      0.764143049716949,
+      -87.9147644042969
+    ],
+    "final_speed_m_s": 7.2461895942688,
+    "first_upset": {},
+    "peak_load_n": 2667.5551583216,
+    "peak_roll_deg": 7.24804005578186,
+    "peak_roll_rate_rad_s": 0.345835387706757,
+    "scenario": "berm_exit"
+  },
+  {
+    "berm_radius_error_m": 0.0,
+    "contact_ticks": [
+      614,
+      368,
+      330,
+      128
+    ],
+    "crashed": true,
+    "final_lean_deg": -127.833829733186,
+    "final_position": [
+      20.119779586792,
+      1.0877583026886,
+      -84.2531661987305
+    ],
+    "final_speed_m_s": 4.2040548324585,
+    "first_upset": {
+      "angular_velocity_world": [
+        1.08842074871063,
+        -0.891177892684937,
+        -1.39973676204681
+      ],
+      "architecture": "unsprung DOFs + compliant bristle contact",
+      "basis_columns": [
+        [
+          0.901424527168274,
+          -0.426612734794617,
+          0.0737259462475777
+        ],
+        [
+          0.432474851608276,
+          0.879449725151062,
+          -0.198830902576447
+        ],
+        [
+          0.0199855305254459,
+          0.211115673184395,
+          0.977256834506989
+        ]
+      ],
+      "chassis_impulse_ns": 0.0,
+      "collision_trace": [],
+      "contact_mask": 1,
+      "contact_trace": [
+        {
+          "axis": [
+            0.394411146640778,
+            0.879439949989319,
+            0.266505748033524
+          ],
+          "guide_roll_nm": -8.42558479309082,
+          "mount_acceleration_m_s2": 31.0405349731445,
+          "normal": [
+            0.0,
+            0.983822584152222,
+            0.179145634174347
+          ],
+          "normal_roll_nm": 903.649658203125,
+          "patch_velocity": [
+            -2.81870222091675,
+            -0.834386467933655,
+            -0.809469223022461
+          ],
+          "point": [
+            17.5619716644287,
+            0.153575628995895,
+            -75.2318496704102
+          ],
+          "road_compression_m": 0.160547579966838,
+          "rolling_direction": [
+            0.272735178470612,
+            0.172354057431221,
+            -0.946525037288666
+          ],
+          "spring_n": 2951.2701105343,
+          "tangent_roll_nm": -704.207214355469,
+          "terrain_point": [
+            17.5725917816162,
+            0.178317740559578,
+            -75.2219161987305
+          ],
+          "tire_contact_power_w": -3334.66967773438,
+          "tire_forward": [
+            0.067807100713253,
+            0.178733333945274,
+            -0.981558263301849
+          ]
+        },
+        {
+          "axis": [
+            0.40178319811821,
+            0.887770533561707,
+            0.22457467019558
+          ],
+          "guide_roll_nm": -6.32804250717163,
+          "mount_acceleration_m_s2": -21.4380626678467,
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "normal_roll_nm": 0.0,
+          "point": [
+            17.5381488800049,
+            0.362574070692062,
+            -73.7345886230469
+          ],
+          "road_compression_m": -1.0,
+          "spring_n": 101.590730533062,
+          "tangent_roll_nm": 0.0,
+          "terrain_point": []
+        }
+      ],
+      "controller": "ReducedCoordinateMotorcycle/v3.5-contact",
+      "controller_roll_moment_nm": 884.524287700653,
+      "crash_condition": "none",
+      "crash_evidence": {},
+      "crash_timer_s": 0.0,
+      "crashed": false,
+      "current_passive_roll_moment_nm": 874.768353939056,
+      "engine": "Godot Physics",
+      "front_carcass_active": true,
+      "front_compression_m": 0.137097169430127,
+      "front_contact_samples": 3,
+      "front_force_limited": false,
+      "front_force_unconstrained_n": 1895.19662072317,
+      "front_fx_n": -170.045227050781,
+      "front_fy_n": 1131.03564453125,
+      "front_grip_use": 0.352226913612867,
+      "front_lateral_m_s": -0.491293162107468,
+      "front_load_n": 3313.45697216897,
+      "front_longitudinal_m_s": 11.6382150650024,
+      "front_omega_rad_s": 32.584462577944,
+      "front_penetration_m": 0.0270448221017356,
+      "front_roll_arm_m": -0.610711574554443,
+      "front_slip": -0.0177865053601626,
+      "front_slip_angle_deg": -2.41723682125652,
+      "front_suspension_velocity_m_s": 1.04625397734828,
+      "front_world_force": [
+        1112.85803222656,
+        -54.7918853759766,
+        300.903198242188
+      ],
+      "gear": 2,
+      "hand_torque_nm": 30.0,
+      "heading_per_steer": 0.876631084109104,
+      "landing_preparation_armed": false,
+      "landing_preparation_blend": 0.0,
+      "landing_preparation_target_deg": 0.0,
+      "last_crash": "none",
+      "lean_deg": 25.8775843811672,
+      "lean_request_rate_rad_s": 0.0,
+      "measured_lean_rate_rad_s": 1.40825120364057,
+      "position": [
+        17.8566551208496,
+        0.896771848201752,
+        -74.5377655029297
+      ],
+      "rear_carcass_active": false,
+      "rear_compression_m": 0.00938070132789001,
+      "rear_contact_samples": 0,
+      "rear_fx_n": 0.0,
+      "rear_fy_n": 0.0,
+      "rear_grip_use": 0.0,
+      "rear_lateral_m_s": 0.0,
+      "rear_load_n": 0.0,
+      "rear_longitudinal_m_s": 0.0,
+      "rear_omega_rad_s": 39.5069820410928,
+      "rear_penetration_m": -0.891882213649238,
+      "rear_slip": 0.0,
+      "rear_slip_angle_deg": 0.0,
+      "rear_suspension_velocity_m_s": -0.136420957945822,
+      "rear_world_force": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "requested_front_fy_n": 1895.19662072317,
+      "roll_acceleration_rad_s2": 10.3353023529053,
+      "roll_integral": 0.237360383265696,
+      "roll_rate_rad_s": 1.53429126739502,
+      "rpm": 7621.85200523138,
+      "scenario": "bump_correction",
+      "speed_m_s": 10.547342300415,
+      "sprung_mass_kg": 165.0,
+      "steer_actual_rate": 0.724543197979002,
+      "steer_deg": 5.88549495482026,
+      "steer_input": 0,
+      "steer_target_deg": 11.389536327866,
+      "steer_target_rate": 1.26279811433997,
+      "steering_assist": true,
+      "support_torque_nm": 0.0,
+      "target_lean_deg": 0.0,
+      "ticks": 11233,
+      "time_s": 4.6875,
+      "total_mass_kg": 181.0,
+      "yaw_rate_rad_s": -0.891177892684937
+    },
+    "peak_load_n": 5516.31366785145,
+    "peak_roll_deg": 179.571406353191,
+    "peak_roll_rate_rad_s": 3.18453645706177,
+    "scenario": "bump_correction"
+  },
+  {
+    "berm_radius_error_m": 0.0,
+    "contact_ticks": [
+      681,
+      229,
+      371,
+      159
+    ],
+    "crashed": true,
+    "final_lean_deg": -88.4045198214273,
+    "final_position": [
+      20.7550163269043,
+      0.515320718288422,
+      -71.4199447631836
+    ],
+    "final_speed_m_s": 4.57649366580881e-05,
+    "first_upset": {
+      "angular_velocity_world": [
+        -2.01010799407959,
+        0.184607863426208,
+        -1.06919884681702
+      ],
+      "architecture": "unsprung DOFs + compliant bristle contact",
+      "basis_columns": [
+        [
+          0.888582229614258,
+          -0.383768260478973,
+          -0.251283824443817
+        ],
+        [
+          0.391731292009354,
+          0.919870316982269,
+          -0.0196254923939705
+        ],
+        [
+          0.238680183887482,
+          -0.0809968784451485,
+          0.967714488506317
+        ]
+      ],
+      "chassis_impulse_ns": 0.0,
+      "collision_trace": [],
+      "contact_mask": 2,
+      "contact_trace": [
+        {
+          "axis": [
+            0.457393676042557,
+            0.782838582992554,
+            0.421846807003021
+          ],
+          "guide_roll_nm": -3.25539922714233,
+          "mount_acceleration_m_s2": -7.73650360107422,
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "normal_roll_nm": 0.0,
+          "point": [
+            18.8522911071777,
+            0.262109607458115,
+            -60.7821998596191
+          ],
+          "road_compression_m": -1.0,
+          "spring_n": -21.6264545939366,
+          "tangent_roll_nm": 0.0,
+          "terrain_point": []
+        },
+        {
+          "axis": [
+            0.440631121397018,
+            0.866391897201538,
+            0.234966531395912
+          ],
+          "guide_roll_nm": -20.7399673461914,
+          "mount_acceleration_m_s2": 17.7056941986084,
+          "normal": [
+            0.0,
+            0.993218183517456,
+            0.116265743970871
+          ],
+          "normal_roll_nm": 378.351806640625,
+          "patch_velocity": [
+            -0.214307546615601,
+            0.916560769081116,
+            0.863762855529785
+          ],
+          "point": [
+            19.2689990997314,
+            0.225700885057449,
+            -59.3520278930664
+          ],
+          "road_compression_m": 0.137347057790666,
+          "rolling_direction": [
+            -0.224758639931679,
+            0.113291010260582,
+            -0.967806100845337
+          ],
+          "spring_n": 1370.43083187542,
+          "tangent_roll_nm": -227.084716796875,
+          "terrain_point": [
+            19.2636165618896,
+            0.258730530738831,
+            -59.4215049743652
+          ],
+          "tire_contact_power_w": -828.218017578125,
+          "tire_forward": [
+            -0.238802969455719,
+            0.112901948392391,
+            -0.964482426643372
+          ]
+        }
+      ],
+      "controller": "ReducedCoordinateMotorcycle/v3.5-contact",
+      "controller_roll_moment_nm": 208.431678771973,
+      "crash_condition": "none",
+      "crash_evidence": {},
+      "crash_timer_s": 0.0,
+      "crashed": false,
+      "current_passive_roll_moment_nm": 97.4070563316345,
+      "engine": "Godot Physics",
+      "front_carcass_active": false,
+      "front_compression_m": 0.0282937138673216,
+      "front_contact_samples": 0,
+      "front_force_limited": false,
+      "front_force_unconstrained_n": 0.0,
+      "front_fx_n": 0.0,
+      "front_fy_n": 0.0,
+      "front_grip_use": 0.0,
+      "front_lateral_m_s": 0.0,
+      "front_load_n": 0.0,
+      "front_longitudinal_m_s": 0.0,
+      "front_omega_rad_s": 32.3147644493802,
+      "front_penetration_m": -0.803082405952396,
+      "front_roll_arm_m": -0.699751436710358,
+      "front_slip": 0.0,
+      "front_slip_angle_deg": 0.0,
+      "front_suspension_velocity_m_s": -0.397193119494626,
+      "front_world_force": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gear": 2,
+      "hand_torque_nm": 10.2839347075672,
+      "heading_per_steer": 0.804157756196524,
+      "landing_preparation_armed": false,
+      "landing_preparation_blend": 0.0,
+      "landing_preparation_target_deg": 0.0,
+      "last_crash": "none",
+      "lean_deg": 22.645810607205,
+      "lean_request_rate_rad_s": 0.0,
+      "measured_lean_rate_rad_s": 1.52470787036112,
+      "position": [
+        19.3509120941162,
+        0.910787761211395,
+        -60.1086578369141
+      ],
+      "rear_carcass_active": true,
+      "rear_compression_m": 0.114976354028166,
+      "rear_contact_samples": 3,
+      "rear_fx_n": 1034.33422851562,
+      "rear_fy_n": 367.605133056641,
+      "rear_grip_use": 0.857133914175844,
+      "rear_lateral_m_s": -0.244212865829468,
+      "rear_load_n": 1306.81861859824,
+      "rear_longitudinal_m_s": 9.24749374389648,
+      "rear_omega_rad_s": 30.0850122658896,
+      "rear_penetration_m": 0.0167900989224291,
+      "rear_slip": 0.0734750271282055,
+      "rear_slip_angle_deg": -1.51274663721082,
+      "rear_suspension_velocity_m_s": -0.312625283260827,
+      "rear_world_force": [
+        115.584808349609,
+        124.329002380371,
+        -1062.09985351562
+      ],
+      "requested_front_fy_n": 0.0,
+      "roll_acceleration_rad_s2": 11.6149234771729,
+      "roll_integral": 0.187680461065788,
+      "roll_rate_rad_s": 1.52940475940704,
+      "rpm": 7055.79088660859,
+      "scenario": "braking_bumps",
+      "speed_m_s": 10.360933303833,
+      "sprung_mass_kg": 165.0,
+      "steer_actual_rate": 1.21330128258563,
+      "steer_deg": 8.38990153509007,
+      "steer_input": 0,
+      "steer_target_deg": 11.60275008569,
+      "steer_target_rate": 0.922441561532378,
+      "steering_assist": true,
+      "support_torque_nm": 0.0,
+      "target_lean_deg": 0.0,
+      "ticks": 12351,
+      "time_s": 3.33333333333333,
+      "total_mass_kg": 181.0,
+      "yaw_rate_rad_s": 0.184607863426208
+    },
+    "peak_load_n": 5108.45643003569,
+    "peak_roll_deg": 93.9718156849205,
+    "peak_roll_rate_rad_s": 7.17095947265625,
+    "scenario": "braking_bumps"
+  },
+  {
+    "berm_radius_error_m": 0.0,
+    "contact_ticks": [
+      1580,
+      102,
+      48,
+      190
+    ],
+    "crashed": true,
+    "final_lean_deg": 86.5210535636124,
+    "final_position": [
+      38.7347297668457,
+      0.430970907211304,
+      -60.2144470214844
+    ],
+    "final_speed_m_s": 4.88319601572584e-05,
+    "first_upset": {
+      "angular_velocity_world": [
+        -6.53857278823853,
+        0.0127284666523337,
+        0.139642268419266
+      ],
+      "architecture": "unsprung DOFs + compliant bristle contact",
+      "basis_columns": [
+        [
+          0.999835133552551,
+          -0.00114615983329713,
+          -0.018123185262084
+        ],
+        [
+          -0.0181417558342218,
+          -0.0190698225051165,
+          -0.99965363740921
+        ],
+        [
+          0.000800156849436462,
+          0.999817490577698,
+          -0.0190874692052603
+        ]
+      ],
+      "chassis_impulse_ns": 0.0,
+      "collision_trace": [],
+      "contact_mask": 0,
+      "contact_trace": [
+        {
+          "axis": [
+            -0.0158011578023434,
+            0.436916410923004,
+            -0.899363398551941
+          ],
+          "guide_roll_nm": 0.15187019109726,
+          "mount_acceleration_m_s2": 7.330641746521,
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "normal_roll_nm": 0.0,
+          "point": [
+            41.9723968505859,
+            0.533062338829041,
+            -47.4303703308105
+          ],
+          "road_compression_m": -1.0,
+          "spring_n": -221.656296248279,
+          "tangent_roll_nm": 0.0,
+          "terrain_point": []
+        },
+        {
+          "axis": [
+            -0.0160466693341732,
+            0.41143798828125,
+            -0.911296546459198
+          ],
+          "guide_roll_nm": -0.178742080926895,
+          "mount_acceleration_m_s2": -14.9071226119995,
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "normal_roll_nm": 0.0,
+          "point": [
+            41.9856147766113,
+            1.93141627311707,
+            -47.2504196166992
+          ],
+          "road_compression_m": -1.0,
+          "spring_n": 97.838243522644,
+          "tangent_roll_nm": 0.0,
+          "terrain_point": []
+        }
+      ],
+      "controller": "ReducedCoordinateMotorcycle/v3.5-contact",
+      "controller_roll_moment_nm": -1.1380328387022,
+      "crash_condition": "none",
+      "crash_evidence": {},
+      "crash_timer_s": 0.0,
+      "crashed": false,
+      "current_passive_roll_moment_nm": -1.16543650627136,
+      "engine": "Godot Physics",
+      "front_carcass_active": false,
+      "front_compression_m": 0.231778787067489,
+      "front_contact_samples": 0,
+      "front_force_limited": false,
+      "front_force_unconstrained_n": 0.0,
+      "front_fx_n": 0.0,
+      "front_fy_n": 0.0,
+      "front_grip_use": 0.0,
+      "front_lateral_m_s": 0.0,
+      "front_load_n": 0.0,
+      "front_longitudinal_m_s": 0.0,
+      "front_omega_rad_s": -11.7110396354263,
+      "front_penetration_m": -0.555552517359823,
+      "front_roll_arm_m": 0.1745465695858,
+      "front_slip": 0.0,
+      "front_slip_angle_deg": 0.0,
+      "front_suspension_velocity_m_s": -2.35782656431157,
+      "front_world_force": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gear": 2,
+      "hand_torque_nm": -6.35902448780086,
+      "heading_per_steer": -3.02669235838033,
+      "landing_preparation_armed": false,
+      "landing_preparation_blend": 0.0,
+      "landing_preparation_target_deg": 0.0,
+      "last_crash": "none",
+      "lean_deg": 176.560470543302,
+      "lean_request_rate_rad_s": 0.0,
+      "measured_lean_rate_rad_s": 703.623525732515,
+      "position": [
+        41.9772453308105,
+        1.51796972751617,
+        -47.6861457824707
+      ],
+      "rear_carcass_active": false,
+      "rear_compression_m": 0.0,
+      "rear_contact_samples": 0,
+      "rear_fx_n": 0.0,
+      "rear_fy_n": 0.0,
+      "rear_grip_use": 0.0,
+      "rear_lateral_m_s": 0.0,
+      "rear_load_n": 0.0,
+      "rear_longitudinal_m_s": 0.0,
+      "rear_omega_rad_s": 39.3003561201157,
+      "rear_penetration_m": -0.427897292240573,
+      "rear_slip": 0.0,
+      "rear_slip_angle_deg": 0.0,
+      "rear_suspension_velocity_m_s": 0.0,
+      "rear_world_force": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "requested_front_fy_n": 0.0,
+      "roll_acceleration_rad_s2": -0.540267080068588,
+      "roll_integral": 0.0,
+      "roll_rate_rad_s": -0.00482884235680103,
+      "rpm": 7582.0451264514,
+      "scenario": "whoops",
+      "speed_m_s": 8.70433521270752,
+      "sprung_mass_kg": 165.0,
+      "steer_actual_rate": -1.10265855725012,
+      "steer_deg": -1.49913772427432,
+      "steer_input": 0,
+      "steer_target_deg": 0.0,
+      "steer_target_rate": -1.13448998120561,
+      "steering_assist": true,
+      "support_torque_nm": 0.0,
+      "target_lean_deg": 0.0,
+      "ticks": 13503,
+      "time_s": 2.12083333333333,
+      "total_mass_kg": 181.0,
+      "yaw_rate_rad_s": 0.0127284666523337
+    },
+    "peak_load_n": 44474.3503632666,
+    "peak_roll_deg": 179.959792264171,
+    "peak_roll_rate_rad_s": 9.80684375762939,
+    "scenario": "whoops"
+  },
+  {
+    "berm_radius_error_m": 0.0,
+    "contact_ticks": [
+      73,
+      0,
+      14,
+      1353
+    ],
+    "crashed": false,
+    "final_lean_deg": 0.0,
+    "final_position": [
+      -24.0,
+      0.743928253650665,
+      -4.46465587615967
+    ],
+    "final_speed_m_s": 2.96064710617065,
+    "first_upset": {},
+    "peak_load_n": 4755.23735917839,
+    "peak_roll_deg": 0.0,
+    "peak_roll_rate_rad_s": 1.50849810420794e-09,
+    "scenario": "front_unload"
+  },
+  {
+    "berm_radius_error_m": 0.0,
+    "contact_ticks": [
+      72,
+      15,
+      0,
+      1353
+    ],
+    "crashed": false,
+    "final_lean_deg": -7.85321937557808e-11,
+    "final_position": [
+      -24.0,
+      0.74392831325531,
+      -4.33192348480225
+    ],
+    "final_speed_m_s": 2.95655131340027,
+    "first_upset": {},
+    "peak_load_n": 5178.8733129358,
+    "peak_roll_deg": 7.85321937557808e-11,
+    "peak_roll_rate_rad_s": 1.84036419437206e-09,
+    "scenario": "rear_unload"
+  }
+]

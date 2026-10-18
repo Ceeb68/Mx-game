@@ -1,0 +1,10 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS reachable signed-velocity inverse (4.0, 0.3)
+PASS reachable signed-velocity inverse (-4.0, 0.3)
+PASS reachable signed-velocity inverse (0.2, -0.05)
+PASS reachable signed-velocity inverse (-0.2, -0.05)
+PASS steering at rest cannot invent tire force
+PASS unreachable force respects steering bounds
+PASS prediction agrees with active tread integrator
+TIRE_INVERSE_RESULT checks=7 failures=0

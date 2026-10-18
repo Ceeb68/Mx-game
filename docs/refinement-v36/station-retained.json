@@ -1,0 +1,66 @@
+[
+  {
+    "case": "rebound_flight",
+    "load_n": 0.0,
+    "momentum_residual_n": 851.102226648052,
+    "reaction_n": 0.0,
+    "velocity_m_s": -1.08356663293928,
+    "wheel": 0
+  },
+  {
+    "case": "top_out",
+    "load_n": 0.0,
+    "momentum_residual_n": 3360.0,
+    "reaction_n": -68.67,
+    "velocity_m_s": 0.0,
+    "wheel": 0
+  },
+  {
+    "case": "lift_off",
+    "load_n": 0.0,
+    "momentum_residual_n": -3619.05722054448,
+    "reaction_n": 24.4392106934708,
+    "velocity_m_s": -0.552405718934219,
+    "wheel": 0
+  },
+  {
+    "case": "fixed_road_settling",
+    "energy_gain_j": 0.000000000000014210854715202,
+    "equilibrium_compression_m": 0.0608271836734694,
+    "peak_load_n": 6731.80953452868,
+    "settling_time_s": 0.0864583333333333,
+    "wheel": 0
+  },
+  {
+    "case": "rebound_flight",
+    "load_n": 0.0,
+    "momentum_residual_n": 946.485860031392,
+    "reaction_n": 0.0,
+    "velocity_m_s": -1.10067177545933,
+    "wheel": 1
+  },
+  {
+    "case": "top_out",
+    "load_n": 0.0,
+    "momentum_residual_n": 4320.0,
+    "reaction_n": -88.29,
+    "velocity_m_s": 0.0,
+    "wheel": 1
+  },
+  {
+    "case": "lift_off",
+    "load_n": 0.0,
+    "momentum_residual_n": -4044.28914159075,
+    "reaction_n": 111.30686790979,
+    "velocity_m_s": -0.491190510358859,
+    "wheel": 1
+  },
+  {
+    "case": "fixed_road_settling",
+    "energy_gain_j": 0.000000000000014210854715202,
+    "equilibrium_compression_m": 0.0601757894736842,
+    "peak_load_n": 6848.14684783695,
+    "settling_time_s": 0.090625,
+    "wheel": 1
+  }
+]

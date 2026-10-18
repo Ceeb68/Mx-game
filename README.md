@@ -1,3 +1,22 @@
+# Terra MX 3.6 — Stage A traction test; suspension repair incomplete
+
+[Measurements, rejected suspension candidates and remaining failures](docs/refinement-v36/REPORT.md).
+The tire solve now respects finite brake capacity and zero wheel rotation when
+locked. Terrain friction, steering gains and v3.5 suspension are preserved.
+None of the tested suspension corrections cleared the rough-ground regression
+checks. This build does **not** fix excessive bounce or the four known ground failures.
+
+**Windows:** extract `TerraMX-v3.6-traction-stage-A-windows.zip`, run `TerraMX.exe`.
+**Godot:** extract `TerraMX-v3.6-traction-stage-A-GODOT-SOURCE.zip`, import its root
+**project.godot** in **Godot 4.6.3 standard**, wait for import and press **F5**.
+F1 identity: `ReducedCoordinateMotorcycle/v3.6-traction-stage-A`.
+The source ZIP contains all project code/assets/config/tests; optional bulk raw
+replay traces remain in the Git repository to keep the editor download small.
+Windows execution and actual riding feel need testing on your machine.
+Bindings, rider, camera, track, v3.5 crash contacts and local reset are retained.
+
+Earlier release documentation follows as history.
+
 # Terra MX 3.5 tire / crash-contact test
 
 [Root causes, A/B measurements, rejected experiments and remaining failures](docs/contact/REPORT.md).

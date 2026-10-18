@@ -1,0 +1,58 @@
+extends RefCounted
+## Independent unsprung translation, implicit tire carcass + spring/damper solve.
+## Chassis receives suspension reaction; tire load is NOT the chassis spring force.
+var penetration_m: float = 0
+var carcass_active: bool = false
+var compression: float = 0
+var velocity: float = 0
+var spring_force: float = 0
+var load: float = 0
+var unsprung_mass: float
+var index: int
+var bottomed: bool = false
+func _init(i: int) -> void:
+ index = i
+ unsprung_mass = 7.0 if i == 0 else 9.0
+func reset() -> void:
+ compression = 0
+ penetration_m = 0
+ carcass_active = false
+ velocity = 0
+ spring_force = 0
+ load = 0
+func step(dt: float, road_compression: float, closing_speed: float, projection: float, mount_acceleration: float, config: Dictionary, contact: bool, gravity_projection: float = 1) -> void:
+ var k: float = config.spring_n_m[index]
+ var preload_force: float = config.preload_n[index]
+ var c: float = config.compression_ns_m[index] if velocity > 0 else config.rebound_ns_m[index]
+ var a: float = maxf(0.25, projection)
+ var penetration: float = (road_compression - compression) * a
+ # A ray within reach is not yet a tire contact. Engage the unilateral carcass
+ # only at overlap or an impending crossing within this unsprung substep.
+ var active: bool=contact and (penetration>0 or penetration+dt*(closing_speed-velocity*a)>0)
+ penetration_m=penetration
+ carcass_active=active
+ var kt: float = config.contact_compliance.carcass_stiffness_n_m[index] if active else 0
+ var ct: float = config.contact_compliance.carcass_damping_ns_m[index] if active else 0
+ # Implicit solve of m*q'' = N*a - spring - gravity - mount acceleration.
+ var old_velocity: float = velocity
+ var drive: float = kt * penetration * a + ct * closing_speed * a - preload_force - k * compression - unsprung_mass * (9.81 * gravity_projection + mount_acceleration)
+ velocity = (velocity + dt * drive / unsprung_mass) / (1 + dt * (c + ct * a * a) / unsprung_mass + dt * dt * (k + kt * a * a) / unsprung_mass)
+ # Do not integrate an adhesive normal force then clip it away. If the
+ # candidate carcass reaction pulls downward, solve the detached wheel instead.
+ var candidate_load: float = kt * (penetration - dt * velocity * a) + ct * (closing_speed - velocity * a)
+ if active and candidate_load < 0:
+  kt = 0
+  ct = 0
+  carcass_active = false
+  var flight_drive: float = -preload_force - k * compression - unsprung_mass * (9.81 * gravity_projection + mount_acceleration)
+  velocity = (old_velocity + dt * flight_drive / unsprung_mass) / (1 + dt * c / unsprung_mass + dt * dt * k / unsprung_mass)
+ var old: float = compression
+ compression = clampf(compression + dt * velocity, 0, config.suspension_travel_m)
+ bottomed = compression >= config.suspension_travel_m
+ if compression == 0 and velocity < 0: velocity = 0
+ if bottomed and velocity > 0: velocity = 0
+ spring_force = maxf(0, preload_force + k * compression + c * velocity)
+ load = maxf(0, kt * (road_compression - compression) * a + ct * (closing_speed - (compression - old) / dt * a))
+ if compression == 0:
+  spring_force = load * a - unsprung_mass * (9.81 * gravity_projection + mount_acceleration)
+ if bottomed: spring_force = maxf(spring_force, load * a - unsprung_mass * (9.81 * gravity_projection + mount_acceleration))
