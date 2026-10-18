@@ -38,9 +38,10 @@ func configure(data: Dictionary, index: int) -> void:
  bearing_drag=tuning.get("bearing_drag_nm_s",0.015)
 
 func limited_trial(dt: float, relative: Vector2, stiffness: Vector2, convection: float, inverse_mass: Vector2, limit: float) -> Vector2:
- var demand:=Vector2.ZERO
+ var trial:=Vector2.ZERO
  for j in range(2):
-  demand[j]=stiffness[j]*(tread[j]+dt*relative[j])/(1+dt*convection+stiffness[j]*dt*dt*inverse_mass[j])
+  trial[j]=(tread[j]+dt*relative[j])/(1+dt*convection+stiffness[j]*dt*dt*inverse_mass[j])
+ var demand: Vector2=trial*stiffness
  sliding=demand.length()>limit
  if sliding:
   var excess: float=demand.length()/maxf(limit,0.001)-1
@@ -68,8 +69,9 @@ func forces(dt: float, longitudinal: float, lateral: float, mu: float, _legacy: 
  if not brake_locked:
   free-=brake_direction*brake*dt/inertia
   var relative:=Vector2(free*radius-longitudinal,-lateral)
-  # Tread enters/leaves the patch with wheel rotation, not chassis travel.
-  var convection: float=absf(free*radius)/tread_length
+  # Retain the established convected-bristle relaxation for rotating contact.
+  # Locked tread uses the separate, zero-renewal constraint above.
+  var convection: float=absf(longitudinal)/tread_length
   demand=limited_trial(dt,relative,stiffness,convection,inverse_effective_mass+Vector2(radius*radius/inertia,0),limit)
  tread=Vector2(demand.x/stiffness.x,demand.y/stiffness.y)
  force=demand
@@ -95,7 +97,7 @@ func detach() -> void:
  utilization = 0
 func lateral_angle_for_force(dt: float, desired: float, longitudinal: float, inverse_mass: float) -> float:
  var stiffness: float = stiffness_at_load().y
- var denominator: float = 1 + dt * absf((omega-omega*bearing_drag*dt/inertia)*radius) / tread_length + stiffness * dt * dt * inverse_mass
+ var denominator: float = 1 + dt * absf(longitudinal) / tread_length + stiffness * dt * dt * inverse_mass
  var relative: float = (desired * denominator / stiffness - tread.y) / dt
  return atan2(-relative,maxf(absf(longitudinal),0.5))
 
@@ -105,7 +107,7 @@ func lateral_force_at_heading(dt: float, angle: float, longitudinal: float, late
  var along: float=longitudinal*cos(angle)+lateral*sin(angle)
  var across: float=lateral*cos(angle)-longitudinal*sin(angle)
  var stiffness: float=stiffness_at_load().y
- return stiffness*(tread.y-dt*across)/(1+dt*absf((omega-omega*bearing_drag*dt/inertia)*radius)/tread_length+stiffness*dt*dt*inverse_mass)
+ return stiffness*(tread.y-dt*across)/(1+dt*absf(along)/tread_length+stiffness*dt*dt*inverse_mass)
 
 func heading_for_force(dt: float, desired: float, longitudinal: float, lateral: float, inverse_mass: float, low: float, high: float) -> float:
  # Reverse travel is signed. At standstill steering cannot invent lateral
