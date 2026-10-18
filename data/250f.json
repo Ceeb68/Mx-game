@@ -139,7 +139,8 @@
   "_configuration_notes": {
     "active_ground_handling": "handling.rider and handling.steering; handling.input seeds saved response defaults. See docs/refinement/CONFIGURATION.md.",
     "legacy_only": "Top-level steer_servo_nm_rad, steer_damping_nm_s, rider_* (except rider_mass_kg) and tire_* response coefficients do not tune the active replacement force/controller laws. Retained for v2 compatibility.",
-    "staged_work": "Carcass compliance is configured in contact_compliance; springs/dampers remain at the existing top level. Full bump handling, rider carriage and whip control updates are pending separate builds."
+    "staged_work": "Carcass compliance is configured in contact_compliance; springs/dampers remain at the existing top level. Full bump handling, rider carriage and whip control updates are pending separate builds.",
+    "active_tire": "active_tire configures replacement tread forces and the matching steering inverse; legacy tire_* coefficients still apply only to v2."
   },
   "contact_compliance": {
     "carcass_stiffness_n_m": [
@@ -170,5 +171,15 @@
     "tumbling_rate_rad_s": 6.0,
     "persistence_s": 0.22,
     "recovery_rate": 2.0
+  },
+  "active_tire": {
+    "tread_stiffness_n_m": [
+      90000.0,
+      110000.0
+    ],
+    "reference_load_n": 900.0,
+    "tread_transport_length_m": 0.16,
+    "sliding_drop_fraction": 0.12,
+    "bearing_drag_nm_s": 0.015
   }
 }

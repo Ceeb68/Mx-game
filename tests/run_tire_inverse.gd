@@ -23,8 +23,8 @@ func _initialize() -> void:
  var angle: float=0.08
  var longitudinal: float=4*cos(angle)+0.2*sin(angle)
  var lateral: float=0.2*cos(angle)-4*sin(angle)
- var prediction: float=tire.lateral_force_at_heading(dt,angle,4,0.2,0.04)
  tire.omega=longitudinal/tire.radius
+ var prediction: float=tire.lateral_force_at_heading(dt,angle,4,0.2,0.04)
  var force: Vector2=tire.forces(dt,longitudinal,lateral,0.95,0,0,0,Vector2(0.04,0.04))
  check(absf(prediction-force.y)<0.001,"prediction agrees with active tread integrator")
  print("TIRE_INVERSE_RESULT checks=7 failures=",failures)
